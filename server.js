@@ -4,7 +4,7 @@ var proxy = require('http-proxy-middleware');
 var API_HOST = process.env.API_HOST || 'localhost:8080';
 var PORT = process.env.PORT || 8080
 
-var buildPath = 'dist/it-academy-app-front'
+var buildPath = 'dist/angular-demo'
 
 // Initialize
 var app = express();
