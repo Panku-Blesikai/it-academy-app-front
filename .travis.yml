@@ -9,3 +9,4 @@ script:
 - yarn webdriver-start
 - yarn ci-e2e
 - yarn build --prod
+
