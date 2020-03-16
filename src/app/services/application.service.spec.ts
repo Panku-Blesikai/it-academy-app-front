@@ -4,14 +4,16 @@ import {HttpClientModule} from '@angular/common/http';
 import { ApplicationService } from './application.service';
 
 describe('ApplicationService', () => {
-  let service: ApplicationService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ApplicationService);
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [ApplicationService]
+    });
   });
 
   it('should be created', () => {
+    const service: ApplicationService = TestBed.get(ApplicationService);
     expect(service).toBeTruthy();
   });
 });
