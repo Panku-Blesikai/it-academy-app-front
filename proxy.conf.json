@@ -1,0 +1,10 @@
+{
+    "/applications": {
+        "target": "<backendUrl>",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/applications": ""
+        }
+    }
+}
