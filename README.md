@@ -1,24 +1,10 @@
-# Angular and Heroku/TravisCI demo
+# PankuBlesikai
 
-## Intro
-
-This project was created to show best practises of running a development/testing/deployment pipeline of Angular application using Heroku and Travis CI. Part of Swedbank IT Academy 2019.
-
-The project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
-
-## Production server
-
-When in production, application can be launched via `yarn start`. It will use the `server.js` to launch a standalone server to handle proxying and static file serving.
-
-### Environment variables
-
-`API_HOST` - the URL of the backend API. _Required_
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
 ## Development server
 
-Run `ng serve --proxy-config proxy.conf.json` for a dev server (or you can just run `yarn serve`). Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-The file `proxy.conf.json` should be the same as `proxy.conf.example.json` but contain URL to your backend. This is done in order to avoid dealing with CORS (Read more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
