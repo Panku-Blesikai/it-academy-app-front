@@ -13,7 +13,7 @@ export class ApplicationService {
   }
 
   getPosts(): Observable<Application[]> {
-    return this.httpClient.get<Application[]>(`${this.apiPath}/getAll`);
+    return this.httpClient.get<Application[]>(`${this.apiPath}/getAll/`);
   }
 
   getPost({id}): Observable<Application> {
