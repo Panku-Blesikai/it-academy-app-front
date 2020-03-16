@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ApplicationsListComponent } from './applications-list/applications-list.component';
 import { ApplicationComponent } from './application/application.component';
-import { HttpClientModule} from "@angular/common/http";
 import { ApplicationsListPageComponent } from './applications-list-page/applications-list-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ApplicationsListPageComponent } from './applications-list-page/applicat
     HomePageComponent,
     ApplicationsListComponent,
     ApplicationComponent,
-    ApplicationsListPageComponent
+    ApplicationsListPageComponent,
+    NotFoundComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
