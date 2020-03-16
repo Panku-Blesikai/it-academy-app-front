@@ -9,6 +9,7 @@ import { ApplicationComponent } from './application/application.component';
 import { ApplicationsListPageComponent } from './applications-list-page/applications-list-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

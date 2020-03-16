@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
-import {Application} from "../shared/application";
-import {ApplicationService} from "../services/application.service";
+import {Observable} from 'rxjs';
+import {Application} from '../shared/application';
+import {ApplicationService} from '../services/application.service';
 
 @Component({
   selector: 'app-applications-list-page',
