@@ -16,11 +16,11 @@ app.use(express.static(buildPath));
 app.use(compression());
 
 // Enable proxy to api
-app.use('/applications', proxy({
+app.use('/api', proxy({
     target: API_HOST,
     changeOrigin: true,
     pathRewrite: {
-        '^/applications': ''
+        '^/api': ''
     }
 }));
 
