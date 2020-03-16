@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "11"
+cache: yarn
+script:
+- yarn lint
+- yarn test --watch=false --browsers=ChromeHeadless
+- yarn webdriver-update
+- yarn webdriver-start
+- yarn ci-e2e
+- yarn build --prod

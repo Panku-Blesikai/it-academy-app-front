@@ -4,7 +4,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'register', component: RegisterPageComponent },
