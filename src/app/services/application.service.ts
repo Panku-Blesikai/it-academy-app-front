@@ -13,12 +13,12 @@ export class ApplicationService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getPosts(): Observable<Application[]> {
-    return this.httpClient.get<Application[]>(`${this.apiPath}`);;
+  getApplications(): Observable<Application[]> {
+    return this.httpClient.get<Application[]>(`${this.apiPath}/get/all`);;
   }
-  
-  getPost({id}): Observable<Application> {
-    return this.httpClient.get<Application>(`${this.apiPath}/${id}`);
+
+  getApplication({id}): Observable<Application> {
+    return this.httpClient.get<Application>(`${this.apiPath}/get/${id}`);
   }
 
   addApplication(application: Application): Observable<Application> {

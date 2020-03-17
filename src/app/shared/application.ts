@@ -10,5 +10,5 @@ export interface Application {
     answerAvailable14To18: string;
     answerMotivation: string;
     answerExperience: string;
-    answerInfoAbout: string;
+    answerInfoAboutAcademy: string;
   }
