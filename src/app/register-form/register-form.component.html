@@ -78,15 +78,15 @@
       </div>
 
       <div class="form-group">
-        <label for="answerFreeTime">O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label>
+        <label for="answerFreeTimeActivity">O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label>
               <textarea
               type="text"
               class="form-control"
-              id="answerFreeTime"
-              formControlName="answerFreeTime"
+              id="answerFreeTimeActivity"
+              formControlName="answerFreeTimeActivity"
               ></textarea>
-              <div [hidden]="registerForm.controls.answerFreeTime.valid || answerFreeTime.pristine" class="alert alert-danger">
-                  <div *ngIf="answerFreeTime.errors?.required">
+              <div [hidden]="registerForm.controls.answerFreeTime.valid || answerFreeTimeActivity.pristine" class="alert alert-danger">
+                  <div *ngIf="answerFreeTimeActivity.errors?.required">
                     Šis laukas yra privalomas.
                   </div>
               </div>
