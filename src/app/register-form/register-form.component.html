@@ -1,5 +1,8 @@
 <div class="container">
-  <form [formGroup]="registerForm">
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onRegister(); registerForm.reset()"
+  >
     <div class="form-group">
       <label for="name">Vardas</label>
       <input
@@ -70,7 +73,9 @@
     </div>
 
     <div class="form-group">
-      <label for="education">Mokymo įstaiga, kurioje šiuo metu mokaisi</label>
+      <label for="education"
+        >Mokymo įstaiga, kurioje šiuo metu mokaisi</label
+      >
       <textarea
         type="text"
         class="form-control"
@@ -78,47 +83,60 @@
         formControlName="education"
       ></textarea>
       <div
-        [hidden]="registerForm.controls.education.valid || education.pristine" class="alert alert-danger">
+        [hidden]="
+          registerForm.controls.education.valid ||
+          education.pristine
+        "
+        class="alert alert-danger"
+      >
         <div *ngIf="education.errors?.required">
           Šis laukas yra privalomas.
         </div>
       </div>
     </div>
 
-<<<<<<< HEAD
     <div class="form-group">
-      <label for="answerFreeTime">O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label>
+      <label for="answerFreeTimeActivity"
+        >O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label
+      >
       <textarea
         type="text"
         class="form-control"
-        id="answerFreeTime"
-        formControlName="answerFreeTime"
+        id="answerFreeTimeActivity"
+        formControlName="answerFreeTimeActivity"
       ></textarea>
       <div
-        [hidden]="registerForm.controls.answerFreeTime.valid || answerFreeTime.pristine" class="alert alert-danger">
-        <div *ngIf="answerFreeTime.errors?.required">
+        [hidden]="
+          registerForm.controls.answerFreeTimeActivity.valid ||
+          answerFreeTimeActivity.pristine
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="answerFreeTimeActivity.errors?.required">
           Šis laukas yra privalomas.
         </div>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="answerContract"
+      <label for="answerThreePartAgreement"
         >Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne
         pakomentuok plačiau.</label
       >
       <textarea
         type="text"
         class="form-control"
-        id="answerContract"
-        formControlName="answerContract"
+        id="answerThreePartAgreement"
+        formControlName="answerThreePartAgreement"
       ></textarea>
       <div
         [hidden]="
-          registerForm.controls.answerContract.valid || answerContract.pristine"
+          registerForm.controls.answerThreePartAgreement.valid ||
+          answerThreePartAgreement.pristine
+        "
         class="alert alert-danger"
       >
-        <div *ngIf="answerContract.errors?.required">
+        <div *ngIf="answerThreePartAgreement.errors?.required">
           Šis laukas yra privalomas.
         </div>
       </div>
@@ -137,60 +155,16 @@
       ></textarea>
       <div
         [hidden]="
-          registerForm.controls.answerTime.valid ||
-          answerAvailable14To18.pristine"class="alert alert-danger"
+          registerForm.controls.answerAvailable14To18.valid ||
+          answerAvailable14To18.pristine
+        "
+        class="alert alert-danger"
       >
         <div *ngIf="answerAvailable14To18.errors?.required">
           Šis laukas yra privalomas.
         </div>
       </div>
     </div>
-=======
-      <div class="form-group">
-        <label for="answerFreeTimeActivity">O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label>
-              <textarea
-              type="text"
-              class="form-control"
-              id="answerFreeTimeActivity"
-              formControlName="answerFreeTimeActivity"
-              ></textarea>
-              <div [hidden]="registerForm.controls.answerFreeTimeActivity.valid || answerFreeTimeActivity.pristine" class="alert alert-danger">
-                  <div *ngIf="answerFreeTimeActivity.errors?.required">
-                    Šis laukas yra privalomas.
-                  </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="answerThreePartAgreement">Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne pakomentuok plačiau.</label>
-                    <textarea
-                    type="text"
-                    class="form-control"
-                    id="answerThreePartAgreement"
-                    formControlName="answerThreePartAgreement"
-                    ></textarea>
-                    <div [hidden]="registerForm.controls.answerThreePartAgreement.valid || answerThreePartAgreement.pristine" class="alert alert-danger">
-                        <div *ngIf="answerThreePartAgreement.errors?.required">
-                          Šis laukas yra privalomas.
-                        </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="answerAvailable14To18">Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi akademijai skirti tiek laiko?</label>
-                          <textarea
-                          type="text"
-                          class="form-control"
-                          id="answerAvailable14To18"
-                          formControlName="answerAvailable14To18"
-                          ></textarea>
-                          <div [hidden]="registerForm.controls.answerAvailable14To18.valid || answerAvailable14To18.pristine" class="alert alert-danger">
-                              <div *ngIf="answerAvailable14To18.errors?.required">
-                                Šis laukas yra privalomas.
-                              </div>
-                          </div>
-                        </div>
->>>>>>> origin/master
 
     <div class="form-group">
       <label for="answerMotivation"
@@ -264,33 +238,9 @@
       </div>
     </div>
 
-    <!-- <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Example multiple select</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div> -->
-
     <a class="btn btn-light" [routerLink]="['']">Back</a>
-<<<<<<< HEAD
-    <a class="btn btn-info">Register</a>
-=======
-      <a class="btn btn-info">Register</a>
-
->>>>>>> origin/master
+    <button type="submit" class="btn btn-info" [disabled]="!registerForm.valid">
+      Register
+    </button>
   </form>
 </div>
