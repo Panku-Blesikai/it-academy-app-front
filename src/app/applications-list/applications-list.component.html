@@ -6,6 +6,7 @@
     <td scope="col">Last Name</td>
     <td scope="col">Email</td>
     <td scope="col">Phone</td>
+    <td scope="col">Education</td>
     <td scope="col">Three-party agr.</td>
     <td scope="col">Submitted</td>
     <td scope="col">Motivation</td>
@@ -15,11 +16,12 @@
   </thead>
   <tbody>
   <tr *ngFor="let application of applications; let i = index">
-    <th scope="row">{{i}}</th>
+    <th scope="row">{{i+1}}</th>
     <th>{{application.name}}</th>
     <th>{{application.surname}}</th>
     <th>{{application.email}}</th>
     <th>{{application.tel}}</th>
+    <th>{{application.education}}</th>
     <th>{{application.answerContract}}</th>
     <th>{{application.answerTime}}</th>
     <th>{{application.answerMotivation}}</th>
