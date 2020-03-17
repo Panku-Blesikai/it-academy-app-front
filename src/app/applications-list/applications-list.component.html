@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="row">#</th>
+    <td scope="col">Name</td>
+    <td scope="col">Last Name</td>
+    <td scope="col">Email</td>
+    <td scope="col">Phone</td>
+    <td scope="col">Education</td>
+    <td scope="col">Three-party agr.</td>
+    <td scope="col">Available 14:00-18:00</td>
+    <td scope="col">Motivation</td>
+    <td scope="col">Experience</td>
+    <td scope="col">Source</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let application of applications; let i = index">
+    <th scope="row">{{i+1}}</th>
+    <th>{{application.name}}</th>
+    <th>{{application.surname}}</th>
+    <th>{{application.email}}</th>
+    <th>{{application.tel}}</th>
+    <th>{{application.education}}</th>
+    <th>{{application.answerContract}}</th>
+    <th>{{application.answerAvailable14To18}}</th>
+    <th>{{application.answerMotivation}}</th>
+    <th>{{application.answerExperience}}</th>
+    <th>{{application.answerInfoAbout}}</th>
+  </tr>
+  </tbody>
+</table>

@@ -4,25 +4,32 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ApplicationsListComponent } from './applications-list/applications-list.component';
+import { ApplicationComponent } from './application/application.component';
+import { ApplicationsListPageComponent } from './applications-list-page/applications-list-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
+    ApplicationsListComponent,
+    ApplicationComponent,
+    ApplicationsListPageComponent,
     NotFoundComponent,
     RegisterPageComponent,
-    RegisterFormComponent
-    
+    RegisterFormComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

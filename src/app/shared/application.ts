@@ -7,7 +7,7 @@ export interface Application {
     education: string;
     answerFreeTime: string;
     answerContract: string;
-    answerTime: string;
+    answerAvailable14To18: string;
     answerMotivation: string;
     answerExperience: string;
     answerInfoAbout: string;
