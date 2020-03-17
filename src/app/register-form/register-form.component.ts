@@ -17,9 +17,9 @@ export class RegisterFormComponent implements OnInit {
   get email() {return this.registerForm.get('email'); }
   get tel() {return this.registerForm.get('tel'); }
   get education() {return this.registerForm.get('name'); }
-  get answerFreeTime() {return this.registerForm.get('answerFreeTimeActivity'); }
+  get answerFreeTimeActivity() {return this.registerForm.get('answerFreeTimeActivity'); }
   get answerContract() {return this.registerForm.get('answerContract'); }
-  get answerTime() {return this.registerForm.get('answerAvailable14To18'); }
+  get answerAvailable14To18() {return this.registerForm.get('answerAvailable14To18'); }
   get answerMotivation() {return this.registerForm.get('answerMotivation'); }
   get answerExperience() {return this.registerForm.get('answerExperience'); }
   get answerInfoAbout() {return this.registerForm.get('answerInfoAbout'); }
