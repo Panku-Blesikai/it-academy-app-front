@@ -5,8 +5,8 @@ export interface Application {
     tel: string;
     email: string;
     education: string;
-    answerFreeTime: string;
-    answerContract: string;
+    answerFreeTimeActivity: string;
+    answerThreePartAgreement: string;
     answerAvailable14To18: string;
     answerMotivation: string;
     answerExperience: string;

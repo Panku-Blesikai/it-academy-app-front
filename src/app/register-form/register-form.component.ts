@@ -10,6 +10,7 @@ import { ApplicationService } from '../services/application.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
+<<<<<<< HEAD
   constructor(private applicationService: ApplicationService, private fb: FormBuilder) { }
   application: Application;
   serverErrorMessage: string;
@@ -17,18 +18,35 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit(): void {
     this.application = {id: "", name: "",surname: "", email: "", tel: "", education: "", answerFreeTime: "", answerContract: "", answerAvailable14To18: "", answerMotivation: "", answerExperience: "", answerInfoAbout: ""}
   }
+=======
+  constructor( private fb: FormBuilder) { }
+
+  get name() {return this.registerForm.get('name'); }
+  get surname() {return this.registerForm.get('surname'); }
+  get email() {return this.registerForm.get('email'); }
+  get tel() {return this.registerForm.get('tel'); }
+  get education() {return this.registerForm.get('name'); }
+  get answerFreeTimeActivity() {return this.registerForm.get('answerFreeTimeActivity'); }
+  get answerThreePartAgreement() {return this.registerForm.get('answerThreePartAgreement'); }
+  get answerAvailable14To18() {return this.registerForm.get('answerAvailable14To18'); }
+  get answerMotivation() {return this.registerForm.get('answerMotivation'); }
+  get answerExperience() {return this.registerForm.get('answerExperience'); }
+  get answerInfoAbout() {return this.registerForm.get('answerInfoAbout'); }
+  application: Application;
+>>>>>>> origin/master
 
 
   registerForm = this.fb.group({
-    name: ["", [Validators.required]],
-    surname: ["",[Validators.required]],
+    name: ['', [Validators.required]],
+    surname: ['', [Validators.required]],
     email: [
-      "",
+      '',
       [
         Validators.required,
         Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)
       ]
     ],
+<<<<<<< HEAD
     education: ["", [Validators.required]],
     tel: ["",[Validators.required]],
     answerFreeTime: ["",[Validators.required]],
@@ -37,8 +55,20 @@ export class RegisterFormComponent implements OnInit {
     answerMotivation: ["",[Validators.required]],
     answerExperience: ["",[Validators.required]],
     answerInfoAbout: ["",[Validators.required]],
+=======
+    education: ['', [Validators.required]],
+    tel: ['', [Validators.required]],
+    answerFreeTimeActivity: ['', [Validators.required]],
+    answerThreePartAgreement: ['', [Validators.required]],
+    answerAvailable14To18: ['', [Validators.required]],
+    answerMotivation: ['', [Validators.required]],
+    answerExperience: ['', [Validators.required]],
+    answerInfoAbout: ['', [Validators.required]],
+>>>>>>> origin/master
   });
+  // serverErrorMessage: string;
 
+<<<<<<< HEAD
   get name() {return this.registerForm.get("name");}
   get surname() {return this.registerForm.get("surname");}
   get email() {return this.registerForm.get("email");}
@@ -50,6 +80,12 @@ export class RegisterFormComponent implements OnInit {
   get answerMotivation() {return this.registerForm.get("answerMotivation");}
   get answerExperience() {return this.registerForm.get("answerExperience");}
   get answerInfoAbout() {return this.registerForm.get("answerInfoAbout");}
+=======
+  ngOnInit(): void {
+    // tslint:disable-next-line:max-line-length
+    this.application = {id: '', name: '', surname: '', email: '', tel: '', education: '', answerFreeTimeActivity: '', answerThreePartAgreement: '', answerAvailable14To18: '', answerMotivation: '', answerExperience: '', answerInfoAbout: ''};
+  }
+>>>>>>> origin/master
 
   onRegister() {
     this.applicationService.addApplication(this.application).subscribe(
