@@ -15,7 +15,7 @@ export class RegisterFormComponent implements OnInit {
   // serverErrorMessage: string;
 
   ngOnInit(): void {
-    this.application = {id: "", name: "",surname: "", email: "", tel: "", education: "", answerFreeTime: "", answerContract: "", answerTime: "", answerMotivation: "", answerExperience: "", answerInfoAbout: ""}
+    this.application = {id: "", name: "",surname: "", email: "", tel: "", education: "", answerFreeTime: "", answerContract: "", answerAvailable14To18: "", answerMotivation: "", answerExperience: "", answerInfoAbout: ""}
   }
 
 
@@ -33,7 +33,7 @@ export class RegisterFormComponent implements OnInit {
     tel: ["",[Validators.required]],
     answerFreeTime: ["",[Validators.required]],
     answerContract: ["",[Validators.required]],
-    answerTime: ["",[Validators.required]],
+    answerAvailable14To18: ["",[Validators.required]],
     answerMotivation: ["",[Validators.required]],
     answerExperience: ["",[Validators.required]],
     answerInfoAbout: ["",[Validators.required]],
@@ -44,9 +44,9 @@ export class RegisterFormComponent implements OnInit {
   get email() {return this.registerForm.get("email");}
   get tel() {return this.registerForm.get("tel");}
   get education() {return this.registerForm.get("name");}
-  get answerFreeTime() {return this.registerForm.get("answerFreeTime");}
+  get answerFreeTimeActivity() {return this.registerForm.get("answerFreeTime");}
   get answerContract() {return this.registerForm.get("answerContract");}
-  get answerTime() {return this.registerForm.get("answerTime");}
+  get answerAvailable14To18() {return this.registerForm.get("answerAvailable14To18");}
   get answerMotivation() {return this.registerForm.get("answerMotivation");}
   get answerExperience() {return this.registerForm.get("answerExperience");}
   get answerInfoAbout() {return this.registerForm.get("answerInfoAbout");}
