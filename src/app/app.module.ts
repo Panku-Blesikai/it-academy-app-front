@@ -9,6 +9,8 @@ import { ApplicationComponent } from './application/application.component';
 import { ApplicationsListPageComponent } from './applications-list-page/applications-list-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -19,11 +21,14 @@ import { HttpClientModule } from '@angular/common/http';
     ApplicationComponent,
     ApplicationsListPageComponent,
     NotFoundComponent,
+    RegisterPageComponent,
+    RegisterFormComponent,
     RegisterPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
