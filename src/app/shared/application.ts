@@ -6,7 +6,7 @@ export interface Application {
   surname: string;
   tel: string;
   answerContract: string;
-  answerTime: string;
+  answerAvailable14To18: string;
   answerMotivation: string;
   answerExperience: string;
   answerInfoAbout: string;
