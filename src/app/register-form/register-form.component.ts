@@ -18,7 +18,7 @@ export class RegisterFormComponent implements OnInit {
   get tel() {return this.registerForm.get('tel'); }
   get education() {return this.registerForm.get('name'); }
   get answerFreeTimeActivity() {return this.registerForm.get('answerFreeTimeActivity'); }
-  get answerContract() {return this.registerForm.get('answerContract'); }
+  get answerThreePartAgreement() {return this.registerForm.get('answerThreePartAgreement'); }
   get answerAvailable14To18() {return this.registerForm.get('answerAvailable14To18'); }
   get answerMotivation() {return this.registerForm.get('answerMotivation'); }
   get answerExperience() {return this.registerForm.get('answerExperience'); }
@@ -38,9 +38,9 @@ export class RegisterFormComponent implements OnInit {
     ],
     education: ['', [Validators.required]],
     tel: ['', [Validators.required]],
-    answerFreeTime: ['', [Validators.required]],
-    answerContract: ['', [Validators.required]],
-    answerTime: ['', [Validators.required]],
+    answerFreeTimeActivity: ['', [Validators.required]],
+    answerThreePartAgreement: ['', [Validators.required]],
+    answerAvailable14To18: ['', [Validators.required]],
     answerMotivation: ['', [Validators.required]],
     answerExperience: ['', [Validators.required]],
     answerInfoAbout: ['', [Validators.required]],
@@ -49,7 +49,7 @@ export class RegisterFormComponent implements OnInit {
 
   ngOnInit(): void {
     // tslint:disable-next-line:max-line-length
-    this.application = {id: '', name: '', surname: '', email: '', tel: '', education: '', answerFreeTimeActivity: '', answerContract: '', answerAvailable14To18: '', answerMotivation: '', answerExperience: '', answerInfoAbout: ''};
+    this.application = {id: '', name: '', surname: '', email: '', tel: '', education: '', answerFreeTimeActivity: '', answerThreePartAgreement: '', answerAvailable14To18: '', answerMotivation: '', answerExperience: '', answerInfoAbout: ''};
   }
 
   // onRegister() {
