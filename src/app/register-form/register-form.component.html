@@ -108,15 +108,15 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="answerTime">Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi akademijai skirti tiek laiko?</label>
+                    <label for="answerAvailable14To18">Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi akademijai skirti tiek laiko?</label>
                           <textarea
                           type="text"
                           class="form-control"
-                          id="answerTime"
-                          formControlName="answerTime"
+                          id="answerAvailable14To18"
+                          formControlName="answerAvailable14To18"
                           ></textarea>
-                          <div [hidden]="registerForm.controls.answerTime.valid || answerTime.pristine" class="alert alert-danger">
-                              <div *ngIf="answerTime.errors?.required">
+                          <div [hidden]="registerForm.controls.answerTime.valid || answerAvailable14To18.pristine" class="alert alert-danger">
+                              <div *ngIf="answerAvailable14To18.errors?.required">
                                 Šis laukas yra privalomas.
                               </div>
                           </div>
@@ -187,10 +187,10 @@
         <option>5</option>
       </select>
     </div> -->
-    
+
     <a class="btn btn-light" [routerLink]="['']">Back</a>
       <a class="btn btn-info">Register</a>
-    
+
   </form>
 </div>
 

@@ -15,7 +15,8 @@ export class RegisterFormComponent implements OnInit {
   // serverErrorMessage: string;
 
   ngOnInit(): void {
-    this.application = {id: "", name: "",surname: "", email: "", tel: "", education: "", answerFreeTime: "", answerContract: "", answerTime: "", answerMotivation: "", answerExperience: "", answerInfoAbout: ""}
+    // tslint:disable-next-line:max-line-length
+    this.application = {id: '', name: '', surname: '', email: '', tel: '', education: '', answerFreeTime: '', answerContract: '', answerAvailable14To18: '', answerMotivation: '', answerExperience: '', answerInfoAbout: ''}
   }
 
 
