@@ -7,16 +7,16 @@ import {Application} from '../shared/application';
   providedIn: 'root'
 })
 export class ApplicationService {
-  private readonly apiPath = 'https://it-academy-app-back.herokuapp.com';
+  private readonly apiPath = '/api';
 
   constructor(private httpClient: HttpClient) {
   }
 
   getPosts(): Observable<Application[]> {
-    return this.httpClient.get<Application[]>(`${this.apiPath}/getAll/`);
+    return this.httpClient.get<Application[]>(`${this.apiPath}`);
   }
 
   getPost({id}): Observable<Application> {
-    return this.httpClient.get<Application>(`${this.apiPath}/getAll/${id}`);
+    return this.httpClient.get<Application>(`${this.apiPath}/${id}`);
   }
 }
