@@ -1,196 +1,246 @@
 <div class="container">
-<form [formGroup]="registerForm">
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onRegister(); registerForm.reset()"
+  >
     <div class="form-group">
       <label for="name">Vardas</label>
       <input
-      type="text"
-      class="form-control"
-      id="name"
-      formControlName="name"
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
       />
-      <div [hidden]="registerForm.controls.name.valid || name.pristine" class="alert alert-danger">
-          <div *ngIf="name.errors?.required">
-              Vardas yra privalomas.
-          </div>
+      <div
+        [hidden]="registerForm.controls.name.valid || name.pristine"
+        class="alert alert-danger"
+      >
+        <div *ngIf="name.errors?.required">
+          Vardas yra privalomas.
+        </div>
       </div>
     </div>
 
     <div class="form-group">
-        <label for="surname">Pavardė</label>
-        <input
+      <label for="surname">Pavardė</label>
+      <input
         type="text"
         class="form-control"
         id="surname"
         formControlName="surname"
-        />
-        <div [hidden]="registerForm.controls.surname.valid || surname.pristine" class="alert alert-danger">
-            <div *ngIf="surname.errors?.required">
-                Pavardė yra privaloma.
-            </div>
+      />
+      <div
+        [hidden]="registerForm.controls.surname.valid || surname.pristine"
+        class="alert alert-danger"
+      >
+        <div *ngIf="surname.errors?.required">
+          Pavardė yra privaloma.
         </div>
       </div>
+    </div>
 
     <div class="form-group">
-        <label for="email">Elektroninis paštas</label>
-        <input
+      <label for="email">Elektroninis paštas</label>
+      <input
         type="text"
         class="form-control"
         id="email"
         formControlName="email"
-        placeholder="example@mail.com"
-        />
-        <div [hidden]="registerForm.controls.email.valid || email.pristine" class="alert alert-danger">
-            <div *ngIf="email.errors?.required">
-                Elektroninis paštas yra privalomas.
-            </div>
-            <div *ngIf="email.errors?.pattern">Elektroninis paštas neteisingas</div>
+        placeholder="pavyzdys@mail.com"
+      />
+      <div
+        [hidden]="registerForm.controls.email.valid || email.pristine"
+        class="alert alert-danger"
+      >
+        <div *ngIf="email.errors?.required">
+          Elektroninis paštas yra privalomas.
+        </div>
+        <div *ngIf="email.errors?.pattern">Elektroninis paštas neteisingas</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tel">Telefono numeris</label>
+      <input type="text" class="form-control" id="tel" formControlName="tel" />
+      <div
+        [hidden]="registerForm.controls.tel.valid || tel.pristine"
+        class="alert alert-danger"
+      >
+        <div *ngIf="tel.errors?.required">
+          Telefono numeris yra privalomas.
         </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="tel">Telefono numeris</label>
-        <input
-        type="text"
-        class="form-control"
-        id="tel"
-        formControlName="tel"
-        />
-        <div [hidden]="registerForm.controls.tel.valid || tel.pristine" class="alert alert-danger">
-            <div *ngIf="tel.errors?.required">
-                Telefono numeris yra privalomas.
-            </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="education">Mokymo įstaiga, kurioje šiuo metu mokaisi</label>
-        <textarea
+    <div class="form-group">
+      <label for="education"
+        >Mokymo įstaiga, kurioje šiuo metu mokaisi</label
+      >
+      <textarea
         type="text"
         class="form-control"
         id="education"
         formControlName="education"
-        ></textarea>
-        <div [hidden]="registerForm.controls.education.valid || education.pristine" class="alert alert-danger">
-            <div *ngIf="education.errors?.required">
-              Šis laukas yra privalomas.
-            </div>
+      ></textarea>
+      <div
+        [hidden]="
+          registerForm.controls.education.valid ||
+          education.pristine
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="education.errors?.required">
+          Šis laukas yra privalomas.
         </div>
       </div>
-
-      <div class="form-group">
-        <label for="answerFreeTimeActivity">O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label>
-              <textarea
-              type="text"
-              class="form-control"
-              id="answerFreeTimeActivity"
-              formControlName="answerFreeTimeActivity"
-              ></textarea>
-              <div [hidden]="registerForm.controls.answerFreeTimeActivity.valid || answerFreeTimeActivity.pristine" class="alert alert-danger">
-                  <div *ngIf="answerFreeTimeActivity.errors?.required">
-                    Šis laukas yra privalomas.
-                  </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="answerThreePartAgreement">Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne pakomentuok plačiau.</label>
-                    <textarea
-                    type="text"
-                    class="form-control"
-                    id="answerThreePartAgreement"
-                    formControlName="answerThreePartAgreement"
-                    ></textarea>
-                    <div [hidden]="registerForm.controls.answerThreePartAgreement.valid || answerThreePartAgreement.pristine" class="alert alert-danger">
-                        <div *ngIf="answerThreePartAgreement.errors?.required">
-                          Šis laukas yra privalomas.
-                        </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="answerAvailable14To18">Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi akademijai skirti tiek laiko?</label>
-                          <textarea
-                          type="text"
-                          class="form-control"
-                          id="answerAvailable14To18"
-                          formControlName="answerAvailable14To18"
-                          ></textarea>
-                          <div [hidden]="registerForm.controls.answerAvailable14To18.valid || answerAvailable14To18.pristine" class="alert alert-danger">
-                              <div *ngIf="answerAvailable14To18.errors?.required">
-                                Šis laukas yra privalomas.
-                              </div>
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="answerMotivation">Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje dalyvauti?</label>
-                                <textarea
-                                type="text"
-                                class="form-control"
-                                id="answerMotivation"
-                                formControlName="answerMotivation"
-                                ></textarea>
-                                <div [hidden]="registerForm.controls.answerMotivation.valid || answerMotivation.pristine" class="alert alert-danger">
-                                    <div *ngIf="answerMotivation.errors?.required">
-                                      Šis laukas yra privalomas.
-                                    </div>
-                                </div>
-                              </div>
-
-                              <div class="form-group">
-                                <label for="answerExperience">Kokios technologijos tau labiausiai patinka ir su kokiomis iš jų jau turi patirties? Jei teko dirbti prie konkretaus projekto, pasidalink jo nuoroda.</label>
-                                      <textarea
-                                      type="text"
-                                      class="form-control"
-                                      id="answerExperience"
-                                      formControlName="answerExperience"
-                                      ></textarea>
-                                      <div [hidden]="registerForm.controls.answerExperience.valid || answerExperience.pristine" class="alert alert-danger">
-                                          <div *ngIf="answerExperience.errors?.required">
-                                            Šis laukas yra privalomas.
-                                          </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                      <label for="answerInfoAboutAcademy">Iš kur sužinojai apie IT akademiją Swedbank?</label>
-                                            <textarea
-                                            type="text"
-                                            class="form-control"
-                                            id="answerInfoAboutAcademy"
-                                            formControlName="answerInfoAboutAcademy"
-                                            ></textarea>
-                                            <div [hidden]="registerForm.controls.answerInfoAboutAcademy.valid || answerInfoAboutAcademy.pristine" class="alert alert-danger">
-                                                <div *ngIf="answerInfoAboutAcademy.errors?.required">
-                                                  Šis laukas yra privalomas.
-                                                </div>
-                                            </div>
-                                          </div>
-
-    <!-- <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
     </div>
+
     <div class="form-group">
-      <label for="exampleFormControlSelect2">Example multiple select</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div> -->
+      <label for="answerFreeTimeActivity"
+        >O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label
+      >
+      <textarea
+        type="text"
+        class="form-control"
+        id="answerFreeTimeActivity"
+        formControlName="answerFreeTimeActivity"
+      ></textarea>
+      <div
+        [hidden]="
+          registerForm.controls.answerFreeTimeActivity.valid ||
+          answerFreeTimeActivity.pristine
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="answerFreeTimeActivity.errors?.required">
+          Šis laukas yra privalomas.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="answerThreePartAgreement"
+        >Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne
+        pakomentuok plačiau.</label
+      >
+      <textarea
+        type="text"
+        class="form-control"
+        id="answerThreePartAgreement"
+        formControlName="answerThreePartAgreement"
+      ></textarea>
+      <div
+        [hidden]="
+          registerForm.controls.answerThreePartAgreement.valid ||
+          answerThreePartAgreement.pristine
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="answerThreePartAgreement.errors?.required">
+          Šis laukas yra privalomas.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="answerAvailable14To18"
+        >Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi
+        akademijai skirti tiek laiko?</label
+      >
+      <textarea
+        type="text"
+        class="form-control"
+        id="answerAvailable14To18"
+        formControlName="answerAvailable14To18"
+      ></textarea>
+      <div
+        [hidden]="
+          registerForm.controls.answerAvailable14To18.valid ||
+          answerAvailable14To18.pristine
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="answerAvailable14To18.errors?.required">
+          Šis laukas yra privalomas.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="answerMotivation"
+        >Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje
+        dalyvauti?</label
+      >
+      <textarea
+        type="text"
+        class="form-control"
+        id="answerMotivation"
+        formControlName="answerMotivation"
+      ></textarea>
+      <div
+        [hidden]="
+          registerForm.controls.answerMotivation.valid ||
+          answerMotivation.pristine
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="answerMotivation.errors?.required">
+          Šis laukas yra privalomas.
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="answerExperience"
+        >Kokios technologijos tau labiausiai patinka ir su kokiomis iš jų jau
+        turi patirties? Jei teko dirbti prie konkretaus projekto, pasidalink jo
+        nuoroda.</label
+      >
+      <textarea
+        type="text"
+        class="form-control"
+        id="answerExperience"
+        formControlName="answerExperience"
+      ></textarea>
+      <div
+        [hidden]="
+          registerForm.controls.answerExperience.valid ||
+          answerExperience.pristine
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="answerExperience.errors?.required">
+          Šis laukas yra privalomas.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="answerInfoAboutAcademy"
+        >Iš kur sužinojai apie IT akademiją Swedbank?</label
+      >
+      <textarea
+        type="text"
+        class="form-control"
+        id="answerInfoAboutAcademy"
+        formControlName="answerInfoAboutAcademy"
+      ></textarea>
+      <div
+        [hidden]="
+          registerForm.controls.answerInfoAboutAcademy.valid ||
+          answerInfoAboutAcademy.pristine
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="answerInfoAboutAcademy.errors?.required">
+          Šis laukas yra privalomas.
+        </div>
+      </div>
+    </div>
 
     <a class="btn btn-light" [routerLink]="['']">Back</a>
-      <a class="btn btn-info">Register</a>
-
+    <button type="submit" class="btn btn-info" [disabled]="!registerForm.valid">
+      Register
+    </button>
   </form>
 </div>
-
