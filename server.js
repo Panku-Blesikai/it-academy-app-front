@@ -1,10 +1,10 @@
 var express = require('express');
 var compression = require('compression');
 var proxy = require('http-proxy-middleware');
-var API_HOST = process.env.API_HOST || 'localhost:8080';
+var API_HOST = 'https://it-academy-app-back.herokuapp.com/getAll';
 var PORT = process.env.PORT || 8080
 
-var buildPath = '/dist/panku-blesikai'
+var buildPath = 'dist/panku-blesikai'
 
 // Initialize
 var app = express();
@@ -26,7 +26,7 @@ app.use('/api', proxy({
 
 // Otherwise serve index.html
 app.get('*', function (req, res) {
-    res.sendFile(__dirname + buildPath + "/index.html");
+    res.sendFile(__dirname + "/" + buildPath + "/index.html");
 });
 
 app.listen(PORT);
