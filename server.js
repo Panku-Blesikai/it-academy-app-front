@@ -1,7 +1,7 @@
 var express = require('express');
 var compression = require('compression');
 var proxy = require('http-proxy-middleware');
-var API_HOST = 'https://it-academy-app-back.herokuapp.com/getAll';
+var API_HOST = 'https://it-academy-app-back.herokuapp.com';
 var PORT = process.env.PORT || 8080
 
 var buildPath = 'dist/panku-blesikai'

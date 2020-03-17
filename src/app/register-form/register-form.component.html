@@ -153,15 +153,15 @@
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="answerInfoAbout">Iš kur sužinojai apie IT akademiją Swedbank?</label>
+                                      <label for="answerInfoAboutAcademy">Iš kur sužinojai apie IT akademiją Swedbank?</label>
                                             <textarea
                                             type="text"
                                             class="form-control"
-                                            id="answerInfoAbout"
-                                            formControlName="answerInfoAbout"
+                                            id="answerInfoAboutAcademy"
+                                            formControlName="answerInfoAboutAcademy"
                                             ></textarea>
-                                            <div [hidden]="registerForm.controls.answerInfoAbout.valid || answerInfoAbout.pristine" class="alert alert-danger">
-                                                <div *ngIf="answerInfoAbout.errors?.required">
+                                            <div [hidden]="registerForm.controls.answerInfoAboutAcademy.valid || answerInfoAboutAcademy.pristine" class="alert alert-danger">
+                                                <div *ngIf="answerInfoAboutAcademy.errors?.required">
                                                   Šis laukas yra privalomas.
                                                 </div>
                                             </div>

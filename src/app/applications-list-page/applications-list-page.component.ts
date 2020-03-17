@@ -13,6 +13,6 @@ export class ApplicationsListPageComponent implements OnInit {
   constructor(private applicationService: ApplicationService) { }
 
   ngOnInit(): void {
-    this.applications$ = this.applicationService.getPosts();
+    this.applications$ = this.applicationService.getApplications();
   }
 }

@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "https://it-academy-app-back.herokuapp.com/getAll",
+        "target": "https://it-academy-app-back.herokuapp.com",
         "secure": false,
         "changeOrigin": true,
         "pathRewrite": {

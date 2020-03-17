@@ -2,24 +2,25 @@
   <thead>
   <tr>
     <th scope="row">#</th>
-    <td scope="col"><a>Vardas</a></td>
-    <td scope="col"><a>Pavardė</a></td>
-    <td scope="col"><a>El. paštas</a></td>
-    <td scope="col"><a>Tel. nr.</a></td>
-    <td scope="col"><a>Trišalė sutartis</a></td>
-    <td scope="col"><a>Laisvas 14:00-18:00</a></td>
-    <td scope="col">Daugiau informacijos</td>
+    <th scope="col"><a>Vardas</a></th>
+    <th scope="col"><a>Pavardė</a></th>
+    <th scope="col"><a>El. paštas</a></th>
+    <th scope="col"><a>Tel. nr.</a></th>
+    <th scope="col"><a>Trišalė sutartis</a></th>
+    <th scope="col"><a>Laisvas 14:00-18:00</a></th>
+    <th scope="col">Daugiau informacijos</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let application of applications; let i = index">
     <th scope="row">{{i+1}}</th>
-    <th>{{application.name}}</th>
-    <th>{{application.surname}}</th>
-    <th>{{application.email}}</th>
-    <th>{{application.tel}}</th>
-    <th>{{application.answerThreePartAgreement}}</th>
-    <th>{{application.answerAvailable14To18}}</th>
+    <td>{{application.name}}</td>
+    <td>{{application.surname}}</td>
+    <td>{{application.email}}</td>
+    <td>{{application.tel}}</td>
+    <td>{{application.answerThreePartAgreement}}</td>
+    <td>{{application.answerAvailable14To18}}</td>
+    <td><a [routerLink]="[application.id]">Plačiau...</a></td>
   </tr>
   </tbody>
 </table>
