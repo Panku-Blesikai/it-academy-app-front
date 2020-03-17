@@ -2,12 +2,13 @@
   <thead>
   <tr>
     <th scope="row">#</th>
-    <th scope="col"><a>Vardas</a></th>
-    <th scope="col"><a>Pavardė</a></th>
-    <th scope="col"><a>El. paštas</a></th>
-    <th scope="col"><a>Tel. nr.</a></th>
-    <th scope="col"><a>Trišalė sutartis</a></th>
-    <th scope="col"><a>Laisvas 14:00-18:00</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('name')">Vardas</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('surname')">Pavardė</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('email')">El. paštas</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('tel')">Tel. nr.</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('answerThreePartAgreement')">Trišalė sutartis</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('answerAvailable14To18')">Laisvas 14:00-18:00</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('dateTime')">Pateikta</a></th>
     <th scope="col">Daugiau informacijos</th>
   </tr>
   </thead>
@@ -20,6 +21,7 @@
     <td>{{application.tel}}</td>
     <td>{{application.answerThreePartAgreement}}</td>
     <td>{{application.answerAvailable14To18}}</td>
+    <td>{{application.dateTime}}</td>
     <td><a [routerLink]="[application.id]">Plačiau...</a></td>
   </tr>
   </tbody>

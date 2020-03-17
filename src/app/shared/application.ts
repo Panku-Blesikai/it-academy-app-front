@@ -11,4 +11,5 @@ export interface Application {
     answerMotivation: string;
     answerExperience: string;
     answerInfoAboutAcademy: string;
+    dateTime?: string;
   }
