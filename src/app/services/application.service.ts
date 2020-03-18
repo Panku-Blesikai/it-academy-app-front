@@ -23,7 +23,7 @@ export class ApplicationService {
 
   addApplication(application: Application): Observable<Application> {
     return this.httpClient
-      .post<Application>(`${this.apiPath}/applications`, application)
+      .post<Application>(`${this.apiPath}/add`, application)
       .pipe(catchError(this.errorHandler));
   }
 
