@@ -22,7 +22,6 @@ import { ApplicationPageComponent } from './application-page/application-page.co
     ApplicationComponent,
     ApplicationsListPageComponent,
     NotFoundComponent,
-    RegisterPageComponent,
     RegisterFormComponent,
     RegisterPageComponent,
     ApplicationPageComponent
