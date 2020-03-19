@@ -1,1 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
+/* .text-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.text-middle {
+    padding-top: 20em;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+.background-pic {
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/background.jpg");
+    /* background: url(../img/low-angle-shot-of-high-rise-building-2096578.jpg); */
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New';
+}
+
+header {
+    background-image: url("../img/background.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+}
+
+ul {
+    float: right;
+    list-style-type: none;
+    padding-top: 25px;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+    padding:  10px;
+    font-size: 30px;
+}
+
+ul li a:hover{
+    text-decoration: none;
+    background-color : #fff;
+    color: black;
+}
+
+ul li.active a { 
+    background-color : #fff;
+    color: black;
+}
+.main{ 
+    max-width: 1200px;
+    margin: auto;
+}
+
+.title{
+    position: absolute;
+    text-align: center;
+    top: 8%;
+    padding-left: 45px;
+}
+
+.title h2{
+    color: black;
+    font-size: 70px;
+    line-height: 20mm;
+}
+
+.text-container {
+    position: absolute;
+    top: 32%;
+    padding-left: 45px;
+
+    color: black;
+    line-height: 10mm;
+    text-align: center;
+    font-size: 40px;
+    
+}
+
+footer {
+    position: absolute;
+    top: 90%;
+    padding-left: 400px;
+    font-size: 25px;
+    color: black;
+}
