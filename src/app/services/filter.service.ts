@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Application} from '../shared/application';
+import {filter} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,18 @@ export class FilterService {
   filterBy(applications: Application[], searchInput: string): Application[] {
     const filteredApplications: Application[] = [];
     for (const application of applications) {
-      console.log('Comparing ' + application.name + ', ' + application.surname + ' with ' + searchInput);
-      if (application.name.lastIndexOf(searchInput, 0) === 0 || application.surname.lastIndexOf(searchInput, 0) === 0) {
-        console.log('confirmed');
+      const names = application.name.split(/[\s-]+/).concat(application.surname.split(/[\s-]+/));
+      const searchStrings = searchInput.split(/[\s-]+/);
+      let counter = 0;
+      for (const search of searchStrings) {
+        for (const name of names) {
+          if (name.toLowerCase().lastIndexOf(search.toLowerCase(), 0) === 0) {
+            counter++;
+            break;
+          }
+        }
+      }
+      if (counter === searchStrings.length) {
         filteredApplications.push(application);
       }
     }

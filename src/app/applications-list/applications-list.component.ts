@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Application} from '../shared/application';
 import {SortingService} from '../services/sorting.service';
-import {FilterService} from "../services/filter.service";
+import {FilterService} from '../services/filter.service';
 
 @Component({
   selector: 'app-applications-list',
@@ -9,12 +9,13 @@ import {FilterService} from "../services/filter.service";
   styleUrls: ['./applications-list.component.scss']
 })
 export class ApplicationsListComponent implements OnInit {
-  @Input() applications: Application[];
+  @Input() allApplications: Application[];
+  private applications: Application[];
 
   constructor(private sortingService: SortingService, private filterService: FilterService) { }
 
   filter(searchInput: string) {
-    this.applications = this.filterService.filterBy(this.applications, searchInput);
+    this.applications = this.filterService.filterBy(this.allApplications, searchInput);
   }
 
   sort(propertyName: string) {
@@ -23,6 +24,6 @@ export class ApplicationsListComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.applications = this.allApplications;
   }
-
 }

@@ -1,6 +1,7 @@
 <div align="right">
-  <span class="inline-display"><label for="search" class="margin-right-10">Ieškoti:</label>
-    <input type="text" #search size="30" class="margin-right-30" (change)="filter(search.value)"/>
+  <span class="inline-display">
+    <label for="search" class="margin-right-10">Ieškoti:</label>
+    <input type="text" id="search" #search size="30" class="margin-right-30" (keyup)="filter(search.value)"/>
     <label class="margin-right-10">Statusas: </label> <!--for="statusFilter"-->
     <input type="radio" id="male" name="statusFilter" value="male">
     <label for="male" class="margin-right-10">Visi</label>
