@@ -1,5 +1,5 @@
 export interface Application {
-    id: string;
+    id?: string;
     name: string;
     surname: string;
     tel: string;
@@ -11,4 +11,5 @@ export interface Application {
     answerMotivation: string;
     answerExperience: string;
     answerInfoAboutAcademy: string;
+    dateTime?: string;
   }

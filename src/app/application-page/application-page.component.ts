@@ -11,7 +11,7 @@ import {switchMap} from 'rxjs/operators';
   styleUrls: ['./application-page.component.css']
 })
 export class ApplicationPageComponent implements OnInit {
-  private application$: Observable<Application>;
+  public application$: Observable<Application>;
 
   constructor(private route: ActivatedRoute, private applicationService: ApplicationService) { }
 

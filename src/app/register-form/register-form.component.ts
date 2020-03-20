@@ -10,7 +10,7 @@ import { ApplicationService } from '../services/application.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
-  constructor( private applicationService: ApplicationService,private fb: FormBuilder) { }
+  constructor( private applicationService: ApplicationService, private fb: FormBuilder) { }
 
   get name() {return this.registerForm.get('name'); }
   get surname() {return this.registerForm.get('surname'); }
@@ -23,8 +23,7 @@ export class RegisterFormComponent implements OnInit {
   get answerMotivation() {return this.registerForm.get('answerMotivation'); }
   get answerExperience() {return this.registerForm.get('answerExperience'); }
   get answerInfoAboutAcademy() {return this.registerForm.get('answerInfoAboutAcademy'); }
-  application: Application;
-  serverErrorMessage: String;
+  serverErrorMessage: string;
 
 
   registerForm = this.fb.group({
@@ -46,18 +45,14 @@ export class RegisterFormComponent implements OnInit {
     answerExperience: ['', [Validators.required]],
     answerInfoAboutAcademy: ['', [Validators.required]],
   });
-  // serverErrorMessage: string;
 
   ngOnInit(): void {
-    // tslint:disable-next-line:max-line-length
-    this.application = {id: '', name: '', surname: '', email: '', tel: '', education: '', answerFreeTimeActivity: '', answerThreePartAgreement: '', answerAvailable14To18: '', answerMotivation: '', answerExperience: '', answerInfoAboutAcademy: ''};
   }
 
-  onRegister() {
-    this.applicationService.addApplication(this.application).subscribe(
+  onSubmit() {
+    this.applicationService.addApplication(this.registerForm.value).subscribe(
       () => {
-        this.application = { id: "", name: "",surname: "", email: "", tel: "", education: "", answerFreeTimeActivity: "", answerThreePartAgreement: "", answerAvailable14To18: "", answerMotivation: "", answerExperience: "", answerInfoAboutAcademy: "" };
-        this.serverErrorMessage = "";
+        this.serverErrorMessage = '';
       },
       error => (this.serverErrorMessage = error)
     );

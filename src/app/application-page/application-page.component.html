@@ -1,4 +1,4 @@
-<!-- <table class="table" *ngIf="application$ | async as application">
+<table class="table" *ngIf="application$ | async as application">
   <tbody >
   <tr>
     <th scope="row">Vardas</th>
@@ -43,9 +43,9 @@
     <td>{{application.answerInfoAboutAcademy}}</td>
   </tr>
   <tr>
-    <th scope="row">Pavardė</th>
-    <td>{{application.surname}}</td>
+    <th scope="row">Pateikta</th>
+    <td>{{application.dateTime}}</td>
   </tr>
   </tbody>
-</table> -->
+</table>
 <a [routerLink]="['/admin/applications']">Grįžti</a>

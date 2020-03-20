@@ -1,8 +1,5 @@
 <div class="container">
-  <form
-    [formGroup]="registerForm"
-    (ngSubmit)="onRegister(); registerForm.reset()"
-  >
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(); registerForm.reset()">
     <div class="form-group">
       <label for="name">Vardas</label>
       <input
@@ -11,10 +8,7 @@
         id="name"
         formControlName="name"
       />
-      <div
-        [hidden]="registerForm.controls.name.valid || name.pristine"
-        class="alert alert-danger"
-      >
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
         <div *ngIf="name.errors?.required">
           Vardas yra privalomas.
         </div>
@@ -30,7 +24,7 @@
         formControlName="surname"
       />
       <div
-        [hidden]="registerForm.controls.surname.valid || surname.pristine"
+        [hidden]="surname.valid || surname.pristine"
         class="alert alert-danger"
       >
         <div *ngIf="surname.errors?.required">
@@ -42,16 +36,13 @@
     <div class="form-group">
       <label for="email">Elektroninis paštas</label>
       <input
-        type="text"
+        type="email"
         class="form-control"
         id="email"
         formControlName="email"
-        placeholder="pavyzdys@mail.com"
+        placeholder="jonas.jonaitis@mail.com"
       />
-      <div
-        [hidden]="registerForm.controls.email.valid || email.pristine"
-        class="alert alert-danger"
-      >
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
         <div *ngIf="email.errors?.required">
           Elektroninis paštas yra privalomas.
         </div>
@@ -61,11 +52,8 @@
 
     <div class="form-group">
       <label for="tel">Telefono numeris</label>
-      <input type="text" class="form-control" id="tel" formControlName="tel" />
-      <div
-        [hidden]="registerForm.controls.tel.valid || tel.pristine"
-        class="alert alert-danger"
-      >
+      <input type="text" class="form-control" id="tel" formControlName="tel"/>
+      <div [hidden]="tel.valid || tel.pristine" class="alert alert-danger">
         <div *ngIf="tel.errors?.required">
           Telefono numeris yra privalomas.
         </div>
@@ -73,22 +61,14 @@
     </div>
 
     <div class="form-group">
-      <label for="education"
-        >Mokymo įstaiga, kurioje šiuo metu mokaisi</label
-      >
+      <label for="education">Mokymo įstaiga, kurioje šiuo metu mokaisi</label>
       <textarea
         type="text"
         class="form-control"
         id="education"
         formControlName="education"
       ></textarea>
-      <div
-        [hidden]="
-          registerForm.controls.education.valid ||
-          education.pristine
-        "
-        class="alert alert-danger"
-      >
+      <div [hidden]="education.valid || education.pristine" class="alert alert-danger">
         <div *ngIf="education.errors?.required">
           Šis laukas yra privalomas.
         </div>
@@ -96,9 +76,7 @@
     </div>
 
     <div class="form-group">
-      <label for="answerFreeTimeActivity"
-        >O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label
-      >
+      <label for="answerFreeTimeActivity">O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label>
       <textarea
         type="text"
         class="form-control"
@@ -106,12 +84,7 @@
         formControlName="answerFreeTimeActivity"
       ></textarea>
       <div
-        [hidden]="
-          registerForm.controls.answerFreeTimeActivity.valid ||
-          answerFreeTimeActivity.pristine
-        "
-        class="alert alert-danger"
-      >
+        [hidden]="answerFreeTimeActivity.valid || answerFreeTimeActivity.pristine" class="alert alert-danger">
         <div *ngIf="answerFreeTimeActivity.errors?.required">
           Šis laukas yra privalomas.
         </div>
@@ -120,7 +93,7 @@
 
     <div class="form-group">
       <label for="answerThreePartAgreement"
-        >Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne
+      >Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne
         pakomentuok plačiau.</label
       >
       <textarea
@@ -131,7 +104,7 @@
       ></textarea>
       <div
         [hidden]="
-          registerForm.controls.answerThreePartAgreement.valid ||
+          answerThreePartAgreement.valid ||
           answerThreePartAgreement.pristine
         "
         class="alert alert-danger"
@@ -144,7 +117,7 @@
 
     <div class="form-group">
       <label for="answerAvailable14To18"
-        >Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi
+      >Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi
         akademijai skirti tiek laiko?</label
       >
       <textarea
@@ -155,7 +128,7 @@
       ></textarea>
       <div
         [hidden]="
-          registerForm.controls.answerAvailable14To18.valid ||
+          answerAvailable14To18.valid ||
           answerAvailable14To18.pristine
         "
         class="alert alert-danger"
@@ -168,7 +141,7 @@
 
     <div class="form-group">
       <label for="answerMotivation"
-        >Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje
+      >Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje
         dalyvauti?</label
       >
       <textarea
@@ -179,7 +152,7 @@
       ></textarea>
       <div
         [hidden]="
-          registerForm.controls.answerMotivation.valid ||
+          answerMotivation.valid ||
           answerMotivation.pristine
         "
         class="alert alert-danger"
@@ -189,10 +162,10 @@
         </div>
       </div>
     </div>
-  
+
     <div class="form-group">
       <label for="answerExperience"
-        >Kokios technologijos tau labiausiai patinka ir su kokiomis iš jų jau
+      >Kokios technologijos tau labiausiai patinka ir su kokiomis iš jų jau
         turi patirties? Jei teko dirbti prie konkretaus projekto, pasidalink jo
         nuoroda.</label
       >
@@ -204,7 +177,7 @@
       ></textarea>
       <div
         [hidden]="
-          registerForm.controls.answerExperience.valid ||
+          answerExperience.valid ||
           answerExperience.pristine
         "
         class="alert alert-danger"
@@ -217,7 +190,7 @@
 
     <div class="form-group">
       <label for="answerInfoAboutAcademy"
-        >Iš kur sužinojai apie IT akademiją Swedbank?</label
+      >Iš kur sužinojai apie IT akademiją Swedbank?</label
       >
       <textarea
         type="text"
@@ -226,10 +199,7 @@
         formControlName="answerInfoAboutAcademy"
       ></textarea>
       <div
-        [hidden]="
-          registerForm.controls.answerInfoAboutAcademy.valid ||
-          answerInfoAboutAcademy.pristine
-        "
+        [hidden]="answerInfoAboutAcademy.valid || answerInfoAboutAcademy.pristine"
         class="alert alert-danger"
       >
         <div *ngIf="answerInfoAboutAcademy.errors?.required">
