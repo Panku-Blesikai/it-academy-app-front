@@ -1,12 +1,26 @@
+<div align="right">
+  <span class="inline-display"><label for="search" class="margin-right-10">Ieškoti:</label>
+    <input type="text" #search size="30" class="margin-right-30" (change)="filter(search.value)"/>
+    <label class="margin-right-10">Statusas: </label> <!--for="statusFilter"-->
+    <input type="radio" id="male" name="statusFilter" value="male">
+    <label for="male" class="margin-right-10">Visi</label>
+    <input type="radio" id="female" name="statusFilter" value="female">
+    <label for="female" class="margin-right-10">Peržiūrima</label>
+    <input type="radio" id="other" name="statusFilter" value="other">
+    <label for="other" class="margin-right-10">Patvirtinta</label>
+    <input type="radio" id="declined" name="statusFilter" value="declined">
+    <label for="declined" class="margin-right-10">Atmesta</label>
+  </span>
+</div>
 <table class="table">
   <thead>
   <tr>
     <th scope="row">#</th>
-    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('name')">Vardas</a></th>
-    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('surname')">Pavardė</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sort('name')">Vardas</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sort('surname')">Pavardė</a></th>
     <th scope="col">El. paštas</th>
     <th scope="col">Tel. nr.</th>
-    <th scope="col"><a href="javascript:void(0);" (click)="sortBy('dateTime')">Pateikta</a></th>
+    <th scope="col"><a href="javascript:void(0);" (click)="sort('dateTime')">Pateikta</a></th>
     <th scope="col">Daugiau informacijos</th>
   </tr>
   </thead>

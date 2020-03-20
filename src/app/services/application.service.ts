@@ -29,7 +29,7 @@ export class ApplicationService {
 
   errorHandler() {
     return throwError(
-      "Sorry, our services does not work right now, please try that later"
+      'Sorry, our services does not work right now, please try that later'
     );
   }
 }

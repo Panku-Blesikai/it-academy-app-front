@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { ApplicationService } from '../services/application.service';
 import {Application} from '../shared/application';
-import {prepareSyntheticPropertyName} from "@angular/compiler/src/render3/util";
+import {SortingService} from '../services/sorting.service';
+import {FilterService} from "../services/filter.service";
 
 @Component({
   selector: 'app-applications-list',
@@ -10,30 +10,17 @@ import {prepareSyntheticPropertyName} from "@angular/compiler/src/render3/util";
 })
 export class ApplicationsListComponent implements OnInit {
   @Input() applications: Application[];
-  public propertyName: string;
-  public reverse: number;
 
-  constructor(private applicationService: ApplicationService) { }
+  constructor(private sortingService: SortingService, private filterService: FilterService) { }
 
-  sortBy(propertyName: string): void {
-    if(this.propertyName === propertyName) {
-      this.reverse = -this.reverse;
-    } else {
-      this.reverse = 1;
-    }
-    this.propertyName = propertyName;
-    this.applications.sort((a, b) => this.compare(a[propertyName], b[propertyName]));
+  filter(searchInput: string) {
+    this.applications = this.filterService.filterBy(this.applications, searchInput);
   }
 
-  compare(a: string, b: string): number {
-    if (a == null) {
-      return 1;
-    }
-    if (b == null) {
-      return -1;
-    }
-    return a.localeCompare(b) * this.reverse;
+  sort(propertyName: string) {
+    this.applications = this.sortingService.sortBy(this.applications, propertyName);
   }
+
 
   ngOnInit(): void {
   }
