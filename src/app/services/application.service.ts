@@ -14,22 +14,22 @@ export class ApplicationService {
   }
 
   getApplications(): Observable<Application[]> {
-    return this.httpClient.get<Application[]>(`${this.apiPath}/get/all`);;
+    return this.httpClient.get<Application[]>(`${this.apiPath}/applications`);
   }
 
   getApplication({id}): Observable<Application> {
-    return this.httpClient.get<Application>(`${this.apiPath}/get/application/${id}`);
+    return this.httpClient.get<Application>(`${this.apiPath}/applications/${id}`);
   }
 
   addApplication(application: Application): Observable<Application> {
     return this.httpClient
-      .post<Application>(`${this.apiPath}/add`, application)
+      .post<Application>(`${this.apiPath}/applications/add`, application)
       .pipe(catchError(this.errorHandler));
   }
 
   errorHandler() {
     return throwError(
-      "Sorry, our services does not work right now, please try that later"
+      'Sorry, our services does not work right now, please try that later'
     );
   }
 }
