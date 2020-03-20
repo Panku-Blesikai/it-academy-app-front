@@ -10,7 +10,7 @@ import {FilterService} from '../services/filter.service';
 })
 export class ApplicationsListComponent implements OnInit {
   @Input() allApplications: Application[];
-  private applications: Application[];
+  public applications: Application[];
 
   constructor(private sortingService: SortingService, private filterService: FilterService) { }
 
