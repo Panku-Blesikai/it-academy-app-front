@@ -1,16 +1,20 @@
 <div align="right">
   <span class="inline-display">
     <label for="search" class="margin-right-10">Ieškoti:</label>
-    <input type="text" id="search" #search size="30" class="margin-right-30" (keyup)="filter(search.value)"/>
-    <label class="margin-right-10">Statusas: </label> <!--for="statusFilter"-->
-    <input type="radio" id="male" name="statusFilter" value="male">
-    <label for="male" class="margin-right-10">Visi</label>
-    <input type="radio" id="female" name="statusFilter" value="female">
-    <label for="female" class="margin-right-10">Peržiūrima</label>
-    <input type="radio" id="other" name="statusFilter" value="other">
-    <label for="other" class="margin-right-10">Patvirtinta</label>
-    <input type="radio" id="declined" name="statusFilter" value="declined">
-    <label for="declined" class="margin-right-10">Atmesta</label>
+    <input type="text" id="search" #search size="30" class="margin-right-30" (keyup)="updateSearchFieldInput(search.value)"/>
+    <label class="margin-right-10">Statusas: </label>
+    <input type="radio" id="all" #all name="statusFilter" value="VISI" checked
+           (click)="updateStatusInput(all.value)">
+    <label for="all" class="margin-right-10">VISI</label>
+    <input type="radio" id="inProgress" #inProgress name="statusFilter" value="PERŽIŪRIMA"
+           (click)="updateStatusInput(inProgress.value)">
+    <label for="inProgress" class="margin-right-10">PERŽIŪRIMA</label>
+    <input type="radio" id="accepted" #accepted name="statusFilter" value="PATVIRTINTA"
+           (click)="updateStatusInput(accepted.value)">
+    <label for="accepted" class="margin-right-10">PATVIRTINTA</label>
+    <input type="radio" id="declined" #declined name="statusFilter" value="ATMESTA"
+           (click)="updateStatusInput(declined.value)">
+    <label for="declined" class="margin-right-10">ATMESTA</label>
   </span>
 </div>
 <table class="table">

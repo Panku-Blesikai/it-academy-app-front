@@ -11,11 +11,23 @@ import {FilterService} from '../services/filter.service';
 export class ApplicationsListComponent implements OnInit {
   @Input() allApplications: Application[];
   public applications: Application[];
+  private statusInput: string;
+  private searchFieldInput: string;
 
   constructor(private sortingService: SortingService, private filterService: FilterService) { }
 
-  filter(searchInput: string) {
-    this.applications = this.filterService.filterBy(this.allApplications, searchInput);
+  updateSearchFieldInput(searchField: string) {
+    this.searchFieldInput = searchField;
+    this.filter();
+  }
+
+  updateStatusInput(status: string) {
+    this.statusInput = status;
+    this.filter();
+  }
+
+  filter() {
+    this.applications = this.filterService.filterBy(this.allApplications, this.searchFieldInput, this.statusInput);
   }
 
   sort(propertyName: string) {
@@ -25,5 +37,7 @@ export class ApplicationsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.applications = this.allApplications;
+    this.statusInput = 'VISI';
+    this.searchFieldInput = '';
   }
 }

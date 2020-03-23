@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Application} from '../shared/application';
-import {filter} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +8,18 @@ export class FilterService {
 
   constructor() { }
 
-  filterBy(applications: Application[], searchInput: string): Application[] {
+  filterBy(applications: Application[], searchInput: string, status: string): Application[] {
     const filteredApplications: Application[] = [];
     for (const application of applications) {
-      const names = application.name.split(/[\s-]+/).concat(application.surname.split(/[\s-]+/));
-      const searchStrings = searchInput.split(/[\s-]+/);
+      if (application.status !== status && status !== 'VISI') {
+        continue;
+      }
+      const names = this.normalize(application.name).concat(this.normalize(application.surname));
+      const searchStrings = this.normalize(searchInput);
       let counter = 0;
       for (const search of searchStrings) {
         for (const name of names) {
-          if (name.toLowerCase().lastIndexOf(search.toLowerCase(), 0) === 0) {
+          if (name.lastIndexOf(search, 0) === 0) {
             counter++;
             break;
           }
@@ -28,5 +30,21 @@ export class FilterService {
       }
     }
     return filteredApplications;
+  }
+
+  normalize(value: string): string[] {
+    return this.removeAccents(value).toLowerCase().split(/[\s-]+/);
+  }
+
+  removeAccents(value: string): string {
+     let modifiedValue = value;
+     modifiedValue = modifiedValue.replace(/[Ąą]/g, 'a');
+     modifiedValue = modifiedValue.replace(/[Čč]/g, 'c');
+     modifiedValue = modifiedValue.replace(/[ĘęĖė]/g, 'e');
+     modifiedValue = modifiedValue.replace(/[Įį]/g, 'i');
+     modifiedValue = modifiedValue.replace(/[Šš]/g, 's');
+     modifiedValue = modifiedValue.replace(/[ŲųŪū]/g, 'u');
+     modifiedValue = modifiedValue.replace(/[Žž]/g, 'z');
+     return modifiedValue;
   }
 }
