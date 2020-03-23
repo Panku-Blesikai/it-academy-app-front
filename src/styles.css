@@ -37,6 +37,13 @@ header {
     background-position: center center;
 }
 
+.resized{
+    background-image: url("../img/background.jpg");
+    height: 35vh;
+    background-size: cover;
+    background-position: center center;
+}
+
 ul {
     float: right;
     list-style-type: none;
@@ -51,7 +58,7 @@ ul li a {
     text-decoration: none;
     color: black;
     padding:  10px;
-    font-size: 30px;
+    font-size: 1.85vw;
 }
 
 ul li a:hover{
@@ -73,31 +80,63 @@ ul li.active a {
     position: absolute;
     text-align: center;
     top: 8%;
-    padding-left: 45px;
+    padding-left: 3%;
+}
+.title1 h1{
+    font-weight: 440;
+    position: absolute;
+    top: 15%;
+    padding-left: 36%;
+    font-size: 4.3vw;
 }
 
 .title h2{
     color: black;
-    font-size: 70px;
-    line-height: 20mm;
+    font-size: 4.32vw;
+    line-height: 5.5vw;
+}
+
+.text1-container {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    height: 10%;
+
+    color: black;
+    line-height: 10mm;
+    text-align: center;
+    font-size: 2.5vw;
+    
 }
 
 .text-container {
     position: absolute;
     top: 32%;
-    padding-left: 45px;
+    padding-left: 3%;
+    height: 10%;
 
     color: black;
     line-height: 10mm;
     text-align: center;
-    font-size: 40px;
+    font-size: 2.6vw;
+    
+}
+
+.register-container {
+    width: 100%;
+    padding-left: 35px;
+    padding-top: 12%;
+    color: black;
+    line-height: 10mm;
+    text-align: left;
+    font-size: 1.4vw;
     
 }
 
 footer {
     position: absolute;
     top: 90%;
-    padding-left: 400px;
-    font-size: 25px;
+    padding-left: 24.95%;
+    font-size: 1.562vw;
     color: black;
 }
