@@ -51,11 +51,11 @@
     <td>{{application.status}}</td>
   </tr>
   </tbody>
-  <div *ngIf="application.status === 'INPROGRESS'">
-    <button name="status" onclick="changeStatus('ACCEPTED')" class="btn btn-success">
+  <div *ngIf="application.status === 'PERŽIŪRIMA'">
+    <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
       Patvirtinti
     </button>
-    <button name="status" onclick="changeStatus('DECLINED')" class="btn btn-danger">
+    <button name="status" (click)="changeStatus('ATMESTA')" class="btn btn-danger">
       Atmesti
     </button>
   </div>
