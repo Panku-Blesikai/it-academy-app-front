@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Validators, FormControl, FormBuilder } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {Validators, FormControl, FormBuilder} from '@angular/forms';
 
-import { Application } from '../shared/application';
-import { ApplicationService } from '../services/application.service';
+import {Application} from '../shared/application';
+import {ApplicationService} from '../services/application.service';
 
 @Component({
   selector: 'app-register-form',
@@ -10,40 +10,126 @@ import { ApplicationService } from '../services/application.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
-  constructor( private applicationService: ApplicationService, private fb: FormBuilder) { }
+  constructor(private applicationService: ApplicationService, private fb: FormBuilder) {
+  }
 
-  get name() {return this.registerForm.get('name'); }
-  get surname() {return this.registerForm.get('surname'); }
-  get email() {return this.registerForm.get('email'); }
-  get tel() {return this.registerForm.get('tel'); }
-  get education() {return this.registerForm.get('name'); }
-  get answerFreeTimeActivity() {return this.registerForm.get('answerFreeTimeActivity'); }
-  get answerThreePartAgreement() {return this.registerForm.get('answerThreePartAgreement'); }
-  get answerAvailable14To18() {return this.registerForm.get('answerAvailable14To18'); }
-  get answerMotivation() {return this.registerForm.get('answerMotivation'); }
-  get answerExperience() {return this.registerForm.get('answerExperience'); }
-  get answerInfoAboutAcademy() {return this.registerForm.get('answerInfoAboutAcademy'); }
+  get name() {
+    return this.registerForm.get('name');
+  }
+
+  get surname() {
+    return this.registerForm.get('surname');
+  }
+
+  get email() {
+    return this.registerForm.get('email');
+  }
+
+  get tel() {
+    return this.registerForm.get('tel');
+  }
+
+  get education() {
+    return this.registerForm.get('name');
+  }
+
+  get answerFreeTimeActivity() {
+    return this.registerForm.get('answerFreeTimeActivity');
+  }
+
+  get answerThreePartAgreement() {
+    return this.registerForm.get('answerThreePartAgreement');
+  }
+
+  get answerAvailable14To18() {
+    return this.registerForm.get('answerAvailable14To18');
+  }
+
+  get answerMotivation() {
+    return this.registerForm.get('answerMotivation');
+  }
+
+  get answerExperience() {
+    return this.registerForm.get('answerExperience');
+  }
+
+  get answerInfoAboutAcademy() {
+    return this.registerForm.get('answerInfoAboutAcademy');
+  }
+
   serverErrorMessage: string;
 
 
   registerForm = this.fb.group({
-    name: ['', [Validators.required]],
-    surname: ['', [Validators.required]],
+    name: ['',
+      [
+        Validators.required,
+        Validators.maxLength(256)
+      ]
+    ],
+    surname: ['',
+      [
+        Validators.required,
+        Validators.maxLength(256)
+      ]
+    ],
     email: [
       '',
       [
         Validators.required,
+        Validators.maxLength(256),
         Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)
       ]
     ],
-    education: ['', [Validators.required]],
-    tel: ['', [Validators.required]],
-    answerFreeTimeActivity: ['', [Validators.required]],
-    answerThreePartAgreement: ['', [Validators.required]],
-    answerAvailable14To18: ['', [Validators.required]],
-    answerMotivation: ['', [Validators.required]],
-    answerExperience: ['', [Validators.required]],
-    answerInfoAboutAcademy: ['', [Validators.required]],
+    tel: ['',
+      [
+        Validators.required,
+        Validators.pattern(`[+]370[0-9][-][0-9]{2}[-][0-9]{5}$`),
+        Validators.maxLength(14)
+      ]
+    ],
+    education: ['',
+      [
+        Validators.required,
+        Validators.maxLength(256)
+      ]
+    ],
+    answerFreeTimeActivity: ['',
+      [
+        Validators.required,
+        Validators.maxLength(1024)
+      ]
+    ],
+    answerThreePartAgreement: ['',
+      [
+        Validators.required,
+        Validators.maxLength(1024)
+      ]
+    ],
+    answerAvailable14To18: ['',
+      [
+        Validators.required,
+        Validators.maxLength(1024)
+      ]
+    ],
+    answerMotivation: ['',
+      [
+        Validators.required,
+        Validators.maxLength(1024)
+      ]
+    ],
+    answerExperience: ['',
+      [
+        Validators.required,
+        Validators.maxLength(1024)
+      ]
+    ],
+    answerInfoAboutAcademy: ['',
+      [
+        Validators.required,
+        Validators.maxLength(1024)
+      ]
+    ],
   });
 
   ngOnInit(): void {
