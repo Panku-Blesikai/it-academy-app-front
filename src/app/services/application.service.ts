@@ -17,7 +17,7 @@ export class ApplicationService {
     return this.httpClient.get<Application[]>(`${this.apiPath}/applications`);
   }
 
-  getApplication({id}): Observable<Application> {
+  getApplication(id: string): Observable<Application> {
     return this.httpClient.get<Application>(`${this.apiPath}/applications/${id}`);
   }
 
