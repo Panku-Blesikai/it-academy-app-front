@@ -1,1 +1,18 @@
-    <app-register-form></app-register-form>
+<body>
+    <div class="resized">
+      <ul>
+        <li><a href="#">PRADŽIA</a></li>
+        <li class="active"><a [routerLink]="['/register']">REGISTRACIJA</a></li>
+        <li><a >APIE MUS</a></li>
+      </ul>
+    </div>
+    <div class="title1">
+        <h1>REGISTRACIJA</h1>
+    </div>
+    <div class="text1-container">
+       <p> Užpildykite žemiau esančią aplikacijos formą,<br> norint užsiregistruoti IT akademijai. </p>
+    </div>
+    <div class="register-container">
+        <app-register-form></app-register-form>
+    </div>
+    </body>

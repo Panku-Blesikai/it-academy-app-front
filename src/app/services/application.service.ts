@@ -17,13 +17,19 @@ export class ApplicationService {
     return this.httpClient.get<Application[]>(`${this.apiPath}/applications`);
   }
 
-  getApplication({id}): Observable<Application> {
+  getApplication(id: string): Observable<Application> {
     return this.httpClient.get<Application>(`${this.apiPath}/applications/${id}`);
   }
 
   addApplication(application: Application): Observable<Application> {
     return this.httpClient
       .post<Application>(`${this.apiPath}/applications`, application)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  changeApplicationStatus(application: Application): Observable<Application> {
+    return this.httpClient
+      .put<Application>(`${this.apiPath}/applications`, application)
       .pipe(catchError(this.errorHandler));
   }
 

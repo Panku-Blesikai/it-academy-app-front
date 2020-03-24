@@ -12,4 +12,6 @@ export interface Application {
     answerExperience: string;
     answerInfoAboutAcademy: string;
     dateTime?: string;
+    idHash?: string;
+    status: string;
   }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {from, Observable} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 import {Application} from '../shared/application';
 import {ActivatedRoute} from '@angular/router';
 import {ApplicationService} from '../services/application.service';
@@ -11,16 +11,30 @@ import {switchMap} from 'rxjs/operators';
   styleUrls: ['./application-page.component.css']
 })
 export class ApplicationPageComponent implements OnInit {
-  public application$: Observable<Application>;
 
-  constructor(private route: ActivatedRoute, private applicationService: ApplicationService) { }
+  constructor(private route: ActivatedRoute, private applicationService: ApplicationService) {
+    this.ngOnInit();
+    this.application$.subscribe(value => (this.applicationWithNewStatus = value));
+  }
+  public application$: Observable<Application>;
+  private serverErrorMessage: any;
+  private applicationWithNewStatus: Application;
 
   ngOnInit(): void {
-    this.application$ = from(this.route.paramMap).pipe(
+    this.application$ = this.route.paramMap.pipe(
       switchMap(params => {
-        return this.applicationService.getApplication({id: params.get('id')});
+        return this.applicationService.getApplication(params.get('idHash'));
       })
     );
   }
-
+  changeStatus(status: string) {
+    this.applicationWithNewStatus.status = status;
+    this.applicationService.changeApplicationStatus(this.applicationWithNewStatus).subscribe(
+      () => {
+        this.serverErrorMessage = '';
+      },
+      error => (this.serverErrorMessage = error),
+      () => location.reload()
+    );
+  }
 }
