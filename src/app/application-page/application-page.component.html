@@ -1,5 +1,5 @@
 <table class="table" *ngIf="application$ | async as application">
-  <tbody >
+  <tbody>
   <tr>
     <th scope="row">Vardas</th>
     <td>{{application.name}}</td>
@@ -46,6 +46,19 @@
     <th scope="row">Pateikta</th>
     <td>{{application.dateTime}}</td>
   </tr>
+  <tr>
+    <th scope="row">Statusas</th>
+    <td>{{application.status}}</td>
+  </tr>
   </tbody>
+  <div permissions="ADMIN" *ngIf="application.status === 'PERŽIŪRIMA'">
+    <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
+      Patvirtinti
+    </button>
+    <button name="status" (click)="changeStatus('ATMESTA')" class="btn btn-danger">
+      Atmesti
+    </button>
+  </div>
 </table>
+
 <a [routerLink]="['/admin/applications']">Grįžti</a>

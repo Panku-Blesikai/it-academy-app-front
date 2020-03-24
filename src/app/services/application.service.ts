@@ -27,6 +27,12 @@ export class ApplicationService {
       .pipe(catchError(this.errorHandler));
   }
 
+  changeApplicationStatus(application: Application): Observable<Application> {
+    return this.httpClient
+      .put<Application>(`${this.apiPath}/applications`, application)
+      .pipe(catchError(this.errorHandler));
+  }
+
   errorHandler() {
     return throwError(
       'Sorry, our services does not work right now, please try that later'
