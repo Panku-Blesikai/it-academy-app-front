@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {from, Observable} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 import {Application} from '../shared/application';
 import {ActivatedRoute} from '@angular/router';
 import {ApplicationService} from '../services/application.service';
 import {switchMap} from 'rxjs/operators';
-import set = Reflect.set;
-import {RegisterFormComponent} from '../register-form/register-form.component';
 
 @Component({
   selector: 'app-application-page',
@@ -13,31 +11,30 @@ import {RegisterFormComponent} from '../register-form/register-form.component';
   styleUrls: ['./application-page.component.css']
 })
 export class ApplicationPageComponent implements OnInit {
+
+  constructor(private route: ActivatedRoute, private applicationService: ApplicationService) {
+    this.ngOnInit();
+    this.application$.subscribe(value => (this.applicationWithNewStatus = value));
+  }
   public application$: Observable<Application>;
   private serverErrorMessage: any;
-  public applicationWithNewStatus: Application;
-
-  constructor(private route: ActivatedRoute, private applicationService: ApplicationService) { }
-
+  private applicationWithNewStatus: Application;
 
   ngOnInit(): void {
-    this.application$ = from(this.route.paramMap).pipe(
+    this.application$ = this.route.paramMap.pipe(
       switchMap(params => {
         return this.applicationService.getApplication({id: params.get('id')});
       })
     );
   }
-
-  changeStatus(status) {
-    this.applicationWithNewStatus  = RegisterFormComponent.apply(this.application$);
+  changeStatus(status: string) {
     this.applicationWithNewStatus.status = status;
     this.applicationService.changeApplicationStatus(this.applicationWithNewStatus).subscribe(
       () => {
         this.serverErrorMessage = '';
       },
-      error => (this.serverErrorMessage = error)
+      error => (this.serverErrorMessage = error),
+      () => location.reload()
     );
   }
-
-
 }
