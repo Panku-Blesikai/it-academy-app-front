@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormControl, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
 
-import { Application } from '../shared/application';
 import { ApplicationService } from '../services/application.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -10,7 +10,7 @@ import { ApplicationService } from '../services/application.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
-  constructor( private applicationService: ApplicationService, private fb: FormBuilder) { }
+  constructor( private applicationService: ApplicationService, private router: Router, private fb: FormBuilder) { }
 
   get name() {return this.registerForm.get('name'); }
   get surname() {return this.registerForm.get('surname'); }
@@ -23,6 +23,7 @@ export class RegisterFormComponent implements OnInit {
   get answerMotivation() {return this.registerForm.get('answerMotivation'); }
   get answerExperience() {return this.registerForm.get('answerExperience'); }
   get answerInfoAboutAcademy() {return this.registerForm.get('answerInfoAboutAcademy'); }
+  private applicationId: string;
   serverErrorMessage: string;
 
 
@@ -51,11 +52,14 @@ export class RegisterFormComponent implements OnInit {
 
   onSubmit() {
     this.applicationService.addApplication(this.registerForm.value).subscribe(
-      () => {
+      response => {
+        this.applicationId = response.idHash;
         this.serverErrorMessage = '';
       },
-      error => (this.serverErrorMessage = error)
+      error => (this.serverErrorMessage = error),
+       () => this.router.navigate(['/register/success'],
+         { queryParams: {idHash: this.applicationId}})
     );
   }
-
 }
+

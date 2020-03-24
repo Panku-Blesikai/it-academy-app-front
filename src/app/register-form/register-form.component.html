@@ -52,7 +52,7 @@
 
     <div class="form-group">
       <label for="tel">Telefono numeris</label>
-      <input type="text" class="form-control" id="tel" formControlName="tel"/>
+      <input type="text" class="form-control" id="tel" formControlName="tel"  placeholder="+3706-12-34564"/>
       <div [hidden]="tel.valid || tel.pristine" class="alert alert-danger">
         <div *ngIf="tel.errors?.required">
           Telefono numeris yra privalomas.
