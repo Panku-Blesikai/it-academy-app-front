@@ -5,7 +5,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {ApplicationsListPageComponent} from './applications-list-page/applications-list-page.component';
 import {ApplicationPageComponent} from './application-page/application-page.component';
-import { SuccessPageComponent } from './success-page/success-page.component';
+import { SuccessRegistrationPageComponent } from './success-registration-page/success-registration-page.component';
 
 
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterPageComponent },
   { path: 'admin/applications/:id', component: ApplicationPageComponent },
   { path: 'admin/applications', component: ApplicationsListPageComponent },
-  { path: 'success', component: SuccessPageComponent },
+  { path: 'register/success', component: SuccessRegistrationPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
