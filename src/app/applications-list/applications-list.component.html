@@ -39,7 +39,7 @@
     <td>{{application.tel}}</td>
     <td>{{application.dateTime}}</td>
     <td>{{application.status}}</td>
-    <td><a [routerLink]="[application.id]">Plačiau...</a></td>
+    <td><a [routerLink]="['../application/'+application.idHash]">Plačiau...</a></td>
   </tr>
   </tbody>
 </table>

@@ -10,8 +10,8 @@ import {ApplicationPageComponent} from './application-page/application-page.comp
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'register', component: RegisterPageComponent },
-  { path: 'admin/applications/:id', component: ApplicationPageComponent },
-  { path: 'admin/applications', component: ApplicationsListPageComponent },
+  { path: 'application/:idHash', component: ApplicationPageComponent },
+  { path: 'admin', component: ApplicationsListPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
