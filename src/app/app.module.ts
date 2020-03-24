@@ -13,6 +13,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApplicationPageComponent } from './application-page/application-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ApplicationPageComponent } from './application-page/application-page.co
     NotFoundComponent,
     RegisterFormComponent,
     RegisterPageComponent,
-    ApplicationPageComponent
+    ApplicationPageComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
