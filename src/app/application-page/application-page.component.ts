@@ -18,7 +18,7 @@ export class ApplicationPageComponent implements OnInit {
   }
   public application$: Observable<Application>;
   private serverErrorMessage: any;
-  public applicationWithNewStatus: Application;
+  private applicationWithNewStatus: Application;
 
   ngOnInit(): void {
     this.application$ = this.route.paramMap.pipe(
@@ -33,7 +33,8 @@ export class ApplicationPageComponent implements OnInit {
       () => {
         this.serverErrorMessage = '';
       },
-      error => (this.serverErrorMessage = error)
+      error => (this.serverErrorMessage = error),
+      () => location.reload()
     );
   }
 }
