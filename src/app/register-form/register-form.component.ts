@@ -87,7 +87,7 @@ export class RegisterFormComponent implements OnInit {
     phone: ['',
       [
         Validators.required,
-        Validators.pattern(`[+]370[0-9][-][0-9]{2}[-][0-9]{5}$`),
+        Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`),
         Validators.maxLength(14)
       ]
     ],
@@ -148,6 +148,24 @@ export class RegisterFormComponent implements OnInit {
        () => this.router.navigate(['/register/success'],
          { queryParams: {idHash: this.applicationId}})
     );
+  }
+
+  yesCheckThreePartyAgreement(): void {
+    document.getElementById('threePartyAgreement').style.display = 'none';
+    this.threePartyAgreement.setValue('Taip');
+  }
+
+  noCheckThreePartyAgreement(): void {
+    document.getElementById('threePartyAgreement').style.display = 'block';
+    this.threePartyAgreement.setValue('');
+  }
+
+  yesCheckAvailable14To18(): void {
+    this.available14To18.setValue('Taip');
+  }
+
+  noCheckAvailable14To18(): void {
+    this.available14To18.setValue('Ne');
   }
 }
 
