@@ -1,0 +1,15 @@
+<div *ngIf="application$ | async as application">
+  <div>
+    Dėkojame už registraciją.
+  </div>
+  <div>
+      Savo registracijos anketą galite rasti čia:
+      <a href="https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}">
+        https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}</a>
+  </div>
+  <div>
+    Ši nuoroda taip pat išsiųsta elektroniniu paštu {{application.email}}.
+  </div>
+  <a class="btn btn-light" [routerLink]="['']">Pradžia</a>
+  <a class="btn btn-light" [routerLink]="['/application/'+application.idHash]">Anketos peržiūra</a>
+</div>

@@ -3,6 +3,7 @@ import {Validators, FormControl, FormBuilder} from '@angular/forms';
 
 import {Application} from '../shared/application';
 import {ApplicationService} from '../services/application.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -10,7 +11,8 @@ import {ApplicationService} from '../services/application.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
-  constructor(private applicationService: ApplicationService, private fb: FormBuilder) {
+
+  constructor(private applicationService: ApplicationService, private router: Router, private fb: FormBuilder) {
   }
 
   get name() {
@@ -57,6 +59,7 @@ export class RegisterFormComponent implements OnInit {
     return this.registerForm.get('answerInfoAboutAcademy');
   }
 
+  applicationId: string;
   serverErrorMessage: string;
 
 
@@ -137,11 +140,14 @@ export class RegisterFormComponent implements OnInit {
 
   onSubmit() {
     this.applicationService.addApplication(this.registerForm.value).subscribe(
-      () => {
+      response => {
+        this.applicationId = response.idHash;
         this.serverErrorMessage = '';
       },
-      error => (this.serverErrorMessage = error)
+      error => (this.serverErrorMessage = error),
+       () => this.router.navigate(['/register/success'],
+         { queryParams: {idHash: this.applicationId}})
     );
   }
-
 }
+
