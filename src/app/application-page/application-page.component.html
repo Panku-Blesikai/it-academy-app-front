@@ -60,4 +60,4 @@
     </button>
   </div>
 </table>
-<a [routerLink]="['/admin']">Grįžti</a>
+<a [hidden]="!authenticated()" [routerLink]="['/admin']">Grįžti</a>

@@ -13,7 +13,6 @@ export class ApplicationService {
 
   constructor(private httpClient: HttpClient) {
   }
-
   getApplications(): Observable<Application[]> {
     return this.httpClient.get<Application[]>(`${this.apiPath}/applications`);
   }
