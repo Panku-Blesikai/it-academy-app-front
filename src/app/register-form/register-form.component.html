@@ -49,18 +49,18 @@
     </div>
 
     <div class="form-group">
-      <label for="tel">Telefono numeris</label>
+      <label for="phone">Telefono numeris</label>
       <input
         type="text"
         class="form-control"
-        id="tel"
-        formControlName="tel"
+        id="phone"
+        formControlName="phone"
         placeholder="+3706-66-66666"
         maxlength="14"
       />
-      <div [hidden]="tel.valid || tel.pristine" class="alert alert-danger">
-        <div *ngIf="tel.errors?.pattern">Praome įvesti telefono numerį formatu: +3706-66-66666</div>
-        <div *ngIf="tel.errors?.required">Šis laukas yra privalomas.</div>
+      <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+        <div *ngIf="phone.errors?.pattern">Praome įvesti telefono numerį formatu: +3706-66-66666</div>
+        <div *ngIf="phone.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
 
@@ -80,75 +80,75 @@
     </div>
 
     <div class="form-group">
-      <label for="answerFreeTimeActivity">O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label>
+      <label for="freeTimeActivity">O ką veiki kai nesimokai? Kokie tavo pomėgiai?</label>
       <textarea
         type="text"
         class="form-control"
-        id="answerFreeTimeActivity"
-        formControlName="answerFreeTimeActivity"
+        id="freeTimeActivity"
+        formControlName="freeTimeActivity"
         maxlength="1024"
       ></textarea>
       <div
-        [hidden]="answerFreeTimeActivity.valid || answerFreeTimeActivity.pristine" class="alert alert-danger">
-        <div *ngIf="answerFreeTimeActivity.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
-        <div *ngIf="answerFreeTimeActivity.errors?.required">Šis laukas yra privalomas.</div>
+        [hidden]="freeTimeActivity.valid || freeTimeActivity.pristine" class="alert alert-danger">
+        <div *ngIf="freeTimeActivity.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
+        <div *ngIf="freeTimeActivity.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="answerThreePartAgreement"
+      <label for="threePartyAgreement"
       >Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne pakomentuok plačiau.</label>
       <textarea
         type="text"
         class="form-control"
-        id="answerThreePartAgreement"
-        formControlName="answerThreePartAgreement"
+        id="threePartyAgreement"
+        formControlName="threePartyAgreement"
         maxlength="1024"
       ></textarea>
-      <div [hidden]="answerThreePartAgreement.valid ||answerThreePartAgreement.pristine"
+      <div [hidden]="threePartyAgreement.valid ||threePartyAgreement.pristine"
            class="alert alert-danger">
-        <div *ngIf="answerThreePartAgreement.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
-        <div *ngIf="answerThreePartAgreement.errors?.required">Šis laukas yra privalomas.</div>
+        <div *ngIf="threePartyAgreement.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
+        <div *ngIf="threePartyAgreement.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="answerAvailable14To18"
+      <label for="available14To18"
       >Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi akademijai skirti tiek laiko?</label>
       <textarea
         type="text"
         class="form-control"
-        id="answerAvailable14To18"
-        formControlName="answerAvailable14To18"
+        id="available14To18"
+        formControlName="available14To18"
         maxlength="1024"
       ></textarea>
       <div
-        [hidden]="answerAvailable14To18.valid ||answerAvailable14To18.pristine" class="alert alert-danger">
-        <div *ngIf="answerAvailable14To18.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
-        <div *ngIf="answerAvailable14To18.errors?.required">Šis laukas yra privalomas.</div>
+        [hidden]="available14To18.valid ||available14To18.pristine" class="alert alert-danger">
+        <div *ngIf="available14To18.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
+        <div *ngIf="available14To18.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="answerMotivation"
+      <label for="motivation"
       >Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje
         dalyvauti?</label
       >
       <textarea
         type="text"
         class="form-control"
-        id="answerMotivation"
-        formControlName="answerMotivation"
+        id="motivation"
+        formControlName="motivation"
         maxlength="1024"
       ></textarea>
-      <div [hidden]="answerMotivation.valid ||answerMotivation.pristine" class="alert alert-danger">
-        <div *ngIf="answerMotivation.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
-        <div *ngIf="answerMotivation.errors?.required">Šis laukas yra privalomas.</div>
+      <div [hidden]="motivation.valid ||motivation.pristine" class="alert alert-danger">
+        <div *ngIf="motivation.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
+        <div *ngIf="motivation.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="answerExperience"
+      <label for="experience"
       >Kokios technologijos tau labiausiai patinka ir su kokiomis iš jų jau
         turi patirties? Jei teko dirbti prie konkretaus projekto, pasidalink jo
         nuoroda.</label
@@ -156,30 +156,30 @@
       <textarea
         type="text"
         class="form-control"
-        id="answerExperience"
-        formControlName="answerExperience"
+        id="experience"
+        formControlName="experience"
         maxlength="1024"
       ></textarea>
-      <div [hidden]="answerExperience.valid ||answerExperience.pristine" class="alert alert-danger">
-        <div *ngIf="answerExperience.errors?.maxLength">Įvestas tekstas per ilgas.</div>
-        <div *ngIf="answerExperience.errors?.required">Šis laukas yra privalomas.</div>
+      <div [hidden]="experience.valid ||experience.pristine" class="alert alert-danger">
+        <div *ngIf="experience.errors?.maxLength">Įvestas tekstas per ilgas.</div>
+        <div *ngIf="experience.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
 
     <div class="form-group">
-      <label for="answerInfoAboutAcademy"
+      <label for="infoAboutAcademy"
       >Iš kur sužinojai apie IT akademiją Swedbank?</label
       >
       <textarea
         type="text"
         class="form-control"
-        id="answerInfoAboutAcademy"
-        formControlName="answerInfoAboutAcademy"
+        id="infoAboutAcademy"
+        formControlName="infoAboutAcademy"
         maxlength="1024"
       ></textarea>
-      <div [hidden]="answerInfoAboutAcademy.valid || answerInfoAboutAcademy.pristine" class="alert alert-danger">
-        <div *ngIf="answerInfoAboutAcademy.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
-        <div *ngIf="answerInfoAboutAcademy.errors?.required">Šis laukas yra privalomas.</div>
+      <div [hidden]="infoAboutAcademy.valid || infoAboutAcademy.pristine" class="alert alert-danger">
+        <div *ngIf="infoAboutAcademy.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
+        <div *ngIf="infoAboutAcademy.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
 
