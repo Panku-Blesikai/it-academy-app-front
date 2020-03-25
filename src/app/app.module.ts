@@ -13,6 +13,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApplicationPageComponent } from './application-page/application-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 import { SuccessRegistrationPageComponent } from './success-registration-page/success-registration-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 
@@ -27,6 +28,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     RegisterFormComponent,
     RegisterPageComponent,
     ApplicationPageComponent,
+    AboutPageComponent,
     SuccessRegistrationPageComponent,
     LoginPageComponent
   ],

@@ -1,51 +1,35 @@
-<!-- <div class="row"> -->
-
-
-      <!-- <h5 class="card-title">Heading</h5> -->
-      <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lectus purus, semper vel maximus et, efficitur id quam.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lectus purus, semper vel maximus et, efficitur id quam. Praesent auctor mattis eros, nec rutrum ante feugiat a. Quisque lacinia magna pellentesque risus maximus luctus. Sed eget commodo erat. Aenean euismod, sem a pharetra placerat, sapien massa tempus mauris, id posuere ipsum est ut tortor. Phasellus finibus, erat id lacinia eleifend, nibh lorem maximus felis, eget tempus ex augue vitae erat. Nam sit amet ipsum eu mi blandit imperdiet at vitae purus. Quisque non ipsum sed enim vestibulum vulputate.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lectus purus, semper vel maximus et, efficitur id quam. Praesent auctor mattis eros, nec rutrum ante feugiat a. </p> -->
-      <!-- <a class="btn btn-primary" [routerLink]="['/register']">Register</a>
-      <a [routerLink]="['/admin']">Applications</a> -->
-
-      <!-- <div class="text-container">
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link">PRADŽIA</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
         </li>
       </ul>
-      <div class="container">
-    <div class="background-pic">
-      <div class="text-middle">
-        Pankų blėšikai - daugiau nei programavimas.
-      <a class="btn btn-primary" [routerLink]="['/register']">Register</a>
-      <a [routerLink]="['/admin']">Applications</a>
-      </div>
     </div>
-  </div> -->
-  <body>
-    <header>
-      <div class="main">
-      <ul>
-        <li class="active"><a href="#">PRADŽIA</a></li>
-        <li><a [routerLink]="['/register']">REGISTRACIJA</a></li>
-        <li><a >APIE MUS</a></li>
-      </ul>
     </div>
-    </header>
-    <div class="title">
-      <h2>PANKU<br>BLESIKAI</h2>
+  </nav>
+
+  <div class="bg">
+    <div class="jumbotron home-page">
+      <h1 class="display-4">PANKU BLESIKAI</h1>
+      <p class="lead">Įkvėpimas, neribojimas tyrinėjimas ir neįtikėtina patirtis yra tai ko mes siekiame.</p>
+      <hr class="my-4">
+      <a class="btn btn-light btn-lg right" [routerLink]="['/about']" role="button">Sužinok daugiau</a>
     </div>
-    <div class="text-container">
-      Įkvėpimas,<br>neribojimas<br>tyrinėjimas ir<br>neįtikėtina<br>patirtis yra<br>
-      tai ko mes<br>siekiame.
-    </div>
-    <footer>COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED</footer>
+
+    <!-- <footer>COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED</footer> -->
+    
+  </div>
   </body>
