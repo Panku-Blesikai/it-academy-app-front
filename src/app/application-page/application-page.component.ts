@@ -23,7 +23,7 @@ export class ApplicationPageComponent implements OnInit {
   ngOnInit(): void {
     this.application$ = this.route.paramMap.pipe(
       switchMap(params => {
-        return this.applicationService.getApplication({id: params.get('id')});
+        return this.applicationService.getApplication(params.get('idHash'));
       })
     );
   }

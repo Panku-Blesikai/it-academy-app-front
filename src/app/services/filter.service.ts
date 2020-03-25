@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Application} from '../shared/application';
 
 @Injectable({
@@ -8,15 +8,43 @@ export class FilterService {
 
   constructor() { }
 
-  filterBy(applications: Application[], searchInput: string): Application[] {
+  filterBy(applications: Application[], searchInput: string, status: string): Application[] {
     const filteredApplications: Application[] = [];
     for (const application of applications) {
-      console.log('Comparing ' + application.name + ', ' + application.surname + ' with ' + searchInput);
-      if (application.name.lastIndexOf(searchInput, 0) === 0 || application.surname.lastIndexOf(searchInput, 0) === 0) {
-        console.log('confirmed');
+      if (application.status !== status && status !== 'VISI') {
+        continue;
+      }
+      const names = this.normalize(application.name).concat(this.normalize(application.surname));
+      const searchStrings = this.normalize(searchInput);
+      let counter = 0;
+      for (const search of searchStrings) {
+        for (const name of names) {
+          if (name.lastIndexOf(search, 0) === 0) {
+            counter++;
+            break;
+          }
+        }
+      }
+      if (counter === searchStrings.length) {
         filteredApplications.push(application);
       }
     }
     return filteredApplications;
+  }
+
+  normalize(value: string): string[] {
+    return this.removeAccents(value).toLowerCase().split(/[\s-]+/);
+  }
+
+  removeAccents(value: string): string {
+     let modifiedValue = value;
+     modifiedValue = modifiedValue.replace(/[Ąą]/g, 'a');
+     modifiedValue = modifiedValue.replace(/[Čč]/g, 'c');
+     modifiedValue = modifiedValue.replace(/[ĘęĖė]/g, 'e');
+     modifiedValue = modifiedValue.replace(/[Įį]/g, 'i');
+     modifiedValue = modifiedValue.replace(/[Šš]/g, 's');
+     modifiedValue = modifiedValue.replace(/[ŲųŪū]/g, 'u');
+     modifiedValue = modifiedValue.replace(/[Žž]/g, 'z');
+     return modifiedValue;
   }
 }

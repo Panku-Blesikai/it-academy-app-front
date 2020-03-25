@@ -51,7 +51,7 @@
     <td>{{application.status}}</td>
   </tr>
   </tbody>
-  <div *ngIf="application.status === 'PERŽIŪRIMA'">
+  <div permissions="ADMIN" *ngIf="application.status === 'PERŽIŪRIMA'">
     <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
       Patvirtinti
     </button>
@@ -60,5 +60,4 @@
     </button>
   </div>
 </table>
-
-<a [routerLink]="['/admin/applications']">Grįžti</a>
+<a [routerLink]="['/admin']">Grįžti</a>
