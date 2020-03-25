@@ -1,0 +1,58 @@
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link">REGISTRACIJA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+
+  <!-- BANNER WITH BACKGROUND IMAGE -->
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Dėkojame už registraciją.</h1>
+    </div>
+  </div>
+
+<div *ngIf="application$ | async as application">
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Registracija sėkminga.</h5>
+      <p class="card-text">
+        Savo registracijos anketą galite rasti čia: 
+        <a href="https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}">https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}</a>
+        <br>
+        Ši nuoroda taip pat išsiųsta elektroniniu paštu {{application.email}}.
+        </p>
+      <a class="btn btn-secondary" [routerLink]="['/application/'+application.idHash]">Anketos peržiūra</a>
+    </div>
+  </div>
+</div>
+</body>
+
+
+  <!-- <div class="container">
+      Savo registracijos anketą galite rasti čia:
+      <a href="https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}">
+        https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}</a>
+  </div>
+  <div>
+    Ši nuoroda taip pat išsiųsta elektroniniu paštu {{application.email}}.
+  </div>
+</div> -->
