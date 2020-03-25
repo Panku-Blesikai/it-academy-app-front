@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApplicationPageComponent } from './application-page/application-page.component';
 import { SuccessRegistrationPageComponent } from './success-registration-page/success-registration-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SuccessRegistrationPageComponent } from './success-registration-page/su
     RegisterFormComponent,
     RegisterPageComponent,
     ApplicationPageComponent,
-    SuccessRegistrationPageComponent
+    SuccessRegistrationPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

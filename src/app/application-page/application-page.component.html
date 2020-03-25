@@ -51,7 +51,7 @@
     <td>{{application.status}}</td>
   </tr>
   </tbody>
-  <div permissions="ADMIN" *ngIf="application.status === 'PERŽIŪRIMA'">
+  <div [hidden]="!authenticated()" *ngIf="application.status === 'PERŽIŪRIMA'">
     <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
       Patvirtinti
     </button>
