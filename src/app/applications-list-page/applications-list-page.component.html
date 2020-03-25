@@ -1,5 +1,37 @@
-<ng-container *ngIf="applications$ | async as applications">
-  <div align="center"><h2>IT akademijos studentų paraiškos</h2></div>
-  <app-applications-list [applications]="applications"></app-applications-list>
-  <a [routerLink]="['/home']">Pagrindinis puslapis</a>
-</ng-container>
+<body>
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link">REGISTRACIJA</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+    <!-- BANNER WITH BACKGROUND IMAGE -->
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">IT akademijos studentų paraiškos</h1>
+      </div>
+    </div>
+
+<div class="container">
+  <ng-container *ngIf="applications$ | async as applications">
+    <app-applications-list [applications]="applications"></app-applications-list>
+  </ng-container>
+</div>
+</body>
