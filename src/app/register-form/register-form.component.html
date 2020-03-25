@@ -59,7 +59,7 @@
         maxlength="14"
       />
       <div [hidden]="tel.valid || tel.pristine" class="alert alert-danger">
-        <div *ngIf="tel.errors?.pattern">Praome įvesti telefono numerį formatu: +3706-66-66666</div>
+        <div *ngIf="tel.errors?.pattern">Prašome įvesti telefono numerį formatu: +3706-**-*****</div>
         <div *ngIf="tel.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
@@ -168,7 +168,7 @@
 
     <div class="form-group">
       <label for="answerInfoAboutAcademy"
-      >Iš kur sužinojai apie IT akademiją Swedbank?</label
+      >Iš kur sužinojai apie IT akademiją?</label
       >
       <textarea
         type="text"

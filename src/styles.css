@@ -1,142 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
-/* .text-container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+
+body, html {
     height: 100%;
+  }
+
+.jumbotron {
+    background-image: url('../src/assets/background.jpg');
+    background-size: cover;
 }
 
-.text-middle {
-    padding-top: 20em;
-    text-align: center;
-    color: white;
-    font-size: 20px;
+.home-page {
+    background: transparent;
 }
 
-.background-pic {
-    height: 100%;
+.card {
     width: 100%;
-    background-image: url("../img/background.jpg");
-    /* background: url(../img/low-angle-shot-of-high-rise-building-2096578.jpg); */
-    /* background-size: cover;
+    padding-left: 5em;
+}
+
+.card-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: 400px;
+}
+
+.bg {
+    background-image: url('../src/assets/background.jpg');
+    height: 100%;
+    background-position: center;
     background-repeat: no-repeat;
-    background-position: center center;
-} */
+    background-size: cover;
+}
 
-*{
-    margin: 0;
-    padding: 0;
+.display-4 {
+    padding-top: 6%;
+}
+
+.moto {
     font-family: 'Courier New';
+    font-size: 1.5em;
 }
 
-header {
-    background-image: url("../img/background.jpg");
-    height: 100vh;
-    background-size: cover;
-    background-position: center center;
-}
-
-.resized{
-    background-image: url("../img/background.jpg");
-    height: 35vh;
-    background-size: cover;
-    background-position: center center;
-}
-
-ul {
+.right {
     float: right;
-    list-style-type: none;
-    padding-top: 25px;
 }
 
-ul li {
-    display: inline-block;
-}
-
-ul li a {
-    text-decoration: none;
-    color: black;
-    padding:  10px;
-    font-size: 1.85vw;
-}
-
-ul li a:hover{
-    text-decoration: none;
-    background-color : #fff;
-    color: black;
-}
-
-ul li.active a { 
-    background-color : #fff;
-    color: black;
-}
-.main{ 
-    max-width: 1200px;
-    margin: auto;
-}
-
-.title{
-    position: absolute;
-    text-align: center;
-    top: 8%;
-    padding-left: 3%;
-}
-.title1 h1{
-    font-weight: 440;
-    position: absolute;
-    top: 15%;
-    padding-left: 36%;
-    font-size: 4.3vw;
-}
-
-.title h2{
-    color: black;
-    font-size: 4.32vw;
-    line-height: 5.5vw;
-}
-
-.text1-container {
-    position: absolute;
-    width: 100%;
-    top: 40%;
-    height: 10%;
-
-    color: black;
-    line-height: 10mm;
-    text-align: center;
-    font-size: 2.5vw;
-    
-}
-
-.text-container {
-    position: absolute;
-    top: 32%;
-    padding-left: 3%;
-    height: 10%;
-
-    color: black;
-    line-height: 10mm;
-    text-align: center;
-    font-size: 2.6vw;
-    
-}
-
-.register-container {
-    width: 100%;
-    padding-left: 35px;
-    padding-top: 12%;
-    color: black;
-    line-height: 10mm;
-    text-align: left;
-    font-size: 1.4vw;
-    
-}
-
-footer {
-    position: absolute;
-    top: 90%;
-    padding-left: 24.95%;
-    font-size: 1.562vw;
-    color: black;
-}
+/* footer {
+    clear: both;
+    position: relative;
+    height: 200px;
+    margin-top: -200px;
+} */
