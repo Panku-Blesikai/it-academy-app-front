@@ -149,5 +149,10 @@ export class RegisterFormComponent implements OnInit {
          { queryParams: {idHash: this.applicationId}})
     );
   }
+
+  charCounter(inputClass, area) {
+    const inputField = document.getElementById(inputClass) as HTMLInputElement;
+    document.getElementById(area).innerHTML = (inputField.maxLength - inputField.value.length).toString();
+  }
 }
 
