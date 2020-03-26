@@ -68,10 +68,10 @@
         class="form-control"
         id="phone"
         formControlName="phone"
-        placeholder="+3706-66-66666"
+        placeholder="+37066666666"
       />
       <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
-        <div *ngIf="phone.errors?.pattern">Praome įvesti telefono numerį formatu: +3706-66-66666</div>
+        <div *ngIf="phone.errors?.pattern">Praome įvesti telefono numerį formatu: +37066666666</div>
         <div *ngIf="phone.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
@@ -155,6 +155,22 @@
     <div class="form-group">
       <label for="threePartyAgreement"
       >Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne pakomentuok plačiau.</label>
+      <div>
+        <input
+          type="radio"
+          id="threePartAgreementYes"
+          name="threePartAgreementRadio"
+          value="Taip"
+          (click)="yesCheckThreePartyAgreement()"
+        >Taip
+        <input
+          type="radio"
+          id="threePartAgreementNo"
+          name="threePartAgreementRadio"
+          value="Ne"
+          (click)="noCheckThreePartyAgreement()"
+        >Ne
+      </div>
       <textarea
         type="text"
         class="form-control"
@@ -162,6 +178,7 @@
         formControlName="threePartyAgreement"
         maxlength="1024"
         (keyup)="charCounter('threePartyAgreement', 'chars-remaining-threePartyAgreement')"
+        style="display: none"
       ></textarea>
       <span [hidden]="!threePartyAgreement.valid && !threePartyAgreement.pristine">
         <span>Liko simbolių: </span><span id="chars-remaining-threePartyAgreement">1024</span>
@@ -176,6 +193,22 @@
     <div class="form-group">
       <label for="available14To18"
       >Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi akademijai skirti tiek laiko?</label>
+      <div>
+        <input
+          type="radio"
+          id="available14To18Yes"
+          name="available14To18Radio"
+          value="Taip"
+          (click)="yesCheckAvailable14To18()"
+        >Taip
+        <input
+          type="radio"
+          id="available14To18No"
+          name="available14To18Radio"
+          value="Ne"
+          (click)="noCheckAvailable14To18()"
+        >Ne
+      </div>
       <textarea
         type="text"
         class="form-control"
@@ -183,6 +216,7 @@
         formControlName="available14To18"
         maxlength="1024"
         (keyup)="charCounter('available14To18', 'chars-remaining-available14To18')"
+        style="display: none"
       ></textarea>
       <span [hidden]="!available14To18.valid && !available14To18.pristine">
         <span>Liko simbolių: </span><span id="chars-remaining-available14To18">1024</span>
@@ -196,9 +230,7 @@
 
     <div class="form-group">
       <label for="motivation"
-      >Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje
-        dalyvauti?</label
-      >
+      >Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje dalyvauti?</label>
       <textarea
         type="text"
         class="form-control"
@@ -240,8 +272,7 @@
     </div>
 
     <div class="form-group">
-      <label for="infoAboutAcademy"
-      >Iš kur sužinojai apie IT akademiją Swedbank?</label>
+      <label for="infoAboutAcademy">Iš kur sužinojai apie IT akademiją Panku Blesikuose?</label>
       <textarea
         type="text"
         class="form-control"
