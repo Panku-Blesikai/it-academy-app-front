@@ -141,6 +141,7 @@
         formControlName="freeTimeActivity"
         maxlength="1024"
         (keyup)="charCounter('freeTimeActivity', 'chars-remaining-freeTimeActivity')"
+        autosize
       ></textarea>
       <span [hidden]="!freeTimeActivity.valid && !freeTimeActivity.pristine">
         <span>Liko simbolių: </span><span id="chars-remaining-freeTimeActivity">1024</span>
@@ -179,6 +180,7 @@
         maxlength="1024"
         (keyup)="charCounter('threePartyAgreement', 'chars-remaining-threePartyAgreement')"
         style="display: none"
+        autosize
       ></textarea>
       <span [hidden]="!threePartyAgreement.valid && !threePartyAgreement.pristine">
         <span>Liko simbolių: </span><span id="chars-remaining-threePartyAgreement">1024</span>
@@ -214,7 +216,7 @@
         class="form-control"
         id="available14To18"
         formControlName="available14To18"
-        maxlength="1024"
+        maxlength="5"
         (keyup)="charCounter('available14To18', 'chars-remaining-available14To18')"
         style="display: none"
       ></textarea>
@@ -238,6 +240,7 @@
         formControlName="motivation"
         maxlength="1024"
         (keyup)="charCounter('motivation', 'chars-remaining-motivation')"
+        autosize
       ></textarea>
       <span [hidden]="!motivation.valid && !motivation.pristine">
         <span>Liko simbolių: </span><span id="chars-remaining-motivation">1024</span>
@@ -261,6 +264,7 @@
         formControlName="experience"
         maxlength="1024"
         (keyup)="charCounter('experience', 'chars-remaining-experience')"
+        autosize
       ></textarea>
       <span [hidden]="!experience.valid && !experience.pristine">
         <span>Liko simbolių: </span><span id="chars-remaining-experience">1024</span>
@@ -280,6 +284,7 @@
         formControlName="infoAboutAcademy"
         maxlength="1024"
         (keyup)="charCounter('infoAboutAcademy', 'chars-remaining-infoAboutAcademy')"
+        autosize
       ></textarea>
       <span [hidden]="!infoAboutAcademy.valid && !infoAboutAcademy.pristine">
         <span>Liko simbolių: </span><span id="chars-remaining-infoAboutAcademy">1024</span>
