@@ -150,6 +150,11 @@ export class RegisterFormComponent implements OnInit {
     );
   }
 
+  charCounter(inputClass, area) {
+    const inputField = document.getElementById(inputClass) as HTMLInputElement;
+    document.getElementById(area).innerHTML = (inputField.maxLength - inputField.value.length).toString();
+  }
+  
   yesCheckThreePartyAgreement(): void {
     document.getElementById('threePartyAgreement').style.display = 'none';
     this.threePartyAgreement.setValue('Taip');
