@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApplicationService {
-  private readonly apiPath = '/api';
+  private readonly apiPath = 'http://localhost:8080';
   authenticated = false;
 
   constructor(private httpClient: HttpClient) {
