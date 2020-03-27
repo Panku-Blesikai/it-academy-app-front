@@ -12,14 +12,10 @@ export class AuthenticationService {
 
   authenticate(username, password) {
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpClient.get<Admin>('https://it-academy-app-back.herokuapp.com/validateLogin', {headers}).pipe(
-      map(
+    return this.httpClient.get<Admin>('https://it-academy-app-back.herokuapp.com/validateLogin', {headers}).subscribe(
         userData => {
-          sessionStorage.setItem('username', username);
-          return userData;
+          sessionStorage.setItem('username', userData.status);
         }
-      )
-
     );
   }
 
