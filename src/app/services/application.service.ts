@@ -8,17 +8,12 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApplicationService {
-  private readonly apiPath = 'http://localhost:8080';
-  authenticated = false;
+  private readonly apiPath = '/api';
 
   constructor(private httpClient: HttpClient) {
   }
   getApplications(): Observable<Application[]> {
-    const username = 'admin';
-    const password = 'pankublesikai';
-
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpClient.get<Application[]>(`${this.apiPath}/applications`, {headers});
+    return this.httpClient.get<Application[]>(`https://it-academy-app-back.herokuapp.com/applications`);
   }
 
   getApplication(id: string): Observable<Application> {

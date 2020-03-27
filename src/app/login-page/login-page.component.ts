@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
@@ -9,22 +9,29 @@ export class LoginPageComponent implements OnInit {
 
   username = 'admin';
   password = 'pankublesikai';
+  errorMessage = 'Invalid Credentials';
+  successMessage: string;
   invalidLogin = false;
+  loginSuccess = false;
 
-  constructor(private router: Router,
-              private loginService: AuthenticationService) {
+
+  constructor(private route: ActivatedRoute, private router: Router,
+              private authenticationService: AuthenticationService) {
   }
 
   ngOnInit() {
   }
 
   checkLogin() {
-    if (this.loginService.authenticate(this.username, this.password)
-    ) {
-      this.router.navigate(['/admin']);
+    this.authenticationService.authenticationService(this.username, this.password).subscribe((result) => {
       this.invalidLogin = false;
-    } else {
+      this.loginSuccess = true;
+      this.successMessage = 'Login Successful.';
+      console.log(this.successMessage);
+      this.router.navigate(['/admin']);
+    }, () => {
       this.invalidLogin = true;
-    }
+      this.loginSuccess = false;
+    });
   }
 }

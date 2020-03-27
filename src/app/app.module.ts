@@ -11,13 +11,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ApplicationPageComponent } from './application-page/application-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { SuccessRegistrationPageComponent } from './success-registration-page/success-registration-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
+import {HttpInterceptorService} from './services/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,11 @@ import { LogoutPageComponent } from './logout-page/logout-page.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
