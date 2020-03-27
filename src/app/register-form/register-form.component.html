@@ -57,9 +57,10 @@
         id="phone"
         formControlName="phone"
         placeholder="+37066666666"
+        maxlength="12"
       />
       <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
-        <div *ngIf="phone.errors?.pattern">Praome įvesti telefono numerį formatu: +37066666666</div>
+        <div *ngIf="phone.errors?.pattern">Prašome įvesti telefono numerį formatu: +37066666666</div>
         <div *ngIf="phone.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
@@ -275,6 +276,11 @@
         <div *ngIf="infoAboutAcademy.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
         <div *ngIf="infoAboutAcademy.errors?.required">Šis laukas yra privalomas.</div>
       </div>
+    </div>
+
+    <div class="form-group">
+      <input type="checkbox" id="gdpr" [formControl]="registerForm.controls['gdpr']">
+      Aš sutinku, kad mano asmens duomenis tvarkytų IT akademijos komanda.
     </div>
 
     <button type="submit" class="btn btn-dark btn-lg" [disabled]="!registerForm.valid">
