@@ -112,7 +112,7 @@ export class RegisterFormComponent implements OnInit {
     available14To18: ['',
       [
         Validators.required,
-        Validators.maxLength(1024)
+        Validators.maxLength(5)
       ]
     ],
     motivation: ['',
@@ -154,7 +154,7 @@ export class RegisterFormComponent implements OnInit {
     const inputField = document.getElementById(inputClass) as HTMLInputElement;
     document.getElementById(area).innerHTML = (inputField.maxLength - inputField.value.length).toString();
   }
-  
+
   yesCheckThreePartyAgreement(): void {
     document.getElementById('threePartyAgreement').style.display = 'none';
     this.threePartyAgreement.setValue('Taip');
