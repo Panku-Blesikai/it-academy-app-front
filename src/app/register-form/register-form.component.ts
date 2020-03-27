@@ -112,7 +112,7 @@ export class RegisterFormComponent implements OnInit {
     available14To18: ['',
       [
         Validators.required,
-        Validators.maxLength(1024)
+        Validators.maxLength(5)
       ]
     ],
     motivation: ['',
@@ -148,6 +148,11 @@ export class RegisterFormComponent implements OnInit {
        () => this.router.navigate(['/register/success'],
          { queryParams: {idHash: this.applicationId}})
     );
+  }
+
+  charCounter(inputClass, area) {
+    const inputField = document.getElementById(inputClass) as HTMLInputElement;
+    document.getElementById(area).innerHTML = (inputField.maxLength - inputField.value.length).toString();
   }
 
   yesCheckThreePartyAgreement(): void {
