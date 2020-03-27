@@ -4,7 +4,7 @@ import {Application} from '../shared/application';
 import {ActivatedRoute} from '@angular/router';
 import {ApplicationService} from '../services/application.service';
 import {switchMap} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-application-page',
@@ -13,7 +13,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ApplicationPageComponent implements OnInit {
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private applicationService: ApplicationService) {
+  constructor(private loginService: AuthenticationService, private route: ActivatedRoute, private applicationService: ApplicationService) {
     this.ngOnInit();
     this.application$.subscribe(value => (this.applicationWithNewStatus = value));
   }
@@ -39,5 +39,4 @@ export class ApplicationPageComponent implements OnInit {
     );
   }
 
-  authenticated() { return this.applicationService.authenticated; }
 }

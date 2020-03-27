@@ -14,7 +14,11 @@ export class ApplicationService {
   constructor(private httpClient: HttpClient) {
   }
   getApplications(): Observable<Application[]> {
-    return this.httpClient.get<Application[]>(`${this.apiPath}/applications`);
+    const username = 'admin';
+    const password = 'pankublesikai';
+
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this.httpClient.get<Application[]>(`${this.apiPath}/applications`, {headers});
   }
 
   getApplication(id: string): Observable<Application> {
@@ -32,24 +36,6 @@ export class ApplicationService {
       .put<Application>(`${this.apiPath}/applications`, application)
       .pipe(catchError(this.errorHandler));
   }
-
-  authenticate(credentials, callback) {
-
-    const headers = new HttpHeaders(credentials ? {
-      authorization : 'Basic ' + btoa(credentials.username + ':' + credentials.password)
-    } : {});
-
-    this.httpClient.get('user', {headers}).subscribe(response => {
-      if (response['name']) {
-        this.authenticated = true;
-      } else {
-        this.authenticated = false;
-      }
-      return callback && callback();
-    });
-
-  }
-
   errorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

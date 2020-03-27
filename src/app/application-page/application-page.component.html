@@ -51,7 +51,7 @@
     <td>{{application.status}}</td>
   </tr>
   </tbody>
-  <div [hidden]="!authenticated()" *ngIf="application.status === 'PERŽIŪRIMA'">
+  <div *ngIf="loginService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
     <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
       Patvirtinti
     </button>
@@ -60,4 +60,4 @@
     </button>
   </div>
 </table>
-<a [hidden]="!authenticated()" [routerLink]="['/admin']">Grįžti</a>
+<a *ngIf="loginService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
