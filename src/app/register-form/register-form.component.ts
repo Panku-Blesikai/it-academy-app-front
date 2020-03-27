@@ -157,11 +157,13 @@ export class RegisterFormComponent implements OnInit {
 
   yesCheckThreePartyAgreement(): void {
     document.getElementById('threePartyAgreement').style.display = 'none';
+    document.getElementById('remaining-threePartyAgreement').style.display = 'none';
     this.threePartyAgreement.setValue('Taip');
   }
 
   noCheckThreePartyAgreement(): void {
     document.getElementById('threePartyAgreement').style.display = 'block';
+    document.getElementById('remaining-threePartyAgreement').style.display = 'block';
     this.threePartyAgreement.setValue('');
   }
 
