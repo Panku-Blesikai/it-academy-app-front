@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Application} from '../shared/application';
 import { catchError } from 'rxjs/operators';
@@ -13,7 +13,7 @@ export class ApplicationService {
   constructor(private httpClient: HttpClient) {
   }
   getApplications(): Observable<Application[]> {
-    return this.httpClient.get<Application[]>(`https://it-academy-app-back.herokuapp.com/applications`);
+    return this.httpClient.get<Application[]>(`${this.apiPath}/applications`);
   }
 
   getApplication(id: string): Observable<Application> {
@@ -32,7 +32,7 @@ export class ApplicationService {
       .pipe(catchError(this.errorHandler));
   }
   errorHandler(error) {
-    let errorMessage = '';
+    let errorMessage: string;
     if (error.error instanceof ErrorEvent) {
       // client-side error
       errorMessage = `Error: ${error.error.message}`;

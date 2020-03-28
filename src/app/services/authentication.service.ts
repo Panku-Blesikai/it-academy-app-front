@@ -1,15 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Admin} from '../shared/admin';
+import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-
-
-export class User {
-  constructor(
-    public status: string,
-  ) {}
-
-}
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +15,9 @@ export class AuthenticationService {
   constructor(private httpClient: HttpClient) { }
 
   authenticationService(username: string, password: string) {
-    return this.httpClient.get(`https://it-academy-app-back.herokuapp.com/validateLogin`,
-      { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
+    return this.httpClient.get(`/api/login`,
+      { headers: { authorization: this.createBasicAuthToken(username, password) } })
+      .pipe(map(() => {
       this.username = username;
       this.password = password;
       this.registerSuccessfulLogin(username, password);
@@ -47,14 +39,7 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    let Лuser = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-    if (user === null) { return false; }
-    return true;
-  }
-
-  getLoggedInUserName() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-    if (user === null) { return ''; }
-    return user;
+    return user !== null;
   }
 }
