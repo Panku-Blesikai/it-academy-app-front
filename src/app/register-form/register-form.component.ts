@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Validators, FormControl, FormBuilder} from '@angular/forms';
+import {Validators, FormControl, FormBuilder, CheckboxRequiredValidator} from '@angular/forms';
 
 import {Application} from '../shared/application';
 import {ApplicationService} from '../services/application.service';
@@ -88,7 +88,7 @@ export class RegisterFormComponent implements OnInit {
       [
         Validators.required,
         Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`),
-        Validators.maxLength(14)
+        Validators.maxLength(12)
       ]
     ],
     education: ['',
@@ -133,6 +133,10 @@ export class RegisterFormComponent implements OnInit {
         Validators.maxLength(1024)
       ]
     ],
+    gdpr: [
+      false,
+      Validators.pattern('true')
+    ]
   });
 
   ngOnInit(): void {
@@ -145,8 +149,8 @@ export class RegisterFormComponent implements OnInit {
         this.serverErrorMessage = '';
       },
       error => (this.serverErrorMessage = error),
-       () => this.router.navigate(['/register/success'],
-         { queryParams: {idHash: this.applicationId}})
+      () => this.router.navigate(['/register/success'],
+        {queryParams: {idHash: this.applicationId}})
     );
   }
 
@@ -157,11 +161,13 @@ export class RegisterFormComponent implements OnInit {
 
   yesCheckThreePartyAgreement(): void {
     document.getElementById('threePartyAgreement').style.display = 'none';
+    document.getElementById('remaining-threePartyAgreement').style.display = 'none';
     this.threePartyAgreement.setValue('Taip');
   }
 
   noCheckThreePartyAgreement(): void {
     document.getElementById('threePartyAgreement').style.display = 'block';
+    document.getElementById('remaining-threePartyAgreement').style.display = 'block';
     this.threePartyAgreement.setValue('');
   }
 

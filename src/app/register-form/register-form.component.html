@@ -8,11 +8,7 @@
         id="name"
         formControlName="name"
         maxlength="256"
-        (keyup)="charCounter('name', 'chars-remaining-name')"
       />
-      <span [hidden]="!name.valid && !name.pristine">
-        <span>Liko simbolių: </span><span id="chars-remaining-name">256</span>
-      </span>
       <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
         <div *ngIf="name.errors?.maxLength">Vardo įvestis turi perdaug simbolių.</div>
         <div *ngIf="name.errors?.required">Šis laukas yra privalomas.</div>
@@ -27,11 +23,7 @@
         id="surname"
         formControlName="surname"
         maxlength="256"
-        (keyup)="charCounter('surname', 'chars-remaining-surname')"
       />
-      <span [hidden]="!surname.valid && !surname.pristine">
-        <span>Liko simbolių: </span><span id="chars-remaining-surname">256</span>
-      </span>
       <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger">
         <div *ngIf="surname.errors?.maxLength">Pavardės įvestis turi perdaug simbolių.</div>
         <div *ngIf="surname.errors?.required">Šis laukas yra privalomas.</div>
@@ -47,11 +39,7 @@
         formControlName="email"
         placeholder="jonas.jonaitis@mail.com"
         maxlength="256"
-        (keyup)="charCounter('email', 'chars-remaining-email')"
       />
-      <span [hidden]="!email.valid && !email.pristine">
-        <span>Liko simbolių: </span><span id="chars-remaining-email">256</span>
-      </span>
       <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
         <div *ngIf="email.errors?.maxLength">Elektroninio pašto adresas yra per ilgas.</div>
         <div *ngIf="email.errors?.pattern">Elektroninio pašto formatas neteisingas. Įvedimo pavyzdys:
@@ -69,9 +57,10 @@
         id="phone"
         formControlName="phone"
         placeholder="+37066666666"
+        maxlength="12"
       />
       <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
-        <div *ngIf="phone.errors?.pattern">Praome įvesti telefono numerį formatu: +37066666666</div>
+        <div *ngIf="phone.errors?.pattern">Prašome įvesti telefono numerį formatu: +37066666666</div>
         <div *ngIf="phone.errors?.required">Šis laukas yra privalomas.</div>
       </div>
     </div>
@@ -79,7 +68,7 @@
     <span class="form-group">
       <label for="education">Mokymo įstaiga, kurioje šiuo metu mokaisi</label>
       <input type="text" class="form-control" id="education" list="universities" formControlName="education"
-             maxlength="256"  (keyup)="charCounter('education', 'chars-remaining-education')"/>
+             maxlength="256"/>
       <datalist id="universities">
         <option value="Generolo Jono Žemaičio Lietuvos karo akademija">
         <option value="Lietuvos sveikatos mokslų universitetas">
@@ -123,9 +112,6 @@
         <option value="Vilniaus dizaino kolegija">
         <option value="Vilniaus kooperacijos kolegija">
     </datalist>
-      <span [hidden]="!education.valid && !education.pristine">
-        <span>Liko simbolių: </span><span id="chars-remaining-education">256</span>
-      </span>
       <div [hidden]="education.valid || education.pristine" class="alert alert-danger">
         <div *ngIf="education.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
         <div *ngIf="education.errors?.required">Šis laukas yra privalomas.</div>
@@ -182,7 +168,8 @@
         style="display: none"
         autosize
       ></textarea>
-      <span [hidden]="!threePartyAgreement.valid && !threePartyAgreement.pristine">
+      <span [hidden]="!threePartyAgreement.valid && !threePartyAgreement.pristine" style="display: none"
+            id="remaining-threePartyAgreement">
         <span>Liko simbolių: </span><span id="chars-remaining-threePartyAgreement">1024</span>
       </span>
       <div [hidden]="threePartyAgreement.valid ||threePartyAgreement.pristine"
@@ -217,12 +204,8 @@
         id="available14To18"
         formControlName="available14To18"
         maxlength="5"
-        (keyup)="charCounter('available14To18', 'chars-remaining-available14To18')"
         style="display: none"
       ></textarea>
-      <span [hidden]="!available14To18.valid && !available14To18.pristine">
-        <span>Liko simbolių: </span><span id="chars-remaining-available14To18">1024</span>
-      </span>
       <div
         [hidden]="available14To18.valid ||available14To18.pristine" class="alert alert-danger">
         <div *ngIf="available14To18.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
@@ -293,6 +276,11 @@
         <div *ngIf="infoAboutAcademy.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
         <div *ngIf="infoAboutAcademy.errors?.required">Šis laukas yra privalomas.</div>
       </div>
+    </div>
+
+    <div class="form-group">
+      <input type="checkbox" id="gdpr" [formControl]="registerForm.controls['gdpr']">
+      Aš sutinku, kad mano asmens duomenis tvarkytų IT akademijos komanda.
     </div>
 
     <button type="submit" class="btn btn-dark btn-lg" [disabled]="!registerForm.valid">
