@@ -7,8 +7,8 @@ import {AuthenticationService} from '../services/authentication.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  username = 'admin';
-  password = 'pankublesikai';
+  username = '';
+  password = '';
   errorMessage = 'Invalid Credentials';
   successMessage: string;
   invalidLogin = false;
@@ -23,7 +23,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   checkLogin() {
-    this.authenticationService.authenticationService(this.username, this.password).subscribe((result) => {
+    this.authenticationService.authenticationService(this.username, this.password).subscribe(() => {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful.';

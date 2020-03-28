@@ -8,6 +8,7 @@ import {map} from 'rxjs/operators';
 export class AuthenticationService {
 
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
+  PASSWORD_SESSION_ATTRIBUTE_NAME = 'password';
 
   public username: string;
   public password: string;
@@ -30,10 +31,12 @@ export class AuthenticationService {
 
   registerSuccessfulLogin(username, password) {
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+    sessionStorage.setItem(this.PASSWORD_SESSION_ATTRIBUTE_NAME, password);
   }
 
   logout() {
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    sessionStorage.removeItem(this.PASSWORD_SESSION_ATTRIBUTE_NAME);
     this.username = null;
     this.password = null;
   }
