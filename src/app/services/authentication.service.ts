@@ -7,6 +7,7 @@ import {map} from 'rxjs/operators';
 })
 export class AuthenticationService {
 
+  // reikia pernesti i constantas
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
   PASSWORD_SESSION_ATTRIBUTE_NAME = 'password';
 
@@ -42,7 +43,6 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-    return user !== null;
+    return sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME) !== null;
   }
 }
