@@ -2,47 +2,39 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
+export class JwtResponse {
+  constructor(
+    public jwtToken: string,
+  ) {}
+
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  // reikia pernesti i constantas
-  USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
-  PASSWORD_SESSION_ATTRIBUTE_NAME = 'password';
-
   public username: string;
-  public password: string;
 
   constructor(private httpClient: HttpClient) { }
 
   authenticationService(username: string, password: string) {
-    return this.httpClient.get(`/api/login`,
-      { headers: { authorization: this.createBasicAuthToken(username, password) } })
-      .pipe(map(() => {
-      this.username = username;
-      this.password = password;
-      this.registerSuccessfulLogin(username, password);
-    }));
-  }
-
-  createBasicAuthToken(username: string, password: string) {
-    return 'Basic ' + window.btoa(username + ':' + password);
-  }
-
-  registerSuccessfulLogin(username, password) {
-    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username);
-    sessionStorage.setItem(this.PASSWORD_SESSION_ATTRIBUTE_NAME, password);
+    return this.httpClient.post<any>(`/api/authenticate`, {username, password})
+      .pipe(map(
+        userData => {
+          sessionStorage.setItem('username', username);
+          const tokenStr = 'Bearer ' + userData.token;
+          sessionStorage.setItem('token', tokenStr);
+          return userData;
+        }
+    ));
   }
 
   logout() {
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-    sessionStorage.removeItem(this.PASSWORD_SESSION_ATTRIBUTE_NAME);
-    this.username = null;
-    this.password = null;
+    sessionStorage.removeItem('username');
   }
 
   isUserLoggedIn() {
-    return sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME) !== null;
+    return sessionStorage.getItem('username') !== null;
   }
 }
