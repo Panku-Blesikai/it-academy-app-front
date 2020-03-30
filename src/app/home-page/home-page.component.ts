@@ -1,3 +1,4 @@
+import {LoaderService} from '../services/loader.service';
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
 
@@ -8,13 +9,12 @@ import {AuthenticationService} from '../services/authentication.service';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private loaderService: LoaderService, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
-  hideLoader(): void {
-    document.getElementById('loader').style.display = 'none';
-    document.getElementById('home').style.display = 'block';
+  hideLoader() {
+    this.loaderService.hideLoader(document);
   }
 }
