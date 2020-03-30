@@ -28,7 +28,7 @@
     "http-proxy-middleware": "^0.19.1",
     "ngx-textarea-autosize": "^2.0.3",
     "remove-accents": "^0.4.2",
-    "rxjs": "~6.5.4",
+    "rxjs": "^6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

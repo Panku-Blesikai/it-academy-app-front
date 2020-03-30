@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,7 +8,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }

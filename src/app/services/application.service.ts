@@ -12,7 +12,6 @@ export class ApplicationService {
 
   constructor(private httpClient: HttpClient) {
   }
-
   getApplications(): Observable<Application[]> {
     return this.httpClient.get<Application[]>(`${this.apiPath}/applications`);
   }
@@ -32,9 +31,8 @@ export class ApplicationService {
       .put<Application>(`${this.apiPath}/applications`, application)
       .pipe(catchError(this.errorHandler));
   }
-
   errorHandler(error) {
-    let errorMessage = '';
+    let errorMessage: string;
     if (error.error instanceof ErrorEvent) {
       // client-side error
       errorMessage = `Error: ${error.error.message}`;
