@@ -10,7 +10,7 @@ export class LoginPageComponent implements OnInit {
   username = '';
   password = '';
   errorMessage = 'Invalid Credentials';
-  successMessage: string;
+  // successMessage: string;
   invalidLogin = false;
   loginSuccess = false;
 
@@ -26,12 +26,13 @@ export class LoginPageComponent implements OnInit {
     this.authenticationService.authenticationService(this.username, this.password).subscribe(() => {
       this.invalidLogin = false;
       this.loginSuccess = true;
-      this.successMessage = 'Login Successful.';
-      console.log(this.successMessage);
+      // this.successMessage = 'Login Successful.';
+      // console.log(this.successMessage);
       this.router.navigate(['/admin']);
     }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;
+      // console.log(this.errorMessage);
     });
   }
 }
