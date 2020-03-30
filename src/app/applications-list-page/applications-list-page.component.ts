@@ -3,6 +3,8 @@ import {Observable} from 'rxjs';
 import {Application} from '../shared/application';
 import {ApplicationService} from '../services/application.service';
 import {LoaderService} from '../services/loader.service';
+import {AuthenticationService} from '../services/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-applications-list-page',
@@ -11,11 +13,15 @@ import {LoaderService} from '../services/loader.service';
 })
 export class ApplicationsListPageComponent implements OnInit, AfterViewInit {
   public applications$: Observable<Application[]>;
-  constructor(private applicationService: ApplicationService, private loaderService: LoaderService) { }
+  constructor(private applicationService: ApplicationService, private loaderService: LoaderService,
+              private  authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
-    this.applications$ = this.applicationService.getApplications();
-
+    if (this.authenticationService.isUserLoggedIn()) {
+      this.applications$ = this.applicationService.getApplications();
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   ngAfterViewInit() {

@@ -4,6 +4,8 @@ import {Application} from '../shared/application';
 import {ActivatedRoute} from '@angular/router';
 import {ApplicationService} from '../services/application.service';
 import {switchMap} from 'rxjs/operators';
+import {AuthenticationService} from '../services/authentication.service';
+import {LoaderService} from '../services/loader.service';
 
 @Component({
   selector: 'app-application-page',
@@ -12,7 +14,7 @@ import {switchMap} from 'rxjs/operators';
 })
 export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
-  constructor(private route: ActivatedRoute, private applicationService: ApplicationService, private loaderService) {
+  constructor(private loginService: AuthenticationService, private route: ActivatedRoute, private applicationService: ApplicationService, private loaderService: LoaderService) {
     this.ngOnInit();
     this.application$.subscribe(value => (this.applicationWithNewStatus = value));
   }

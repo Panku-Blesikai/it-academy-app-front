@@ -85,13 +85,16 @@
       <td>{{application.status}}</td>
     </tr>
     </tbody>
-    <div permissions="ADMIN" *ngIf="application.status === 'PERŽIŪRIMA'">
+    <div *ngIf="loginService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
       <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
         Patvirtinti
       </button>
       <button name="status" (click)="changeStatus('ATMESTA')" class="btn btn-danger">
         Atmesti
       </button>
+    </div>
+</table>
+<a *ngIf="loginService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
     </div>
   </table>
   </div>
