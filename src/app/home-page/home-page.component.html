@@ -19,9 +19,6 @@
         <li class="nav-item">
           <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/login']">PRISIJUNGTI</a>
         </li>
-        <li class="nav-item">
-          <a *ngIf="authenticationService.isUserLoggedIn()" class="nav-link"  [routerLink]="['/logout']">ATSIJUNGTI</a>
-        </li>
       </ul>
     </div>
     </div>
