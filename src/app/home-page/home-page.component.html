@@ -21,7 +21,9 @@
     </div>
   </nav>
 
-  <div class="bg">
+  <div id="loader"></div>
+
+  <div class="bg" id="home-page">
     <div class="jumbotron home-page">
       <h1 class="display-4">PANKU BLESIKAI</h1>
       <p class="lead">Įkvėpimas, neribojimas tyrinėjimas ir neįtikėtina patirtis yra tai ko mes siekiame.</p>
@@ -30,6 +32,7 @@
     </div>
 
     <!-- <footer>COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED</footer> -->
-    
+
   </div>
-  </body>
+  <img (load)="hideLoader()" id="for-loading" src="../../assets/background.jpg">
+</body>
