@@ -38,6 +38,5 @@ export class ApplicationsListPageComponent implements OnInit, AfterViewInit {
 
   showIfUserLoggedIn() {
     this.authenticationService.isUserLoggedIn();
-    console.log( this.authenticationService.isUserLoggedIn());
   }
 }

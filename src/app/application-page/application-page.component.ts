@@ -7,11 +7,18 @@ import {switchMap} from 'rxjs/operators';
 import {AuthenticationService} from '../services/authentication.service';
 import {LoaderService} from '../services/loader.service';
 
+enum StatusType {
+  PERZIURIMA = 'PERŽIŪRIMA',
+  ATMESTA = 'ATMESTA',
+  PATVIRTINTA = 'PATVIRTINTA'
+}
+
 @Component({
   selector: 'app-application-page',
   templateUrl: './application-page.component.html',
-  styleUrls: ['./application-page.component.css']
+  styleUrls: ['./application-page.component.scss']
 })
+
 export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
   constructor(private authenticationService: AuthenticationService,
@@ -23,6 +30,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   public application$: Observable<Application>;
   private serverErrorMessage: any;
   private applicationWithNewStatus: Application;
+  statusType = StatusType;
 
   ngOnInit(): void {
     this.application$ = this.route.paramMap.pipe(
@@ -42,9 +50,6 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
     );
   }
 
-  showIfUserLoggedIn() {
-    this.authenticationService.isUserLoggedIn();
-  }
 
   ngAfterViewInit() {
     this.application$.subscribe(
@@ -55,7 +60,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   }
 
   hideLoader() {
-    this.loaderService.hideLoader(document);
+    this.loaderService.hideLoader();
   }
 
 }
