@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LoaderService} from '../services/loader.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,13 +8,12 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loaderService: LoaderService) { }
 
   ngOnInit(): void {
   }
 
-  hideLoader(): void {
-    document.getElementById('loader').style.display = 'none';
-    document.getElementById('home').style.display = 'block';
+  hideLoader() {
+    this.loaderService.hideLoader(document);
   }
 }

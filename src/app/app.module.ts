@@ -15,7 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ApplicationPageComponent} from './application-page/application-page.component';
 import {AboutPageComponent} from './about-page/about-page.component';
 import {SuccessRegistrationPageComponent} from './success-registration-page/success-registration-page.component';
-import {TextareaAutosizeModule} from "ngx-textarea-autosize";
+import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
 
 @NgModule({
   declarations: [
