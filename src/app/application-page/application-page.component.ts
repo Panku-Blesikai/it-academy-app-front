@@ -14,7 +14,8 @@ import {LoaderService} from '../services/loader.service';
 })
 export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
-  constructor(private loginService: AuthenticationService, private route: ActivatedRoute, private applicationService: ApplicationService, private loaderService: LoaderService) {
+  constructor(public loginService: AuthenticationService, private route: ActivatedRoute,
+              private applicationService: ApplicationService, private loaderService: LoaderService) {
     this.ngOnInit();
     this.application$.subscribe(value => (this.applicationWithNewStatus = value));
   }

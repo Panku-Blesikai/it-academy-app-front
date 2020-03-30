@@ -14,7 +14,7 @@ import {Router} from '@angular/router';
 export class ApplicationsListPageComponent implements OnInit, AfterViewInit {
   public applications$: Observable<Application[]>;
   constructor(private applicationService: ApplicationService, private loaderService: LoaderService,
-              private  authenticationService: AuthenticationService, private router: Router) { }
+              public  authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.authenticationService.isUserLoggedIn()) {
