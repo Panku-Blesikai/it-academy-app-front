@@ -49,6 +49,6 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   }
 
   hideLoader() {
-    this.loaderService.hideLoader(document);
+    this.loaderService.hideLoader();
   }
 }

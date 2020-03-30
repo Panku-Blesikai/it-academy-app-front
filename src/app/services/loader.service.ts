@@ -7,8 +7,8 @@ export class LoaderService {
 
   constructor() { }
 
-  hideLoader(doc): void {
-    doc.getElementById('loader').style.display = 'none';
-    doc.getElementById('content').style.display = 'block';
+  hideLoader(): void {
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
   }
 }

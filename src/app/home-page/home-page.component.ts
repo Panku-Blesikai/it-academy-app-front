@@ -15,6 +15,6 @@ export class HomePageComponent implements OnInit {
   }
 
   hideLoader() {
-    this.loaderService.hideLoader(document);
+    this.loaderService.hideLoader();
   }
 }
