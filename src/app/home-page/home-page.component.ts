@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
@@ -13,4 +13,8 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  hideLoader(): void {
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('home').style.display = 'block';
+  }
 }
