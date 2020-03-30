@@ -5,19 +5,15 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit, AfterViewInit {
+export class HomePageComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(){
-    this.hideLoader();
-  }
-
   hideLoader(): void {
     document.getElementById('loader').style.display = 'none';
-    document.getElementById('home-page').style.display = 'block';
+    document.getElementById('home').style.display = 'block';
   }
 }
