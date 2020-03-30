@@ -14,8 +14,9 @@ import {LoaderService} from '../services/loader.service';
 })
 export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
-  constructor(public loginService: AuthenticationService, private route: ActivatedRoute,
-              private applicationService: ApplicationService, private loaderService: LoaderService) {
+  constructor(private authenticationService: AuthenticationService,
+              private route: ActivatedRoute, private applicationService: ApplicationService,
+              private loaderService: LoaderService) {
     this.ngOnInit();
     this.application$.subscribe(value => (this.applicationWithNewStatus = value));
   }
@@ -41,6 +42,10 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
     );
   }
 
+  showIfUserLoggedIn() {
+    this.authenticationService.isUserLoggedIn();
+  }
+
   ngAfterViewInit() {
     this.application$.subscribe(
       (response) => { this.hideLoader(); },
@@ -50,6 +55,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   }
 
   hideLoader() {
-    this.loaderService.hideLoader();
+    this.loaderService.hideLoader(document);
   }
+
 }
