@@ -1,5 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Validators, FormControl, FormBuilder, CheckboxRequiredValidator} from '@angular/forms';
+import {
+  Validators,
+  FormControl,
+  FormBuilder,
+  CheckboxRequiredValidator,
+  ValidationErrors,
+  ValidatorFn,
+  AbstractControl
+} from '@angular/forms';
 
 import {Application} from '../shared/application';
 import {ApplicationService} from '../services/application.service';
@@ -67,15 +75,19 @@ export class RegisterFormComponent implements OnInit {
     name: ['',
       [
         Validators.required,
-        Validators.pattern(`^(?=.*\S).+\D+$`),
-        Validators.maxLength(256)
+        Validators.maxLength(256),
+        this.regexValidator(new RegExp(`^(?=.*\\S).+$`), {'name': ''}),
+        this.regexValidator(new RegExp(`^[^0-9]+$`), {'name': ''}),
+        this.regexValidator(new RegExp(`^[^!-/:-@[-\`{-~]+$`), {'name': ''})
       ]
     ],
     surname: ['',
       [
         Validators.required,
-        Validators.pattern(`^(?=.*\S).+\D+$`),
-        Validators.maxLength(256)
+        Validators.maxLength(256),
+        this.regexValidator(new RegExp(`^(?=.*\\S).+$`), {'surname': ''}),
+        this.regexValidator(new RegExp(`^[^0-9]+$`), {'surname': ''}),
+        this.regexValidator(new RegExp(`^[^!-,./:-@[-\`{-~]+$`), {'surname': ''})
       ]
     ],
     email: [
@@ -146,6 +158,16 @@ export class RegisterFormComponent implements OnInit {
       Validators.pattern('true')
     ]
   });
+
+  regexValidator(regex: RegExp, error: ValidationErrors) {
+    return (control: AbstractControl): { [key: string]: any } => {
+      if (!control.value) {
+        return null;
+      }
+      const valid = regex.test(control.value);
+      return valid ? null : error;
+    };
+  }
 
   ngOnInit(): void {
   }

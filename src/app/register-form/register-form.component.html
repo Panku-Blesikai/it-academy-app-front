@@ -10,7 +10,7 @@
         maxlength="256"
       />
       <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-        <div *ngIf="name.errors?.pattern">Prašome atsakyti į klausimą.</div>
+        <div *ngIf="name.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
         <div *ngIf="name.errors?.maxLength">Vardo įvestis turi perdaug simbolių.</div>
         <div *ngIf="name.errors?.required">Šis laukas yra privalomas.</div>
       </div>
@@ -26,7 +26,7 @@
         maxlength="256"
       />
       <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger">
-        <div *ngIf="surname.errors?.pattern">Prašome atsakyti į klausimą.</div>
+        <div *ngIf="surname.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
         <div *ngIf="surname.errors?.maxLength">Pavardės įvestis turi perdaug simbolių.</div>
         <div *ngIf="surname.errors?.required">Šis laukas yra privalomas.</div>
       </div>
