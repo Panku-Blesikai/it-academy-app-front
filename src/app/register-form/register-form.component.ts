@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Validators, FormControl, FormBuilder} from '@angular/forms';
+import {Validators, FormControl, FormBuilder, CheckboxRequiredValidator} from '@angular/forms';
 
 import {Application} from '../shared/application';
 import {ApplicationService} from '../services/application.service';
@@ -27,36 +27,36 @@ export class RegisterFormComponent implements OnInit {
     return this.registerForm.get('email');
   }
 
-  get tel() {
-    return this.registerForm.get('tel');
+  get phone() {
+    return this.registerForm.get('phone');
   }
 
   get education() {
     return this.registerForm.get('name');
   }
 
-  get answerFreeTimeActivity() {
-    return this.registerForm.get('answerFreeTimeActivity');
+  get freeTimeActivity() {
+    return this.registerForm.get('freeTimeActivity');
   }
 
-  get answerThreePartAgreement() {
-    return this.registerForm.get('answerThreePartAgreement');
+  get threePartyAgreement() {
+    return this.registerForm.get('threePartyAgreement');
   }
 
-  get answerAvailable14To18() {
-    return this.registerForm.get('answerAvailable14To18');
+  get available14To18() {
+    return this.registerForm.get('available14To18');
   }
 
-  get answerMotivation() {
-    return this.registerForm.get('answerMotivation');
+  get motivation() {
+    return this.registerForm.get('motivation');
   }
 
-  get answerExperience() {
-    return this.registerForm.get('answerExperience');
+  get experience() {
+    return this.registerForm.get('experience');
   }
 
-  get answerInfoAboutAcademy() {
-    return this.registerForm.get('answerInfoAboutAcademy');
+  get infoAboutAcademy() {
+    return this.registerForm.get('infoAboutAcademy');
   }
 
   applicationId: string;
@@ -84,11 +84,11 @@ export class RegisterFormComponent implements OnInit {
         Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)
       ]
     ],
-    tel: ['',
+    phone: ['',
       [
         Validators.required,
-        Validators.pattern(`[+]370[0-9][-][0-9]{2}[-][0-9]{5}$`),
-        Validators.maxLength(14)
+        Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`),
+        Validators.maxLength(12)
       ]
     ],
     education: ['',
@@ -97,42 +97,46 @@ export class RegisterFormComponent implements OnInit {
         Validators.maxLength(256)
       ]
     ],
-    answerFreeTimeActivity: ['',
+    freeTimeActivity: ['',
       [
         Validators.required,
         Validators.maxLength(1024)
       ]
     ],
-    answerThreePartAgreement: ['',
+    threePartyAgreement: ['',
       [
         Validators.required,
         Validators.maxLength(1024)
       ]
     ],
-    answerAvailable14To18: ['',
+    available14To18: ['',
+      [
+        Validators.required,
+        Validators.maxLength(5)
+      ]
+    ],
+    motivation: ['',
       [
         Validators.required,
         Validators.maxLength(1024)
       ]
     ],
-    answerMotivation: ['',
+    experience: ['',
       [
         Validators.required,
         Validators.maxLength(1024)
       ]
     ],
-    answerExperience: ['',
+    infoAboutAcademy: ['',
       [
         Validators.required,
         Validators.maxLength(1024)
       ]
     ],
-    answerInfoAboutAcademy: ['',
-      [
-        Validators.required,
-        Validators.maxLength(1024)
-      ]
-    ],
+    gdpr: [
+      false,
+      Validators.pattern('true')
+    ]
   });
 
   ngOnInit(): void {
@@ -145,9 +149,34 @@ export class RegisterFormComponent implements OnInit {
         this.serverErrorMessage = '';
       },
       error => (this.serverErrorMessage = error),
-       () => this.router.navigate(['/register/success'],
-         { queryParams: {idHash: this.applicationId}})
+      () => this.router.navigate(['/register/success'],
+        {queryParams: {idHash: this.applicationId}})
     );
+  }
+
+  charCounter(inputClass, area) {
+    const inputField = document.getElementById(inputClass) as HTMLInputElement;
+    document.getElementById(area).innerHTML = (inputField.maxLength - inputField.value.length).toString();
+  }
+
+  yesCheckThreePartyAgreement(): void {
+    document.getElementById('threePartyAgreement').style.display = 'none';
+    document.getElementById('remaining-threePartyAgreement').style.display = 'none';
+    this.threePartyAgreement.setValue('Taip');
+  }
+
+  noCheckThreePartyAgreement(): void {
+    document.getElementById('threePartyAgreement').style.display = 'block';
+    document.getElementById('remaining-threePartyAgreement').style.display = 'block';
+    this.threePartyAgreement.setValue('');
+  }
+
+  yesCheckAvailable14To18(): void {
+    this.available14To18.setValue('Taip');
+  }
+
+  noCheckAvailable14To18(): void {
+    this.available14To18.setValue('Ne');
   }
 }
 

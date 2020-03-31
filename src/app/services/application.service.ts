@@ -12,7 +12,6 @@ export class ApplicationService {
 
   constructor(private httpClient: HttpClient) {
   }
-
   getApplications(): Observable<Application[]> {
     return this.httpClient.get<Application[]>(`${this.apiPath}/applications`);
   }
@@ -32,10 +31,21 @@ export class ApplicationService {
       .put<Application>(`${this.apiPath}/applications`, application)
       .pipe(catchError(this.errorHandler));
   }
-
-  errorHandler() {
-    return throwError(
-      'Sorry, our services does not work right now, please try that later'
-    );
+  errorHandler(error) {
+    let errorMessage: string;
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
   }
+  // errorHandler() {
+  //   return throwError(
+  //     'Sorry, our services does not work right now, please try that later'
+  //   );
+  // }
 }

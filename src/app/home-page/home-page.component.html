@@ -16,28 +16,31 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
         </li>
+        <li class="nav-item">
+          <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/login']">PRISIJUNGTI</a>
+        </li>
       </ul>
     </div>
     </div>
   </nav>
 
-  <div class="bg">
-    <div class="jumbotron home-page">
-      <div class="text-center">
-      <h1 class="display-4">IT AKADEMIJA</h1>
-      <p class="lead">Įkvėpimas, neribojimas tyrinėjimas ir neįtikėtina patirtis yra tai ko mes siekiame.</p>
-      <a class="btn btn-light btn-lg middle" [routerLink]="['/about']" role="button">Sužinok daugiau</a>
-    </div>
-    </div>
+  <div id="loader"></div>
 
-
+    <div class="bg" id="content">
+      <div class="jumbotron home-page">
+        <h1 class="display-4">PANKU BLESIKAI</h1>
+        <p class="lead">Įkvėpimas, neribojimas tyrinėjimas ir neįtikėtina patirtis yra tai ko mes siekiame.</p>
+        <hr class="my-4">
+        <a class="btn btn-light btn-lg right" [routerLink]="['/about']" role="button">Sužinok daugiau</a>
+      </div>
   </div>
-      <!-- Footer -->
-<footer class="page-footer font-small">
 
+  <!-- Footer -->
+<footer class="page-footer font-small">
   <div class="footer-copyright text-center py-3">
     COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
   </div>
-
 </footer>
-  </body>
+
+  <img (load)="hideLoader()" id="for-loading" src="../../assets/background.jpg">
+</body>

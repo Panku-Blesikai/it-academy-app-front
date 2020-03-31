@@ -18,10 +18,12 @@
         </li>
       </ul>
     </div>
-    </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- BANNER WITH BACKGROUND IMAGE -->
+<!-- BANNER WITH BACKGROUND IMAGE -->
+
+
 
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -29,30 +31,27 @@
     </div>
   </div>
 
-<div *ngIf="application$ | async as application">
+  <div id="loader"></div>
 
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Registracija sėkminga.</h5>
-      <p class="card-text">
-        Savo registracijos anketą galite rasti čia: 
-        <a href="https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}">https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}</a>
-        <br>
-        Ši nuoroda taip pat išsiųsta elektroniniu paštu {{application.email}}.
-        </p>
-      <a class="btn btn-secondary" [routerLink]="['/application/'+application.idHash]">Anketos peržiūra</a>
+  <div *ngIf="application$ | async as application" id="content">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Registracija sėkminga.</h5>
+        <p class="card-text">
+          Savo registracijos anketą galite rasti čia:
+          <a href="https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}">https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}</a>
+          <br>
+          Ši nuoroda taip pat išsiųsta elektroniniu paštu {{application.email}}.
+          </p>
+        <a class="btn btn-secondary" [routerLink]="['/application/'+application.idHash]">Anketos peržiūra</a>
+      </div>
     </div>
   </div>
-</div>
+  
+  <!-- Footer -->
+<footer class="page-footer font-small">
+  <div class="footer-copyright text-center py-3">
+    COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
+  </div>
+</footer>
 </body>
-
-
-  <!-- <div class="container">
-      Savo registracijos anketą galite rasti čia:
-      <a href="https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}">
-        https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}</a>
-  </div>
-  <div>
-    Ši nuoroda taip pat išsiųsta elektroniniu paštu {{application.email}}.
-  </div>
-</div> -->

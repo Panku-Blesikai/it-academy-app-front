@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -10,11 +9,15 @@ import { ApplicationsListPageComponent } from './applications-list-page/applicat
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ApplicationPageComponent } from './application-page/application-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { SuccessRegistrationPageComponent } from './success-registration-page/success-registration-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
+import { LogoutPageComponent } from './logout-page/logout-page.component';
+import {HttpInterceptorService} from './services/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -28,15 +31,23 @@ import { SuccessRegistrationPageComponent } from './success-registration-page/su
     RegisterPageComponent,
     ApplicationPageComponent,
     AboutPageComponent,
-    SuccessRegistrationPageComponent
+    SuccessRegistrationPageComponent,
+    LoginPageComponent,
+    LogoutPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    TextareaAutosizeModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
