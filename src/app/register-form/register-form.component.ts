@@ -67,14 +67,14 @@ export class RegisterFormComponent implements OnInit {
     name: ['',
       [
         Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
+        Validators.pattern(`^(?=.*\S).+\D+$`),
         Validators.maxLength(256)
       ]
     ],
     surname: ['',
       [
         Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
+        Validators.pattern(`^(?=.*\S).+\D+$`),
         Validators.maxLength(256)
       ]
     ],
