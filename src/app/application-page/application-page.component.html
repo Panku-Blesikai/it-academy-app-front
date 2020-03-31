@@ -1,6 +1,6 @@
 <body>
   <!-- NAVIGATION -->
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
@@ -10,8 +10,8 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link">REGISTRACIJA</a>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
@@ -84,13 +84,21 @@
   </tr>
   </tbody>
   <div permissions="ADMIN" *ngIf="application.status === 'PERŽIŪRIMA'">
-    <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
-      Patvirtinti
-    </button>
     <button name="status" (click)="changeStatus('ATMESTA')" class="btn btn-danger">
       Atmesti
+    </button>
+    <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
+      Patvirtinti
     </button>
   </div>
 </table>
 </div>
+      <!-- Footer -->
+      <footer class="page-footer font-small">
+
+        <div class="footer-copyright text-center py-3">
+          COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
+        </div>
+      
+      </footer>
 </body>
