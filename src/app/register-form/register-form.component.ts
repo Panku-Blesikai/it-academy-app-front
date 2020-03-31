@@ -67,12 +67,14 @@ export class RegisterFormComponent implements OnInit {
     name: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\S).+\D+$`),
         Validators.maxLength(256)
       ]
     ],
     surname: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\S).+\D+$`),
         Validators.maxLength(256)
       ]
     ],
@@ -94,18 +96,21 @@ export class RegisterFormComponent implements OnInit {
     education: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(256)
       ]
     ],
     freeTimeActivity: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
     threePartyAgreement: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
@@ -118,18 +123,21 @@ export class RegisterFormComponent implements OnInit {
     motivation: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
     experience: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
     infoAboutAcademy: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
