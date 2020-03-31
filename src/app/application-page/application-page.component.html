@@ -1,63 +1,101 @@
-<table class="table" *ngIf="application$ | async as application">
-  <tbody>
-  <tr>
-    <th scope="row">Vardas</th>
-    <td>{{application.name}}</td>
-  </tr>
-  <tr>
-    <th scope="row">Pavardė</th>
-    <td>{{application.surname}}</td>
-  </tr>
-  <tr>
-    <th scope="row">El. paštas</th>
-    <td>{{application.email}}</td>
-  </tr>
-  <tr>
-    <th scope="row">Tel. nr.</th>
-    <td>{{application.phone}}</td>
-  </tr>
-  <tr>
-    <th scope="row">Studijuoja</th>
-    <td>{{application.education}}</td>
-  </tr>
-  <tr>
-    <th scope="row">Trišalė sutartis</th>
-    <td>{{application.threePartyAgreement}}</td>
-  </tr>
-  <tr>
-    <th scope="row">Laisvas 14:00-18:00</th>
-    <td>{{application.available14To18}}</td>
-  </tr>  <tr>
-    <th scope="row">Laisvalaikis</th>
-    <td>{{application.freeTimeActivity}}</td>
-  </tr>  <tr>
-    <th scope="row">Motyvacija</th>
-    <td>{{application.motivation}}</td>
-  </tr>
-  <tr>
-    <th scope="row">Patirtis</th>
-    <td>{{application.experience}}</td>
-  </tr>
-  <tr>
-    <th scope="row">Šaltinis</th>
-    <td>{{application.infoAboutAcademy}}</td>
-  </tr>
-  <tr>
-    <th scope="row">Pateikta</th>
-    <td>{{application.dateTime}}</td>
-  </tr>
-  <tr>
-    <th scope="row">Statusas</th>
-    <td>{{application.status}}</td>
-  </tr>
-  </tbody>
-  <div *ngIf="authenticationService.isUserLoggedIn() && application.status === statusType.PERZIURIMA">
-    <button name="status" (click)="changeStatus(statusType.PATVIRTINTA)" class="btn btn-success">
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+
+  <!-- BANNER WITH BACKGROUND IMAGE -->
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Paraiškos peržiūra</h1>
+    </div>
+  </div>
+
+  <div id="loader"></div>
+
+  <div class="container" id="content" *ngIf="application$ | async as application">
+  <table class="table">
+    <tbody>
+    <tr>
+      <th scope="row">Vardas</th>
+      <td>{{application.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Pavardė</th>
+      <td>{{application.surname}}</td>
+    </tr>
+    <tr>
+      <th scope="row">El. paštas</th>
+      <td>{{application.email}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Tel. nr.</th>
+      <td>{{application.phone}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Studijuoja</th>
+      <td>{{application.education}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Trišalė sutartis</th>
+      <td>{{application.threePartyAgreement}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Laisvas 14:00-18:00</th>
+      <td>{{application.available14To18}}</td>
+    </tr>  <tr>
+      <th scope="row">Laisvalaikis</th>
+      <td>{{application.freeTimeActivity}}</td>
+    </tr>  <tr>
+      <th scope="row">Motyvacija</th>
+      <td>{{application.motivation}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Patirtis</th>
+      <td>{{application.experience}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Šaltinis</th>
+      <td>{{application.infoAboutAcademy}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Pateikta</th>
+      <td>{{application.dateTime}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Statusas</th>
+      <td>{{application.status}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="loginService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
+    <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
       Patvirtinti
     </button>
     <button name="status" (click)="changeStatus(statusType.ATMESTA)" class="btn btn-danger">
       Atmesti
     </button>
+    </div>
+  <a *ngIf="loginService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
   </div>
 </table>
 <a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
