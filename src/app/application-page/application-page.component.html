@@ -91,11 +91,11 @@
     <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
       Patvirtinti
     </button>
-    <button name="status" (click)="changeStatus('ATMESTA')" class="btn btn-danger">
+    <button name="status" (click)="changeStatus(statusType.ATMESTA)" class="btn btn-danger">
       Atmesti
     </button>
-  </div>
-    
+    </div>
   <a *ngIf="loginService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
   </div>
-</body>
+</table>
+<a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>

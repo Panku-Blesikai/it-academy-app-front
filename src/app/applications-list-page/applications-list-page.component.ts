@@ -35,4 +35,8 @@ export class ApplicationsListPageComponent implements OnInit, AfterViewInit {
   hideLoader() {
     this.loaderService.hideLoader();
   }
+
+  showIfUserLoggedIn() {
+    this.authenticationService.isUserLoggedIn();
+  }
 }
