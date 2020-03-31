@@ -76,18 +76,18 @@ export class RegisterFormComponent implements OnInit {
       [
         Validators.required,
         Validators.maxLength(256),
-        this.regexValidator(new RegExp(`^(?=.*\\S).+$`), {'name': ''}),
-        this.regexValidator(new RegExp(`^[^0-9]+$`), {'name': ''}),
-        this.regexValidator(new RegExp(`^[^!-/:-@[-\`{-~]+$`), {'name': ''})
+        this.regexValidator(new RegExp(`^(?=.*\\S).+$`)),
+        this.regexValidator(new RegExp(`^[^0-9]+$`)),
+        this.regexValidator(new RegExp(`^[^!-/:-@[-\`{-~]+$`))
       ]
     ],
     surname: ['',
       [
         Validators.required,
         Validators.maxLength(256),
-        this.regexValidator(new RegExp(`^(?=.*\\S).+$`), {'surname': ''}),
-        this.regexValidator(new RegExp(`^[^0-9]+$`), {'surname': ''}),
-        this.regexValidator(new RegExp(`^[^!-,./:-@[-\`{-~]+$`), {'surname': ''})
+        this.regexValidator(new RegExp(`^(?=.*\\S).+$`)),
+        this.regexValidator(new RegExp(`^[^0-9]+$`)),
+        this.regexValidator(new RegExp(`^[^!-,./:-@[-\`{-~]+$`))
       ]
     ],
     email: [
@@ -159,13 +159,13 @@ export class RegisterFormComponent implements OnInit {
     ]
   });
 
-  regexValidator(regex: RegExp, error: ValidationErrors) {
+  regexValidator(regex: RegExp) {
     return (control: AbstractControl): { [key: string]: any } => {
       if (!control.value) {
         return null;
       }
       const valid = regex.test(control.value);
-      return valid ? null : error;
+      return valid ? null : {regexValidator: {value: control.value}};
     };
   }
 
