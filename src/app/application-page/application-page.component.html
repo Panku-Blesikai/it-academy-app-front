@@ -86,6 +86,7 @@
     </tr>
     </tbody>
   </table>
+
   <div *ngIf="loginService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
     <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
       Patvirtinti
@@ -93,7 +94,8 @@
     <button name="status" (click)="changeStatus('ATMESTA')" class="btn btn-danger">
       Atmesti
     </button>
-    <a *ngIf="loginService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
   </div>
+    
+  <a *ngIf="loginService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
   </div>
 </body>
