@@ -8,13 +8,16 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
+          <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
+          <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
+          <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/about']">APIE MUS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()"  [routerLink]="['/logout']">ATSIJUNGTI</a>
         </li>
       </ul>
     </div>
@@ -87,7 +90,7 @@
     </tbody>
   </table>
 
-  <div *ngIf="loginService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
+  <div *ngIf="authenticationService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
     <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
       Patvirtinti
     </button>
@@ -95,7 +98,5 @@
       Atmesti
     </button>
     </div>
-  <a *ngIf="loginService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
+  <a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
   </div>
-</table>
-<a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>

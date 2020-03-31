@@ -17,7 +17,7 @@
 <!--        <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>-->
 <!--      </li>-->
       <li class="nav-item">
-        <a class="nav-link" *ngIf="!showIfUserLoggedIn()"  [routerLink]="['/logout']">ATSIJUNGTI</a>
+        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()"  [routerLink]="['/logout']">ATSIJUNGTI</a>
       </li>
     </ul>
   </div>
