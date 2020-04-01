@@ -1,15 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {
   Validators,
-  FormControl,
   FormBuilder,
-  CheckboxRequiredValidator,
-  ValidationErrors,
-  ValidatorFn,
   AbstractControl
 } from '@angular/forms';
 
-import {Application} from '../shared/application';
 import {ApplicationService} from '../services/application.service';
 import {Router} from '@angular/router';
 
