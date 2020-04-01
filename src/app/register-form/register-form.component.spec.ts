@@ -16,6 +16,9 @@ describe('RegisterFormComponent', () => {
         RouterTestingModule,
         HttpClientModule
       ],
+      providers: [
+        ComponentFixture
+      ],
       declarations: [ RegisterFormComponent ]
     })
     .compileComponents();
