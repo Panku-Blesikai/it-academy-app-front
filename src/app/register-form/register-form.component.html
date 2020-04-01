@@ -133,7 +133,7 @@
         autosize
       ></textarea>
       <span [hidden]="!freeTimeActivity.valid && !freeTimeActivity.pristine">
-        <span>Liko simbolių: </span><span id="chars-remaining-freeTimeActivity">1024</span>
+        <span  class="charsleft">Liko simbolių: </span><span id="chars-remaining-freeTimeActivity">1024</span>
       </span>
       <div
         [hidden]="freeTimeActivity.valid || freeTimeActivity.pristine" class="alert alert-danger">
@@ -174,7 +174,7 @@
       ></textarea>
       <span [hidden]="!threePartyAgreement.valid && !threePartyAgreement.pristine" style="display: none"
             id="remaining-threePartyAgreement">
-        <span>Liko simbolių: </span><span id="chars-remaining-threePartyAgreement">1024</span>
+        <span class="charsleft">Liko simbolių: </span><span id="chars-remaining-threePartyAgreement">1024</span>
       </span>
       <div [hidden]="threePartyAgreement.valid ||threePartyAgreement.pristine"
            class="alert alert-danger">
@@ -231,7 +231,7 @@
         autosize
       ></textarea>
       <span [hidden]="!motivation.valid && !motivation.pristine">
-        <span>Liko simbolių: </span><span id="chars-remaining-motivation">1024</span>
+        <span class="charsleft">Liko simbolių: </span><span id="chars-remaining-motivation">1024</span>
       </span>
       <div [hidden]="motivation.valid ||motivation.pristine" class="alert alert-danger">
         <div *ngIf="motivation.errors?.pattern">Prašome atsakyti į klausimą.</div>
@@ -256,7 +256,7 @@
         autosize
       ></textarea>
       <span [hidden]="!experience.valid && !experience.pristine">
-        <span>Liko simbolių: </span><span id="chars-remaining-experience">1024</span>
+        <span class="charsleft">Liko simbolių: </span><span id="chars-remaining-experience">1024</span>
       </span>
       <div [hidden]="experience.valid ||experience.pristine" class="alert alert-danger">
         <div *ngIf="experience.errors?.pattern">Prašome atsakyti į klausimą.</div>
@@ -277,7 +277,7 @@
         autosize
       ></textarea>
       <span [hidden]="!infoAboutAcademy.valid && !infoAboutAcademy.pristine">
-        <span>Liko simbolių: </span><span id="chars-remaining-infoAboutAcademy">1024</span>
+        <span class="charsleft">Liko simbolių: </span><span id="chars-remaining-infoAboutAcademy">1024</span>
       </span>
       <div [hidden]="infoAboutAcademy.valid || infoAboutAcademy.pristine" class="alert alert-danger">
         <div *ngIf="infoAboutAcademy.errors?.pattern">Prašome atsakyti į klausimą.</div>
