@@ -30,27 +30,17 @@
     </div>
   </div>
 
-<<<<<<< HEAD
-<div class="container">
+<div id="loader"></div>
+
+<div class="container" id="content">
   <ng-container *ngIf="applications$ | async as applications">
     <app-applications-list [allApplications]="applications"></app-applications-list>
   </ng-container>
+
+  <footer class="page-footer font-small">
+    <div class="footer-copyright text-center py-3">
+      COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
+    </div>
+  </footer>
 </div>
-      <!-- Footer -->
-      <footer class="page-footer font-small">
-
-        <div class="footer-copyright text-center py-3">
-          COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
-        </div>
-      
-      </footer>
-=======
-  <div id="loader"></div>
-
-  <div class="container" id="content">
-    <ng-container *ngIf="applications$ | async as applications">
-      <app-applications-list [allApplications]="applications"></app-applications-list>
-    </ng-container>
-  </div>
->>>>>>> origin/master
 </body>
