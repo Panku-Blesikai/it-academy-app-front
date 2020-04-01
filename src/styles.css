@@ -38,6 +38,7 @@ body, html {
 }
 
 #loader {
+  display: block;
   position: relative;
   top: 20%;
   left: 50%;
@@ -61,15 +62,13 @@ body, html {
   100% { transform: rotate(360deg); }
 }
 
-#content {
-  display: none;
-}
-
 #for-loading {
   display: none;
 }
 
-
+#content {
+  display: none;
+}
 
 /* footer {
     clear: both;
