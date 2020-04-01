@@ -1,0 +1,18 @@
+.ng-valid:not(form) {
+  border-left: 5px solid #42A948;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  display: block;
+  float: right;
+}
+
+#loader {
+  bottom: 0%;
+}
+
+/*# sourceMappingURL=register-form.component.css.map */
