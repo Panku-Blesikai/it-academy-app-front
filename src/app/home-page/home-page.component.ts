@@ -12,6 +12,7 @@ export class HomePageComponent implements OnInit {
   constructor(private loaderService: LoaderService, public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.loaderService.showLoader();
   }
 
   hideLoader() {

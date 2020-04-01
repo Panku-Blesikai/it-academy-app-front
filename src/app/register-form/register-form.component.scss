@@ -7,9 +7,11 @@ textarea {
 }
 
 button {
+  display: block;
   float: right;
 }
 
+<<<<<<< HEAD
 .charsleft {
   font-size: 0.8em;
 }
@@ -32,4 +34,8 @@ button {
 
 #chars-remaining-infoAboutAcademy {
   font-size: 0.8em;
+=======
+#loader {
+  bottom: 0%;
+>>>>>>> loader fixes
 }

@@ -29,8 +29,10 @@
     </div>
   </div>
 
-  <div class="container">
-    <form role="form" (submit)="checkLogin()">
+  <div id="loader"></div>
+
+  <div class="container" id="content">
+    <form role="form" (submit)="showLoader(); checkLogin()">
       <div class="form-group">
         <label for="username">El. paštas:</label>
         <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username"/>
@@ -47,3 +49,6 @@
       </div>
     </form>
   </div>
+
+
+
