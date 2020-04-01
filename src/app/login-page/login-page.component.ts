@@ -23,7 +23,7 @@ export class LoginPageComponent implements OnInit {
 
   checkLogin() {
     this.authenticationService.authenticationService(this.username, this.password).subscribe(() => {
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/admin']).then(r => {}, err => {});
     }, () => {
       (this.errorMessage = 'Invalid username or password.');
     });
