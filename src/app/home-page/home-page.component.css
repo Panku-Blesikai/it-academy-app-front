@@ -1,0 +1,33 @@
+html, body {
+  overflow: hidden;
+}
+
+.home-page {
+  background: transparent;
+  align-items: center;
+}
+
+.display-4 {
+  font-size: 6em;
+}
+
+.lead {
+  font-size: 2em;
+}
+
+.btn {
+  line-height: 65px;
+  text-align: center;
+  width: 12em;
+  height: 4em;
+}
+
+.bg {
+  background-image: url("src/assets/background.jpg");
+  height: 95%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*# sourceMappingURL=home-page.component.css.map */
