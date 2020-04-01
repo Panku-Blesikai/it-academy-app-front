@@ -9,7 +9,7 @@ import {LoaderService} from '../services/loader.service';
 @Component({
   selector: 'app-success-registration-page',
   templateUrl: './success-registration-page.component.html',
-  styleUrls: ['./success-registration-page.component.scss']
+  styleUrls: ['./success-registration-page.component.css']
 })
 export class SuccessRegistrationPageComponent implements OnInit, AfterViewInit {
 

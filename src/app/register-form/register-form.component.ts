@@ -64,55 +64,39 @@ export class RegisterFormComponent implements OnInit {
 
 
   registerForm = this.fb.group({
-    name: ['',
-      [
-        Validators.required,
-        Validators.pattern(`^(?=.*\S).+\D+$`),
-        Validators.maxLength(256)
-      ]
-    ],
-    surname: ['',
-      [
-        Validators.required,
-        Validators.pattern(`^(?=.*\S).+\D+$`),
-        Validators.maxLength(256)
-      ]
-    ],
-    email: [
-      '',
-      [
-        Validators.required,
-        Validators.maxLength(256),
-        Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)
-      ]
-    ],
-    phone: ['',
-      [
-        Validators.required,
-        Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`),
-        Validators.maxLength(12)
-      ]
-    ],
+    name: ['',{
+      validators:[Validators.required, Validators.maxLength(256)],
+      updateOn: 'blur'
+    }],
+    surname: ['',{
+      validators:[Validators.required, Validators.maxLength(256)],
+      updateOn: 'blur'
+    }],
+    email: ['',{
+        validators:[Validators.required, Validators.maxLength(256),Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)],
+        updateOn: 'blur'
+      }],
+    phone: ['',{
+      validators:[Validators.required, Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`), Validators.maxLength(12)],
+      updateOn: 'blur'
+    }],
     education: ['',
       [
         Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(256)
       ]
     ],
     freeTimeActivity: ['',
       [
         Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
     threePartyAgreement: ['',
-      [
-        Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
-        Validators.maxLength(1024)
-      ]
+    [
+      Validators.required,
+      Validators.maxLength(1024)
+    ]
     ],
     available14To18: ['',
       [
@@ -123,21 +107,18 @@ export class RegisterFormComponent implements OnInit {
     motivation: ['',
       [
         Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
     experience: ['',
       [
         Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
     infoAboutAcademy: ['',
       [
         Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
@@ -145,6 +126,7 @@ export class RegisterFormComponent implements OnInit {
       false,
       Validators.pattern('true')
     ]
+    
   });
 
   ngOnInit(): void {

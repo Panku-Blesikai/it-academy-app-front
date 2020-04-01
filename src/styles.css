@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 body, html {
+    margin: 0;
     height: 100%;
+    font-family: 'Courier New', Courier, monospace;
   }
 
 .jumbotron {
@@ -9,13 +11,10 @@ body, html {
     background-size: cover;
 }
 
-.home-page {
-    background: transparent;
-}
-
 .card {
-    width: 100%;
-    padding-left: 5em;
+    width: 80%;
+    margin: 0 auto;
+    border: none;
 }
 
 .card-img {
@@ -23,14 +22,6 @@ body, html {
     max-width: 400px;
     height: auto;
     max-height: 400px;
-}
-
-.bg {
-    background-image: url('../src/assets/background.jpg');
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .display-4 {
@@ -42,8 +33,8 @@ body, html {
     font-size: 1.5em;
 }
 
-.right {
-    float: right;
+.middle {
+    left: 50%;
 }
 
 #loader {

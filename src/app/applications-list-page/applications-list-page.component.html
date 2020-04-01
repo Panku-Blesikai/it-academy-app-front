@@ -1,6 +1,6 @@
 <body>
 <!-- NAVIGATION -->
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
   <div class="container-fluid">
   <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive">
     <span class="navbar-toggler-icon"></span>
@@ -17,7 +17,7 @@
 <!--        <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>-->
 <!--      </li>-->
       <li class="nav-item">
-        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()"  [routerLink]="['/logout']">ATSIJUNGTI</a>
+        <a *ngIf="authenticationService.isUserLoggedIn()" class="nav-link"  [routerLink]="['/logout']">ATSIJUNGTI</a>
       </li>
     </ul>
   </div>
@@ -30,6 +30,21 @@
     </div>
   </div>
 
+<<<<<<< HEAD
+<div class="container">
+  <ng-container *ngIf="applications$ | async as applications">
+    <app-applications-list [allApplications]="applications"></app-applications-list>
+  </ng-container>
+</div>
+      <!-- Footer -->
+      <footer class="page-footer font-small">
+
+        <div class="footer-copyright text-center py-3">
+          COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
+        </div>
+      
+      </footer>
+=======
   <div id="loader"></div>
 
   <div class="container" id="content">
@@ -37,4 +52,5 @@
       <app-applications-list [allApplications]="applications"></app-applications-list>
     </ng-container>
   </div>
+>>>>>>> origin/master
 </body>

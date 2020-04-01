@@ -7,10 +7,7 @@ describe('ApplicationService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule,
-        HttpClientTestingModule
-      ],
+      imports: [HttpClientTestingModule],
       providers: [ApplicationService]
     });
   });

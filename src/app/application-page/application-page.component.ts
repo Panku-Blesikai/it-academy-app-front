@@ -7,30 +7,21 @@ import {switchMap} from 'rxjs/operators';
 import {AuthenticationService} from '../services/authentication.service';
 import {LoaderService} from '../services/loader.service';
 
-enum StatusType {
-  PERZIURIMA = 'PERŽIŪRIMA',
-  ATMESTA = 'ATMESTA',
-  PATVIRTINTA = 'PATVIRTINTA'
-}
-
 @Component({
   selector: 'app-application-page',
   templateUrl: './application-page.component.html',
-  styleUrls: ['./application-page.component.scss']
+  styleUrls: ['./application-page.component.css']
 })
-
 export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
-  constructor(public authenticationService: AuthenticationService,
-              private route: ActivatedRoute, private applicationService: ApplicationService,
-              private loaderService: LoaderService) {
+  constructor(public loginService: AuthenticationService, private route: ActivatedRoute,
+              private applicationService: ApplicationService, private loaderService: LoaderService) {
     this.ngOnInit();
     this.application$.subscribe(value => (this.applicationWithNewStatus = value));
   }
   public application$: Observable<Application>;
   private serverErrorMessage: any;
   private applicationWithNewStatus: Application;
-  statusType = StatusType;
 
   ngOnInit(): void {
     this.application$ = this.route.paramMap.pipe(
@@ -50,7 +41,6 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
     );
   }
 
-
   ngAfterViewInit() {
     this.application$.subscribe(
       (response) => { this.hideLoader(); },
@@ -62,5 +52,4 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   hideLoader() {
     this.loaderService.hideLoader();
   }
-
 }

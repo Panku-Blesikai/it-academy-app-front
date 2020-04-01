@@ -8,19 +8,10 @@ export class FilterService {
 
   constructor() { }
 
-  filterBy(applications: Application[], searchInput: string, status: string,
-           availabilityInput: string, agreementInput: string): Application[] {
+  filterBy(applications: Application[], searchInput: string, status: string): Application[] {
     const filteredApplications: Application[] = [];
     for (const application of applications) {
       if (application.status !== status && status !== 'VISI') {
-        continue;
-      }
-      if (availabilityInput === 'Ne' && application.available14To18 === 'Taip' ||
-        availabilityInput === 'Taip' && application.available14To18 !== 'Taip') {
-        continue;
-      }
-      if (agreementInput === 'Ne' && application.threePartyAgreement === 'Taip' ||
-        agreementInput === 'Taip' && application.threePartyAgreement !== 'Taip') {
         continue;
       }
       const names = this.normalize(application.name).concat(this.normalize(application.surname));

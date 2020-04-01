@@ -1,10 +1,10 @@
-<div class="inline-display" >
+  <div class="inline-display" >
     <span class="margin-left-30">
       <label for="search" class="margin-right-10">Ieškoti:</label>
       <input type="text" id="search" #search size="30" class="margin-right-30" placeholder="Vardas arba Pavardė"
              (keyup)="updateSearchFieldInput(search.value)"/>
     </span>
-    <fieldset class="align-right" id="statusFilter">
+    <span class="align-right">
       <label class="margin-right-10">Statusas: </label>
       <input type="radio" id="all" #all name="statusFilter" value="VISI" checked
              (click)="updateStatusInput(all.value)">
@@ -18,40 +18,7 @@
       <input type="radio" id="declined" #declined name="statusFilter" value="ATMESTA"
              (click)="updateStatusInput(declined.value)">
       <label for="declined" class="margin-right-10" class="margin-right-30">ATMESTA</label>
-    </fieldset>
-  </div>
-
-  <label class="margin-left-30" (click)="advancedFilters()" id="show-advanced">
-    <i class="fas fa-caret-right"></i>
-    Rodyti papildomus filtrus
-  </label>
-
-  <div id="advanced-filters">
-    <fieldset class="margin-left-30" id="availabilityFilter">
-      <label class="margin-right-10">Laisvas nuo 14:00 iki 18:00&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="radio" id="availabilityYes" #availabilityYes name="availabilityFilter" value="Taip"
-             (click)="updateAvailabilityInput(availabilityYes.value)">
-      <label for="availabilityYes" class="margin-right-10">TAIP</label>
-      <input type="radio" id="availabilityNo" #availabilityNo name="availabilityFilter" value="Ne"
-             (click)="updateAvailabilityInput(availabilityNo.value)">
-      <label for="availabilityNo" class="margin-right-10">NE</label>
-      <input type="radio" id="availabilityAll" #availabilityAll name="availabilityFilter" value="Visi" checked
-             (click)="updateAvailabilityInput(availabilityAll.value)">
-      <label for="availabilityAll" class="margin-right-10">VISI</label>
-    </fieldset>
-
-    <fieldset class="margin-left-30" id="agreementFilter">
-      <label class="margin-right-10">Galės pasirašyti trišalę sutartį</label>
-      <input type="radio" id="agreementYes" #agreementYes name="agreementFilter" value="Taip"
-             (click)="updateAgreementInput(agreementYes.value)">
-      <label for="agreementYes" class="margin-right-10">TAIP</label>
-      <input type="radio" id="agreementNo" #agreementNo name="agreementFilter" value="Ne"
-             (click)="updateAgreementInput(agreementNo.value)">
-      <label for="agreementNo" class="margin-right-10">NE</label>
-      <input type="radio" id="agreementAll" #agreementAll name="agreementFilter" value="Visi" checked
-             (click)="updateAgreementInput(agreementAll.value)">
-      <label for="agreementAll" class="margin-right-10">VISI</label>
-    </fieldset>
+    </span>
   </div>
 <table class="table">
   <thead>
@@ -63,7 +30,7 @@
     <th scope="col">Tel. nr.</th>
     <th scope="col"><a href="javascript:void(0);" (click)="sort('dateTime')">Pateikta</a></th>
     <th scope="col"><a href="javascript:void(0);" (click)="sort('status')">Statusas</a></th>
-    <th scope="col"></th>
+    <th scope="col">Daugiau informacijos</th>
   </tr>
   </thead>
   <tbody>
