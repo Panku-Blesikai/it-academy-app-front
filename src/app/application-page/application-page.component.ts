@@ -21,7 +21,7 @@ enum StatusType {
 
 export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
-  constructor(private authenticationService: AuthenticationService,
+  constructor(public authenticationService: AuthenticationService,
               private route: ActivatedRoute, private applicationService: ApplicationService,
               private loaderService: LoaderService) {
     this.ngOnInit();

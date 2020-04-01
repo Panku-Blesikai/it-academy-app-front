@@ -11,7 +11,7 @@ export class SortingService {
   constructor() { }
 
   sortBy(applications: Application[], propertyName: string): Application[] {
-    if(this.propertyName === propertyName) {
+    if (this.propertyName === propertyName) {
       this.reverse = -this.reverse;
     } else {
       this.reverse = 1;
