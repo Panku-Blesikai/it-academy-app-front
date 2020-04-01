@@ -7,6 +7,7 @@ import {
 
 import {ApplicationService} from '../services/application.service';
 import {Router} from '@angular/router';
+import {LoaderService} from '../services/loader.service';
 
 @Component({
   selector: 'app-register-form',
@@ -15,7 +16,8 @@ import {Router} from '@angular/router';
 })
 export class RegisterFormComponent implements OnInit {
 
-  constructor(private applicationService: ApplicationService, private router: Router, private fb: FormBuilder) {
+  constructor(private applicationService: ApplicationService, private router: Router, private fb: FormBuilder,
+              private loaderService: LoaderService) {
   }
 
   get name() {
@@ -165,6 +167,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loaderService.hideLoader();
   }
 
   onSubmit() {
@@ -202,6 +205,10 @@ export class RegisterFormComponent implements OnInit {
 
   noCheckAvailable14To18(): void {
     this.available14To18.setValue('Ne');
+  }
+
+  showLoader(): void {
+    this.loaderService.showLoader();
   }
 }
 

@@ -11,4 +11,9 @@ export class LoaderService {
     document.getElementById('loader').style.display = 'none';
     document.getElementById('content').style.display = 'block';
   }
+
+  showLoader(): void {
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('content').style.display = 'none';
+  }
 }

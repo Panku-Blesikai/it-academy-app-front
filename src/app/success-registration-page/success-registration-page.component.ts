@@ -23,18 +23,13 @@ export class SuccessRegistrationPageComponent implements OnInit, AfterViewInit {
       return this.applicationService.getApplication(params.idHash);
       })
     );
-
   }
 
   ngAfterViewInit() {
     this.application$.subscribe(
-      response => { this.hideLoader(); },
+      response => { this.loaderService.hideLoader(); },
       err => {  },
       () => {  }
     );
-  }
-
-  hideLoader() {
-    this.loaderService.hideLoader();
   }
 }
