@@ -1,5 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Validators, FormControl, FormBuilder, CheckboxRequiredValidator} from '@angular/forms';
+import {
+  Validators,
+  FormControl,
+  FormBuilder,
+  CheckboxRequiredValidator,
+  ValidationErrors,
+  ValidatorFn,
+  AbstractControl
+} from '@angular/forms';
 
 import {Application} from '../shared/application';
 import {ApplicationService} from '../services/application.service';
@@ -64,39 +72,59 @@ export class RegisterFormComponent implements OnInit {
 
 
   registerForm = this.fb.group({
-    name: ['',{
-      validators:[Validators.required, Validators.maxLength(256)],
-      updateOn: 'blur'
-    }],
-    surname: ['',{
-      validators:[Validators.required, Validators.maxLength(256)],
-      updateOn: 'blur'
-    }],
-    email: ['',{
-        validators:[Validators.required, Validators.maxLength(256),Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)],
-        updateOn: 'blur'
-      }],
-    phone: ['',{
-      validators:[Validators.required, Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`), Validators.maxLength(12)],
-      updateOn: 'blur'
-    }],
+    name: ['',
+      [
+        Validators.required,
+        Validators.maxLength(256),
+        this.regexValidator(new RegExp(`^(?=.*\\S).+$`)),
+        this.regexValidator(new RegExp(`^[^0-9]+$`)),
+        this.regexValidator(new RegExp(`^[^!-/:-@[-\`{-~]+$`))
+      ]
+    ],
+    surname: ['',
+      [
+        Validators.required,
+        Validators.maxLength(256),
+        this.regexValidator(new RegExp(`^(?=.*\\S).+$`)),
+        this.regexValidator(new RegExp(`^[^0-9]+$`)),
+        this.regexValidator(new RegExp(`^[^!-,./:-@[-\`{-~]+$`))
+      ]
+    ],
+    email: [
+      '',
+      [
+        Validators.required,
+        Validators.maxLength(256),
+        Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)
+      ]
+    ],
+    phone: ['',
+      [
+        Validators.required,
+        Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`),
+        Validators.maxLength(12)
+      ]
+    ],
     education: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(256)
       ]
     ],
     freeTimeActivity: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
     threePartyAgreement: ['',
-    [
-      Validators.required,
-      Validators.maxLength(1024)
-    ]
+      [
+        Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
+        Validators.maxLength(1024)
+      ]
     ],
     available14To18: ['',
       [
@@ -107,18 +135,21 @@ export class RegisterFormComponent implements OnInit {
     motivation: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
     experience: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
     infoAboutAcademy: ['',
       [
         Validators.required,
+        Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
     ],
@@ -126,8 +157,17 @@ export class RegisterFormComponent implements OnInit {
       false,
       Validators.pattern('true')
     ]
-    
   });
+
+  regexValidator(regex: RegExp) {
+    return (control: AbstractControl): { [key: string]: any } => {
+      if (!control.value) {
+        return null;
+      }
+      const valid = regex.test(control.value);
+      return valid ? null : {regexValidator: {value: control.value}};
+    };
+  }
 
   ngOnInit(): void {
   }

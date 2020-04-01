@@ -39,7 +39,11 @@
         <label for="password">Slaptažodis:</label>
         <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password"/>
       </div>
-      <button type="submit" class="btn btn-primary">PRISIJUNGTI</button>
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">PRISIJUNGTI</button>
+      </div>
     </form>
   </div>
-</body>

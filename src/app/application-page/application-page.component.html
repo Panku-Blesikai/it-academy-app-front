@@ -8,13 +8,16 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
+          <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
+          <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
+          <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/about']">APIE MUS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()"  [routerLink]="['/logout']">ATSIJUNGTI</a>
         </li>
       </ul>
     </div>
@@ -86,15 +89,15 @@
     </tr>
     </tbody>
   </table>
-  <div *ngIf="loginService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
-    <button name="status" (click)="changeStatus('ATMESTA')" class="btn btn-danger">
-      Atmesti
-    </button>
-    <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
-      Patvirtinti
-    </button>
-    <a *ngIf="loginService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
-  </div>
+    <div *ngIf="authenticationService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
+      <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
+        Patvirtinti
+      </button>
+      <button name="status" (click)="changeStatus(statusType.ATMESTA)" class="btn btn-danger">
+        Atmesti
+      </button>
+    </div>
+    <a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
   </div>
 
   <!-- Footer -->
@@ -103,6 +106,6 @@
     <div class="footer-copyright text-center py-3">
       COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
     </div>
-  
+
   </footer>
 </body>
