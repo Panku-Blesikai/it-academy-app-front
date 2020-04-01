@@ -1,6 +1,6 @@
 <body>
   <!-- NAVIGATION -->
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
@@ -89,14 +89,23 @@
     </tr>
     </tbody>
   </table>
-
-  <div *ngIf="authenticationService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
-    <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
-      Patvirtinti
-    </button>
-    <button name="status" (click)="changeStatus(statusType.ATMESTA)" class="btn btn-danger">
-      Atmesti
-    </button>
+    <div *ngIf="authenticationService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
+      <button name="status" (click)="changeStatus('PATVIRTINTA')" class="btn btn-success">
+        Patvirtinti
+      </button>
+      <button name="status" (click)="changeStatus(statusType.ATMESTA)" class="btn btn-danger">
+        Atmesti
+      </button>
     </div>
-  <a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
+    <a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
   </div>
+
+  <!-- Footer -->
+  <footer class="page-footer font-small">
+
+    <div class="footer-copyright text-center py-3">
+      COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
+    </div>
+
+  </footer>
+</body>

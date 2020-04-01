@@ -1,7 +1,7 @@
 <body>
-<!-- NAVIGATION -->
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-  <div class="container-fluid">
+  <!-- NAVIGATION -->
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,8 +10,8 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link">REGISTRACIJA</a>
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
@@ -47,15 +47,11 @@
       </div>
     </div>
   </div>
+  
+  <!-- Footer -->
+<footer class="page-footer font-small">
+  <div class="footer-copyright text-center py-3">
+    COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
+  </div>
+</footer>
 </body>
-
-
-<!-- <div class="container">
-    Savo registracijos anketą galite rasti čia:
-    <a href="https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}">
-      https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}</a>
-</div>
-<div>
-  Ši nuoroda taip pat išsiųsta elektroniniu paštu {{application.email}}.
-</div>
-</div> -->
