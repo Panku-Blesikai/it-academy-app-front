@@ -10,8 +10,8 @@ import {LoaderService} from '../services/loader.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  username = '';
-  password = '';
+  username = 'Pankublesikai';
+  password = 'blesikaikarantine';
   errorMessage: any;
 
 
@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
 
   checkLogin() {
     this.authenticationService.authenticationService(this.username, this.password).subscribe(() => {
-      this.router.navigate(['/admin']).then(r => {}, err => {});
+      this.router.navigate(['/admin']);
     }, () => {
       (this.errorMessage = 'Invalid username or password.');
     });
