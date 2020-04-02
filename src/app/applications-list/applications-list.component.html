@@ -69,9 +69,9 @@
   <tbody>
   <tr *ngFor="let application of applications; let i = index">
     <th scope="row">{{i+1}}</th>
-    <td>{{application.name}}</td>
-    <td>{{application.surname}}</td>
-    <td>{{application.email}}</td>
+    <td>{{application.name.length > 30 ? application.name.substring(0,27) + "..." : application.name}}</td>
+    <td>{{application.surname.length > 30 ? application.surname.substring(0,27) + "..." : application.surname}}</td>
+    <td>{{application.email.length > 30 ? application.email.substring(0,27) + "..." : application.email}}</td>
     <td>{{application.phone}}</td>
     <td>{{application.dateTime}}</td>
     <td>{{application.status}}</td>
