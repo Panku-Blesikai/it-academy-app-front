@@ -8,6 +8,7 @@ import {AuthenticationService} from '../services/authentication.service';
 import {LoaderService} from '../services/loader.service';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import {formatDate} from '@angular/common';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -38,6 +39,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   private applicationWithNewStatus: Application;
   private applicationForPDF: Application;
   statusType = StatusType;
+  now: string = formatDate(new Date(), 'dd-MM-yyyy HH:mm', 'en-GB', 'GMT+3');
 
   ngOnInit(): void {
     this.application$ = this.route.paramMap.pipe(
@@ -65,23 +67,6 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
   getDocumentDefinition() {
     return {
-      // content: [
-      //   {
-      //     layout: 'lightHorizontalLines', // optional
-      //     table: {
-      //       // headers are automatically repeated if the table spans over multiple pages
-      //       // you can declare how many rows should be treated as headers
-      //       headerRows: 1,
-      //       widths: [ '*', 'auto', 100, '*' ],
-      //
-      //       body: [
-      //         [ 'First', 'Second'],
-      //         [ 'Value 1', 'Value 2'],
-      //         [ { text: 'Bold value', bold: true }, 'Val 2']
-      //       ]
-      //     }
-      //   }
-      // ]
       content: [
         {
           text: 'Studento anketa',
@@ -92,9 +77,9 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
         },
         {
-          layout: 'auto',
+          layout: 'fixed',
           border: '1px solid #d1d5da',
-          fontSize: 15,
+          fontSize: 10,
           table: {
            headerRows: 0,
           widths: ['*', '*' ],
@@ -113,6 +98,13 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
             [ {text: 'Pateikta', bold: true}, this.applicationForPDF.dateTime],
           ]
         }
+        },
+        {
+          text: 'Dokumento sukūrimo data : ' + this.now,
+          fontSize: 10,
+          alignment: 'left',
+          margin: [0, 0, 0, 20]
+
         }]
     };
   }
