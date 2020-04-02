@@ -34,3 +34,14 @@ button {
 #chars-remaining-infoAboutAcademy {
   font-size: 0.8em;
 }
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
