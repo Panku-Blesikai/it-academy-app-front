@@ -87,8 +87,8 @@
       </tr>
       </tbody>
     </table>
-    <div *ngIf="authenticationService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
-      <button name="status" (click)="showLoader(); changeStatus('PATVIRTINTA')" class="btn btn-success">
+    <div *ngIf="authenticationService.isUserLoggedIn() && application.status === statusType.PERZIURIMA">
+      <button name="status" (click)="showLoader(); changeStatus(statusType.PATVIRTINTA)" class="btn btn-success">
         Patvirtinti
       </button>
       <button name="status" (click)="showLoader(); changeStatus(statusType.ATMESTA)" class="btn btn-danger">
@@ -96,7 +96,7 @@
       </button>
     </div>
     <a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
-
+    <button *ngIf="authenticationService.isUserLoggedIn()" (click)="generatePdf()">Atsisiųsti PDF</button>
 
     <footer class="page-footer font-small">
       <div class="footer-copyright text-center py-3">
