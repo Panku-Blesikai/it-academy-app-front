@@ -10,8 +10,8 @@ import {LoaderService} from '../services/loader.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  username = 'Pankublesikai';
-  password = 'blesikaikarantine';
+  username = '';
+  password = '';
   errorMessage: any;
 
 
