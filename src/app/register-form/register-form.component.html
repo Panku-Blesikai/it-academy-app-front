@@ -52,13 +52,13 @@
           class="form-control"
           id="email"
           formControlName="email"
-          placeholder="jonas.jonaitis@mail.com"
+          placeholder="someone@example.com"
           maxlength="256"
         />
         <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
           <div *ngIf="email.errors?.maxLength">Elektroninio pašto adresas yra per ilgas.</div>
           <div *ngIf="email.errors?.pattern">Elektroninio pašto formatas neteisingas. Įvedimo pavyzdys:
-            vardas.pavarde@pastas.lt
+            someone@example.com
           </div>
           <div *ngIf="email.errors?.required">Elektroninis paštas yra privalomas.</div>
         </div>
@@ -312,11 +312,5 @@
     </form>
 
   </div>
-
-  <footer class="page-footer font-small">
-    <div class="footer-copyright text-center py-3">
-      COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
-    </div>
-  </footer>
 </div>
 
