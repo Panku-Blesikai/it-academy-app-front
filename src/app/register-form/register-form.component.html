@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Registracija</h1>
-    <p class="lead">Užpildyk aplikaciją ir prisijunk prie mūsų IT akademijos!</p>
+    <p class="lead">Užpildykite aplikaciją ir prisijunk prie mūsų IT akademijos!</p>
   </div>
 </div>
 <br><br>
@@ -15,40 +15,40 @@
     <form [formGroup]="registerForm" (ngSubmit)="showLoader(); onSubmit(); registerForm.reset()">
       <div class="row">
         <div class="col-sm">
-          <br>
-          <h4><b>Asmeninė informacija</b><br><br></h4>
-            <div class="form-group">
-              <label for="name">Vardas</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                formControlName="name"
-                maxlength="256"
-              />
-              <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-                <div *ngIf="name.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
-                <div *ngIf="name.errors?.maxLength">Vardo įvestis turi perdaug simbolių.</div>
-                <div *ngIf="name.errors?.required">Šis laukas yra privalomas.</div>
-              </div>
+          <br><h4><b>Asmeninė informacija</b><br><br></h4>
+          <div class="form-group">
+            <label for="name">Vardas</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+              maxlength="256"
+            />
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+              <div *ngIf="name.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
+              <div *ngIf="name.errors?.maxLength">Vardo įvestis turi perdaug simbolių.</div>
+              <div *ngIf="name.errors?.required">Šis laukas yra privalomas.</div>
             </div>
+          </div>
 
-            <div class="form-group">
-              <label for="surname">Pavardė</label>
-              <input
-                type="text"
-                class="form-control"
-                id="surname"
-                formControlName="surname"
-                maxlength="256"
-              />
-              <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger">
-                <div *ngIf="surname.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
-                <div *ngIf="surname.errors?.maxLength">Pavardės įvestis turi perdaug simbolių.</div>
-                <div *ngIf="surname.errors?.required">Šis laukas yra privalomas.</div>
-              </div>
+          <div class="form-group">
+            <label for="surname">Pavardė</label>
+            <input
+              type="text"
+              class="form-control"
+              id="surname"
+              formControlName="surname"
+              maxlength="256"
+            />
+            <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger">
+              <div *ngIf="surname.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
+              <div *ngIf="surname.errors?.maxLength">Pavardės įvestis turi perdaug simbolių.</div>
+              <div *ngIf="surname.errors?.required">Šis laukas yra privalomas.</div>
             </div>
+          </div>
         </div>
+
         <div class="col-sm">
           <div class="form-group">
             <label for="email">Elektroninis paštas</label>
@@ -57,13 +57,13 @@
               class="form-control"
               id="email"
               formControlName="email"
-              placeholder="jonas.jonaitis@mail.com"
+              placeholder="someone@example.com"
               maxlength="256"
             />
             <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
               <div *ngIf="email.errors?.maxLength">Elektroninio pašto adresas yra per ilgas.</div>
               <div *ngIf="email.errors?.pattern">Elektroninio pašto formatas neteisingas. Įvedimo pavyzdys:
-                vardas.pavarde@pastas.lt
+                someone@example.com
               </div>
               <div *ngIf="email.errors?.required">Elektroninis paštas yra privalomas.</div>
             </div>
@@ -141,11 +141,11 @@
         </div>
       </div>
 
-      <br>
+      <br><h4><b>Praktikos informacija</b><br></h4>
 
-      <h4><b>Praktikos informacija</b><br></h4>
       <div class="form-group">
-        <label for="threePartyAgreement">Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne pakomentuok plačiau.</label>
+        <label for="threePartyAgreement"
+        >Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne pakomentuok plačiau.</label>
         <div>
           <input
             type="radio"
@@ -174,10 +174,10 @@
         ></textarea>
         <span [hidden]="!threePartyAgreement.valid && !threePartyAgreement.pristine" style="display: none"
               id="remaining-threePartyAgreement">
-            <span>Liko simbolių: </span><span id="chars-remaining-threePartyAgreement">1024</span>
-          </span>
+          <span>Liko simbolių: </span><span id="chars-remaining-threePartyAgreement">1024</span>
+        </span>
         <div [hidden]="threePartyAgreement.valid ||threePartyAgreement.pristine"
-           class="alert alert-danger">
+             class="alert alert-danger">
           <div *ngIf="threePartyAgreement.errors?.pattern">Prašome atsakyti į klausimą.</div>
           <div *ngIf="threePartyAgreement.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
           <div *ngIf="threePartyAgreement.errors?.required">Šis laukas yra privalomas.</div>
@@ -239,6 +239,8 @@
           <div *ngIf="freeTimeActivity.errors?.required">Šis laukas yra privalomas.</div>
         </div>
       </div>
+
+
 
       <div class="form-group">
         <label for="motivation"
@@ -321,11 +323,5 @@
     </form>
 
   </div>
-
-  <footer class="page-footer font-small">
-    <div class="footer-copyright text-center py-3">
-      COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
-    </div>
-  </footer>
 </div>
 
