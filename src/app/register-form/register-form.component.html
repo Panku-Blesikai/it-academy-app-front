@@ -48,6 +48,22 @@
             </div>
           </div>
         </div>
+        
+         <div class="form-group">
+            <label for="phone">Telefono numeris</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              formControlName="phone"
+              placeholder="+37066666666"
+              maxlength="12"
+            />
+            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+              <div *ngIf="phone.errors?.pattern">Prašome įvesti telefono numerį formatu: +37066666666</div>
+              <div *ngIf="phone.errors?.required">Šis laukas yra privalomas.</div>
+            </div>
+          </div>
 
         <div class="col-sm">
           <div class="form-group">
@@ -66,22 +82,6 @@
                 someone@example.com
               </div>
               <div *ngIf="email.errors?.required">Elektroninis paštas yra privalomas.</div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Telefono numeris</label>
-            <input
-              type="text"
-              class="form-control"
-              id="phone"
-              formControlName="phone"
-              placeholder="+37066666666"
-              maxlength="12"
-            />
-            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
-              <div *ngIf="phone.errors?.pattern">Prašome įvesti telefono numerį formatu: +37066666666</div>
-              <div *ngIf="phone.errors?.required">Šis laukas yra privalomas.</div>
             </div>
           </div>
 
@@ -149,15 +149,15 @@
         <div>
           <input
             type="radio"
-            id="threePartAgreementYes"
-            name="threePartAgreementRadio"
+            id="threePartyAgreementYes"
+            name="threePartyAgreementRadio"
             value="Taip"
             (click)="yesCheckThreePartyAgreement()"
           > Taip
           <input
             type="radio"
-            id="threePartAgreementNo"
-            name="threePartAgreementRadio"
+            id="threePartyAgreementNo"
+            name="threePartyAgreementRadio"
             value="Ne"
             (click)="noCheckThreePartyAgreement()"
           > Ne
