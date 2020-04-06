@@ -286,7 +286,7 @@
           <span class="charsleft">Liko simbolių: </span><span id="chars-remaining-experience">1024</span>
         </span>
         <div [hidden]="experience.valid ||experience.pristine" class="alert alert-danger"
-             data-testid="education alert-danger">
+             data-testid="experience alert-danger">
           <div *ngIf="experience.errors?.pattern">Prašome atsakyti į klausimą.</div>
           <div *ngIf="experience.errors?.maxLength">Įvestas tekstas per ilgas.</div>
           <div *ngIf="experience.errors?.required">Šis laukas yra privalomas.</div>
