@@ -25,7 +25,7 @@
               formControlName="name"
               maxlength="256"
             />
-            <div [hidden]="name.valid || name.pristine" class="alert alert-danger" test-id="name alert-danger">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger" data-testid="name alert-danger">
               <div *ngIf="name.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
               <div *ngIf="name.errors?.maxLength">Vardo įvestis turi perdaug simbolių.</div>
               <div *ngIf="name.errors?.required">Šis laukas yra privalomas.</div>
@@ -41,7 +41,7 @@
               formControlName="surname"
               maxlength="256"
             />
-            <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger" test-id="surname alert-danger">
+            <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger" data-testid="surname alert-danger">
               <div *ngIf="surname.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
               <div *ngIf="surname.errors?.maxLength">Pavardės įvestis turi perdaug simbolių.</div>
               <div *ngIf="surname.errors?.required">Šis laukas yra privalomas.</div>
@@ -60,7 +60,7 @@
               placeholder="+37066666666"
               maxlength="12"
             />
-            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger" test-id="phone alert-danger">
+            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger" data-testid="phone alert-danger">
               <div *ngIf="phone.errors?.pattern">Prašome įvesti telefono numerį formatu: +37066666666</div>
               <div *ngIf="phone.errors?.required">Šis laukas yra privalomas.</div>
             </div>
@@ -76,7 +76,7 @@
               placeholder="someone@example.com"
               maxlength="256"
             />
-            <div [hidden]="email.valid || email.pristine" class="alert alert-danger" test-id="email alert-danger">
+            <div [hidden]="email.valid || email.pristine" class="alert alert-danger" data-testid="email alert-danger">
               <div *ngIf="email.errors?.maxLength">Elektroninio pašto adresas yra per ilgas.</div>
               <div *ngIf="email.errors?.pattern">Elektroninio pašto formatas neteisingas. Įvedimo pavyzdys:
                 someone@example.com
@@ -133,7 +133,7 @@
               <option value="Vilniaus kooperacijos kolegija">
           </datalist>
             <div [hidden]="education.valid || education.pristine" class="alert alert-danger"
-                 test-id="education alert-danger">
+                 data-testid="education alert-danger">
               <div *ngIf="education.errors?.pattern">Prašome pateikti savo mokymosi įstaigą.</div>
               <div *ngIf="education.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
               <div *ngIf="education.errors?.required">Šis laukas yra privalomas.</div>
@@ -178,7 +178,7 @@
           <span class="charsleft">Liko simbolių: </span><span id="chars-remaining-threePartyAgreement">1024</span>
         </span>
         <div [hidden]="threePartyAgreement.valid ||threePartyAgreement.pristine"
-             class="alert alert-danger" test-id="threePartyAgreement alert-danger">
+             class="alert alert-danger" data-testid="threePartyAgreement alert-danger">
           <div *ngIf="threePartyAgreement.errors?.pattern">Prašome atsakyti į klausimą.</div>
           <div *ngIf="threePartyAgreement.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
           <div *ngIf="threePartyAgreement.errors?.required">Šis laukas yra privalomas.</div>
@@ -214,7 +214,7 @@
         ></textarea>
         <div
           [hidden]="available14To18.valid ||available14To18.pristine" class="alert alert-danger"
-          test-id="available14To18 alert-danger">
+          data-testid="available14To18 alert-danger">
           <div *ngIf="available14To18.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
           <div *ngIf="available14To18.errors?.required">Šis laukas yra privalomas.</div>
         </div>
@@ -236,7 +236,7 @@
         </span>
         <div
           [hidden]="freeTimeActivity.valid || freeTimeActivity.pristine" class="alert alert-danger"
-          test-id="freeTimeActivity alert-danger">
+          data-testid="freeTimeActivity alert-danger">
           <div *ngIf="freeTimeActivity.errors?.pattern">Prašome atsakyti į klausimą.</div>
           <div *ngIf="freeTimeActivity.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
           <div *ngIf="freeTimeActivity.errors?.required">Šis laukas yra privalomas.</div>
@@ -260,7 +260,7 @@
           <span class="charsleft">Liko simbolių: </span><span id="chars-remaining-motivation">1024</span>
         </span>
         <div [hidden]="motivation.valid ||motivation.pristine" class="alert alert-danger"
-             test-id="motivation alert-danger">
+             data-testid="motivation alert-danger">
           <div *ngIf="motivation.errors?.pattern">Prašome atsakyti į klausimą.</div>
           <div *ngIf="motivation.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
           <div *ngIf="motivation.errors?.required">Šis laukas yra privalomas.</div>
@@ -286,7 +286,7 @@
           <span class="charsleft">Liko simbolių: </span><span id="chars-remaining-experience">1024</span>
         </span>
         <div [hidden]="experience.valid ||experience.pristine" class="alert alert-danger"
-             test-id="education alert-danger">
+             data-testid="education alert-danger">
           <div *ngIf="experience.errors?.pattern">Prašome atsakyti į klausimą.</div>
           <div *ngIf="experience.errors?.maxLength">Įvestas tekstas per ilgas.</div>
           <div *ngIf="experience.errors?.required">Šis laukas yra privalomas.</div>
@@ -308,7 +308,7 @@
           <span class="charsleft">Liko simbolių: </span><span id="chars-remaining-infoAboutAcademy">1024</span>
         </span>
         <div [hidden]="infoAboutAcademy.valid || infoAboutAcademy.pristine" class="alert alert-danger"
-             test-id="infoAboutAcademy alert-danger">
+             data-testid="infoAboutAcademy alert-danger">
           <div *ngIf="infoAboutAcademy.errors?.pattern">Prašome atsakyti į klausimą.</div>
           <div *ngIf="infoAboutAcademy.errors?.maxLength">Įvestas tekstas yra per ilgas.</div>
           <div *ngIf="infoAboutAcademy.errors?.required">Šis laukas yra privalomas.</div>
