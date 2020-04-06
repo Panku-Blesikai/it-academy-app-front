@@ -43,7 +43,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   private applicationWithNewComment: Application;
   private applicationForPDF: Application;
   statusType = StatusType;
-  now: string = formatDate(new Date(), 'dd-MM-yyyy HH:mm', 'en-GB', 'GMT+3');
+  now: string = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-GB', 'GMT+3');
 
   get comment() {
     return this.commentForm.get('comment');
@@ -59,14 +59,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   });
 
   onSubmit() {
-    const today = new Date();
-    const dd = today.getDate();
-    const mm = today.getMonth() + 1;
-    const yyyy = today.getFullYear();
-    const hours = today.getHours();
-    const minutes = today.getMinutes();
-    const date = yyyy + '-' + mm + '-' + dd + ' ' + hours + ':' + minutes;
-    const comment = new Comment(sessionStorage.getItem('username'), this.commentForm.value.comment, date);
+    const comment = new Comment(sessionStorage.getItem('username'), this.commentForm.value.comment, this.now);
     if (!this.applicationWithNewComment.comments) {
       this.applicationWithNewComment.comments = new Array<Comment>();
     }
@@ -101,7 +94,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
   generatePdf() {
     const documentDefinition = this.getDocumentDefinition();
-    pdfMake.createPdf(documentDefinition).download();
+    pdfMake.createPdf(documentDefinition).download( this.applicationForPDF.name + '_' + this.applicationForPDF.surname + '_anketa.pdf');
   }
 
   getDocumentDefinition() {
@@ -139,11 +132,10 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
           }
         },
         {
-          text: 'Dokumento sukūrimo data : ' + this.now,
+          text: 'Dokumento sukūrimo data ir laikas: ' + this.now,
           fontSize: 10,
           alignment: 'left',
           margin: [0, 0, 0, 20]
-
         }]
     };
   }
