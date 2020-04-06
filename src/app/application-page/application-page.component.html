@@ -87,13 +87,22 @@
       </tr>
       </tbody>
     </table>
+
+    <!-- public comments -->
+
     <div *ngIf="authenticationService.isUserLoggedIn() && application.status === 'PERŽIŪRIMA'">
+
+      <!-- new comment -->
+      <button name="comment" (click)="addComment('Reiks patvirtinti');">
+        Komentuoti
+      </button>
       <button name="status" (click)="showLoader(); changeStatus('PATVIRTINTA')" class="btn btn-success">
         Patvirtinti
       </button>
       <button name="status" (click)="showLoader(); changeStatus(statusType.ATMESTA)" class="btn btn-danger">
         Atmesti
       </button>
+
     </div>
     <a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
 
