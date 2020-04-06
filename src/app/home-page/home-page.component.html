@@ -1,48 +1,48 @@
 <body>
-    <!-- NAVIGATION -->
+  <!-- NAVIGATION -->
 
-    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
-      <div class="container-fluid">
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
-          </li>
-        </ul>
-      </div>
-      </div>
-    </nav>
-  
-    <div id="loader"></div>
-    <div id="content">
-      <div class="bg" >
-        <div class="jumbotron home-page">
-          <div class="text-center">
-            <h1 class="display-4">IT AKADEMIJA</h1>
-            <p class="lead">Įkvėpimas, neribojimas tyrinėjimas ir neįtikėtina patirtis yra tai ko mes siekiame</p>
-            <a class="btn btn-light btn-lg right" [routerLink]="['/about']" role="button">Sužinok daugiau</a>
-          </div>
-        </div>
-      </div>
-  
-      <footer class="page-footer font-small">
-        <div class="footer-copyright text-center py-3">
-          COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
-        </div>
-      </footer>
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']">APIE MUS</a>
+        </li>
+      </ul>
     </div>
-  
-  
-  
-    <img (load)="hideLoader()" id="for-loading" src="../../assets/background.jpg">
-  
-  </body>
+    </div>
+  </nav>
+
+  <div id="loader"></div>
+  <div id="content">
+    <div class="bg" >
+      <div class="jumbotron home-page">
+        <div class="text-center">
+          <h1 class="display-4">IT AKADEMIJA</h1>
+          <p class="lead">Įkvėpimas, neribojimas tyrinėjimas ir neįtikėtina patirtis yra tai ko mes siekiame.</p>
+          <a class="btn btn-light btn-lg right" [routerLink]="['/about']" role="button">Sužinok daugiau</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer font-small">
+      <div class="footer-copyright text-center py-3">
+        COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
+      </div>
+    </footer>
+  </div>
+
+
+
+  <img (load)="hideLoader()" id="for-loading" src="../../assets/background.jpg">
+
+</body>

@@ -111,6 +111,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.application$.subscribe(
+<<<<<<< HEAD
       (response) => {
         this.loaderService.hideLoader();
       },
@@ -118,6 +119,11 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
       },
       () => {
       }
+=======
+      (response) => { this.loaderService.hideLoader(); },
+      (err) => {},
+      () => {}
+>>>>>>> d7d3456f51db48bdd63251590489249a9adb3905
     );
   }
 
