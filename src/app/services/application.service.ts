@@ -31,6 +31,13 @@ export class ApplicationService {
       .put<Application>(`${this.apiPath}/applications`, application)
       .pipe(catchError(this.errorHandler));
   }
+
+  addComment(application: Application): Observable<Application> {
+    return this.httpClient
+      .put<Application>(`${this.apiPath}/applications/comment`, application)
+      .pipe(catchError(this.errorHandler));
+  }
+
   errorHandler(error) {
     let errorMessage: string;
     if (error.error instanceof ErrorEvent) {

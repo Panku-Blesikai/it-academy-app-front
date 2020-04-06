@@ -1,5 +1,4 @@
-<body>
-  <!-- NAVIGATION -->
+<body xmlns="http://www.w3.org/1999/html">
   <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,11 +96,47 @@
       </tr>
       </tbody>
     </table>
-    <div class="container">
-    <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-danger left" [routerLink]="['/admin']">Grįžti</button>
-    <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-success">Komentaras</button>
-    <button *ngIf="authenticationService.isUserLoggedIn()" (click)="generatePdf()" class="btn btn-secondary">Atsisiųsti PDF</button>
-  </div>
+
+    <h2>Komentarai</h2>
+    <div *ngFor="let comment of application.comments">
+      <div class="comments-outer">
+        <div class="comments-inner">
+          <span><b>{{comment.author}}</b>&nbsp;{{comment.date}}</span><br>
+          <div class="comment-text">{{comment.input}}</div>
+        </div>
+      </div>
+      <br>
+    </div>
+
+      <form *ngIf="authenticationService.isUserLoggedIn()" [formGroup]="commentForm"
+            (ngSubmit)="showLoader(); onSubmit(); commentForm.reset()" >
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <textarea
+                type="text"
+                class="form-control"
+                id="comment"
+                formControlName="comment"
+                maxlength="1024"
+                placeholder="Įveskite komentarą"
+                autosize
+              ></textarea>
+              <div [hidden]="comment.valid || comment.pristine" class="alert alert-danger">
+                <div *ngIf="comment.errors?.maxLength">Komentaras turi per daug simbolių.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-dark" [disabled]="!comment.valid">
+            Komentuoti
+          </button>
+          <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-danger left" [routerLink]="['/admin']">Grįžti</button>
+          <button *ngIf="authenticationService.isUserLoggedIn()" (click)="generatePdf()" class="btn btn-secondary">Atsisiųsti PDF</button>
+        </div>
+        <br><br><br>
+      </form>
 
     <footer class="page-footer font-small">
       <div class="footer-copyright text-center py-3">
