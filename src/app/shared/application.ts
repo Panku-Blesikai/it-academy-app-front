@@ -1,3 +1,5 @@
+import {Comment} from './comment';
+
 export interface Application {
     id?: string;
     name: string;
@@ -14,4 +16,5 @@ export interface Application {
     dateTime?: string;
     idHash?: string;
     status: string;
-  }
+    comments?: Array<Comment>;
+}
