@@ -18,7 +18,7 @@ export class HomePageComponent implements OnInit {
   hideLoader() {
     this.loaderService.hideLoader();
   }
-  
+
   myFunction() {
     var x = document.getElementById("myLinks");
     if (x.style.display === "block") {

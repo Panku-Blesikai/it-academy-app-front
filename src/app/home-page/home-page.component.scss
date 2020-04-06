@@ -1,15 +1,15 @@
 html,body {
-    overflow: hidden;
+  overflow: hidden;
 }
 
-.home-page{
-    align-items: center;
+.home-page {
+  align-items: center;
 }
 
 .display-4{
-    width: 80%;
-    font-size: 6em;
-    margin: 0 auto;
+  width: 80%;
+  font-size: 6em;
+  margin: 0 auto;
 }
 
 // @keyframes example {
@@ -18,20 +18,19 @@ html,body {
 //   }
 
 .lead{
-    font-size: 2em;
-    margin: auto;
-    width: 60%;
-    background-color: rgba(255,255,255,0.4);
-    // background-color: transparent;
-    // animation: example;
-    // animation-delay: 2s;
-    // animation-duration: 0;
-    margin-bottom: 10%;
+  font-size: 2em;
+  width: 60%;
+  background-color: rgba(255,255,255,0.4);
+  // background-color: transparent;
+  // animation: example;
+  // animation-delay: 2s;
+  // animation-duration: 0;
+  margin: auto auto 10%;
 }
 
 .btn {
     line-height: 65px;
-    text-align: center;  
+    text-align: center;
     width: 12em;
     height: 4em;
 }

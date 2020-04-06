@@ -3,16 +3,20 @@ html, body {
 }
 
 .home-page {
-  background: transparent;
   align-items: center;
 }
 
 .display-4 {
+  width: 80%;
   font-size: 6em;
+  margin: 0 auto;
 }
 
 .lead {
   font-size: 2em;
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: auto auto 10%;
 }
 
 .btn {
@@ -25,9 +29,28 @@ html, body {
 .bg {
   background-image: url("src/assets/background.jpg");
   height: 95%;
-  background-position: center;
+  background-position: center center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.footer-copyright {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  [class*=col-] {
+    width: 100%;
+  }
+
+  .display-4 {
+    width: 100%;
+    font-size: 4em;
+    margin: auto;
+    margin-bottom: 5%;
+  }
 }
 
 /*# sourceMappingURL=home-page.component.css.map */
