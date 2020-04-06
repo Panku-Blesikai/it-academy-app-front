@@ -85,7 +85,7 @@ export class RegisterFormComponent implements OnInit {
       updateOn: 'blur'
     }],
     phone: ['', {
-      validators: [Validators.required, Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`), Validators.maxLength(12)],
+      validators: [Validators.required, Validators.pattern(`[+]370[0-9]{8}$`), Validators.maxLength(12)],
       updateOn: 'blur'
     }],
     education: ['',
