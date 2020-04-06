@@ -69,20 +69,23 @@ export class RegisterFormComponent implements OnInit {
 
 
   registerForm = this.fb.group({
-    name: ['',{ 
-      validators:[Validators.required, Validators.maxLength(256), this.regexValidator(new RegExp(`^(?=.*\\S).+$`)), this.regexValidator(new RegExp(`^[^0-9]+$`)), this.regexValidator(new RegExp(`^[^!-,./:-@[-\`{-~]+$`))],
+    name: ['', {
+      validators: [Validators.required, Validators.maxLength(256), this.regexValidator(new RegExp(`^(?=.*\\S).+$`)),
+        this.regexValidator(new RegExp(`^[^0-9]+$`)), this.regexValidator(new RegExp(`^[^!-,./:-@[-\`{-~]+$`))],
       updateOn: 'blur'
     }],
-    surname: ['',{ 
-      validators:[Validators.required, Validators.maxLength(256), this.regexValidator(new RegExp(`^(?=.*\\S).+$`)), this.regexValidator(new RegExp(`^[^0-9]+$`)), this.regexValidator(new RegExp(`^[^!-,./:-@[-\`{-~]+$`))],
+    surname: ['', {
+      validators: [Validators.required, Validators.maxLength(256), this.regexValidator(new RegExp(`^(?=.*\\S).+$`)),
+        this.regexValidator(new RegExp(`^[^0-9]+$`)), this.regexValidator(new RegExp(`^[^!-,./:-@[-\`{-~]+$`))],
       updateOn: 'blur'
     }],
-    email: ['',{ 
-      validators:[Validators.required, Validators.maxLength(256), Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)],
+    email: ['', {
+      validators: [Validators.required, Validators.maxLength(256),
+        Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)],
       updateOn: 'blur'
     }],
-    phone: ['',{ 
-      validators:[Validators.required, Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`), Validators.maxLength(12)],
+    phone: ['', {
+      validators: [Validators.required, Validators.pattern(`[+]370[0-9][0-9]{2}[0-9]{5}$`), Validators.maxLength(12)],
       updateOn: 'blur'
     }],
     education: ['',

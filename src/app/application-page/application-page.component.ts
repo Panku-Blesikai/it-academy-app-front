@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Application} from '../shared/application';
 import {ActivatedRoute} from '@angular/router';
@@ -6,15 +6,13 @@ import {ApplicationService} from '../services/application.service';
 import {switchMap} from 'rxjs/operators';
 import {AuthenticationService} from '../services/authentication.service';
 import {LoaderService} from '../services/loader.service';
-<<<<<<< HEAD
-import { Comment } from '../shared/comment';
-=======
+import {Comment} from '../shared/comment';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {formatDate} from '@angular/common';
+import {FormBuilder, Validators} from '@angular/forms';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
->>>>>>> 58ad6a3b61901c79df9310460eb6d374bbe83132
 
 enum StatusType {
   PERZIURIMA = 'PERŽIŪRIMA',
@@ -32,26 +30,55 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
   constructor(public authenticationService: AuthenticationService,
               private route: ActivatedRoute, private applicationService: ApplicationService,
-              private loaderService: LoaderService) {
+              private loaderService: LoaderService, private fb: FormBuilder) {
     this.ngOnInit();
     this.application$.subscribe(value => (this.applicationWithNewStatus = value));
-<<<<<<< HEAD
     this.application$.subscribe(value => (this.applicationWithNewComment = value));
-=======
     this.application$.subscribe(value => (this.applicationForPDF = value));
->>>>>>> 58ad6a3b61901c79df9310460eb6d374bbe83132
   }
 
   public application$: Observable<Application>;
   private serverErrorMessage: any;
   private applicationWithNewStatus: Application;
-<<<<<<< HEAD
   private applicationWithNewComment: Application;
-=======
   private applicationForPDF: Application;
->>>>>>> 58ad6a3b61901c79df9310460eb6d374bbe83132
   statusType = StatusType;
   now: string = formatDate(new Date(), 'dd-MM-yyyy HH:mm', 'en-GB', 'GMT+3');
+
+  get comment() {
+    return this.commentForm.get('comment');
+  }
+
+  commentForm = this.fb.group({
+    comment: ['',
+      [
+        Validators.pattern(`^(?=.*\\S).+$`),
+        Validators.maxLength(1024)
+      ]
+    ],
+  });
+
+  onSubmit() {
+    const today = new Date();
+    const dd = today.getDate();
+    const mm = today.getMonth() + 1;
+    const yyyy = today.getFullYear();
+    const hours = today.getHours();
+    const minutes = today.getMinutes();
+    const date = yyyy + '-' + mm + '-' + dd + ' ' + hours + ':' + minutes;
+    const comment = new Comment(sessionStorage.getItem('username'), this.commentForm.value.comment, date);
+    if (!this.applicationWithNewComment.comments) {
+      this.applicationWithNewComment.comments = new Array<Comment>();
+    }
+    this.applicationWithNewComment.comments.push(comment);
+    this.applicationService.addComment(this.applicationWithNewComment).subscribe(
+      () => {
+        this.serverErrorMessage = '';
+      },
+      error => (this.serverErrorMessage = error),
+      () => location.reload()
+    );
+  }
 
   ngOnInit(): void {
     this.application$ = this.route.paramMap.pipe(
@@ -73,26 +100,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   }
 
   addComment(input: string) {
-    const today = new Date();
-    const dd = today.getDate();
-    const mm = today.getMonth() + 1;
-    const yyyy = today.getFullYear();
-    const hours = today.getHours();
-    const mins = today.getMinutes();
-    const secs = today.getSeconds();
-    const date = yyyy + '-' + mm + '-' + dd + ' ' + hours + ':' + mins + ':' + secs;
-    const comment = new Comment(this.authenticationService.username, input, date);
-    if (!this.applicationWithNewComment.comments) {
-      this.applicationWithNewComment.comments = new Array<Comment>();
-    }
-    this.applicationWithNewComment.comments.push(comment);
-    this.applicationService.addComment(this.applicationWithNewComment).subscribe(
-      () => {
-        this.serverErrorMessage = '';
-      },
-      error => (this.serverErrorMessage = error),
-      () => location.reload()
-    );
+
   }
 
   generatePdf() {
