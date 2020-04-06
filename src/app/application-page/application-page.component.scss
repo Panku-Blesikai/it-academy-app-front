@@ -1,6 +1,25 @@
 button {
     float: right;
+    margin: 0px 10px;
 }
+
 #loader {
   bottom: 0%;
+}
+
+.left {
+  float: left;
+}
+
+#content {
+  width: 90%;
+  margin: 0 auto;
+}
+
+span {
+  display: inline;
+}
+
+.no-decor {
+  border: none;
 }

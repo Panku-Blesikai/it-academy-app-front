@@ -84,19 +84,24 @@
       <tr>
         <th scope="row">Statusas</th>
         <td>{{application.status}}</td>
+        <td class="no-decor">
+          <div *ngIf="authenticationService.isUserLoggedIn() && application.status === statusType.PERZIURIMA">
+            <button name="status" (click)="showLoader(); changeStatus(statusType.PATVIRTINTA)" class="btn btn-success btn-sm">
+              Patvirtinti
+            </button>
+            <button name="status" (click)="showLoader(); changeStatus(statusType.ATMESTA)" class="btn btn-danger btn-sm">
+              Atmesti
+            </button>
+          </div>
+        </td>
       </tr>
       </tbody>
     </table>
-    <div *ngIf="authenticationService.isUserLoggedIn() && application.status === statusType.PERZIURIMA">
-      <button name="status" (click)="showLoader(); changeStatus(statusType.PATVIRTINTA)" class="btn btn-success">
-        Patvirtinti
-      </button>
-      <button name="status" (click)="showLoader(); changeStatus(statusType.ATMESTA)" class="btn btn-danger">
-        Atmesti
-      </button>
-    </div>
-    <a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
-    <button *ngIf="authenticationService.isUserLoggedIn()" (click)="generatePdf()">Atsisiųsti PDF</button>
+    <div class="container">
+    <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-danger left" [routerLink]="['/admin']">Grįžti</button>
+    <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-success">Komentaras</button>
+    <button *ngIf="authenticationService.isUserLoggedIn()" (click)="generatePdf()" class="btn btn-secondary">Atsisiųsti PDF</button>
+  </div>
 
     <footer class="page-footer font-small">
       <div class="footer-copyright text-center py-3">
