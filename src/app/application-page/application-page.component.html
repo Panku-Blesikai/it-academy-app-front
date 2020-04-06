@@ -126,7 +126,6 @@
         <br><br><br>
       </form>
 
-
     <div *ngIf="authenticationService.isUserLoggedIn() && application.status === statusType.PERZIURIMA">
       <button name="status" (click)="showLoader(); changeStatus(statusType.PATVIRTINTA)" class="btn btn-success">
         Patvirtinti

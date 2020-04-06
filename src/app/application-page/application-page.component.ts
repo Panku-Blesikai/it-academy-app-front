@@ -99,10 +99,6 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
     );
   }
 
-  addComment(input: string) {
-
-  }
-
   generatePdf() {
     const documentDefinition = this.getDocumentDefinition();
     pdfMake.createPdf(documentDefinition).download();
