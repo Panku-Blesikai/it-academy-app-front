@@ -1,19 +1,15 @@
 <body>
   <!-- NAVIGATION -->
+
   <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
-    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <a href="#" class="hamburger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link">PRADŽIA</a>
+          <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
