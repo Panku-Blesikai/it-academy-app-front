@@ -12,7 +12,6 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {formatDate} from '@angular/common';
 import {FormBuilder, Validators} from '@angular/forms';
 import * as moment from 'moment';
-
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 enum StatusType {
@@ -43,12 +42,17 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   private applicationWithNewStatus: Application;
   private applicationWithNewComment: Application;
   private applicationForPDF: Application;
-  statusType = StatusType;
-  now: string = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-GB', 'GMT+3');
-  date = null;
+  private statusType = StatusType;
+  private now = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-GB', 'GMT+3');
+  private date = null;
+  private interviewMessage: string;
 
   get comment() {
     return this.commentForm.get('comment');
+  }
+
+  get time() {
+    return this.interviewForm.get('time');
   }
 
   commentForm = this.fb.group({
@@ -60,8 +64,27 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
     ],
   });
 
-  onSubmit() {
+  interviewForm = this.fb.group({
+    time: ['',
+      [
+        Validators.maxLength(16)
+      ]
+    ],
+  });
+
+  onInterviewTimeSubmit() {
+    const commentText = 'Kandidatui numatytas interviu laikas: ' + this.interviewForm.value.time.format('YYYY-MM-DD HH:mm');
+    const comment = new Comment(sessionStorage.getItem('username'), commentText, this.now);
+    this.uploadComment(comment);
+  }
+
+
+  onCommentSubmit() {
     const comment = new Comment(sessionStorage.getItem('username'), this.commentForm.value.comment, this.now);
+    this.uploadComment(comment);
+  }
+
+  uploadComment(comment: Comment) {
     if (!this.applicationWithNewComment.comments) {
       this.applicationWithNewComment.comments = new Array<Comment>();
     }
@@ -75,10 +98,21 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
     );
   }
 
+  checkIfRegisteredForInterview(application: Application): boolean {
+    if (!application.comments) {
+      return false;
+    }
+    for (const comment of application.comments) {
+      if (comment.input.includes('Kandidatui numatytas interviu laikas: ')) {
+        this.interviewMessage = comment.input;
+      }
+    }
+    return this.interviewMessage !== '';
+  }
+
   ngOnInit(): void {
-    this.date = moment('2020-01-01T00:00Z');
-    moment.locale('es');
-    console.log(moment.locale());
+    this.interviewMessage = '';
+    this.date = moment('2020-01-01T00:00');
     this.application$ = this.route.paramMap.pipe(
       switchMap(params => {
         return this.applicationService.getApplication(params.get('idHash'));
