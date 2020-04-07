@@ -150,7 +150,7 @@
           </span>
         </div>
       </div>
-      
+
       <br><h4><b>Bendra informacija</b><br></h4>
 
       <div class="form-group">
@@ -163,14 +163,19 @@
             name="threePartyAgreementRadio"
             value="Taip"
             (click)="yesCheckThreePartyAgreement()"
-          > Taip
+          >
+          &nbsp;
+          <label for="threePartyAgreementYes">Taip</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;
           <input
             type="radio"
             id="threePartyAgreementNo"
             name="threePartyAgreementRadio"
             value="Ne"
             (click)="noCheckThreePartyAgreement()"
-          > Ne
+          >
+          &nbsp;
+          <label for="threePartyAgreementNo">Ne</label>
         </div>
         <textarea
           type="text"
@@ -204,14 +209,20 @@
             name="available14To18Radio"
             value="Taip"
             (click)="yesCheckAvailable14To18()"
-          > Taip
+          >
+          &nbsp;
+          <label for="available14To18Yes">Taip</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;
           <input
             type="radio"
             id="available14To18No"
             name="available14To18Radio"
             value="Ne"
             (click)="noCheckAvailable14To18()"
-          > Ne
+          >
+          &nbsp;
+          &#32;
+          <label for="available14To18No">Ne</label>
         </div>
         <textarea
           type="text"
