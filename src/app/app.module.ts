@@ -18,6 +18,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
 import {HttpInterceptorService} from './services/http-interceptor.service';
+import {NgTempusdominusBootstrapModule} from 'ngx-tempusdominus-bootstrap';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {HttpInterceptorService} from './services/http-interceptor.service';
     ReactiveFormsModule,
     TextareaAutosizeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgTempusdominusBootstrapModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

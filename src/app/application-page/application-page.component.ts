@@ -11,6 +11,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {formatDate} from '@angular/common';
 import {FormBuilder, Validators} from '@angular/forms';
+import * as moment from 'moment';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -44,6 +45,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   private applicationForPDF: Application;
   statusType = StatusType;
   now: string = formatDate(new Date(), 'dd-MM-yyyy HH:mm', 'en-GB', 'GMT+3');
+  date = null;
 
   get comment() {
     return this.commentForm.get('comment');
@@ -81,11 +83,23 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.date = moment('2020-01-01T00:00Z');
+    moment.locale('es');
+    console.log(moment.locale());
     this.application$ = this.route.paramMap.pipe(
       switchMap(params => {
         return this.applicationService.getApplication(params.get('idHash'));
       })
     );
+  }
+  addTime(val, selector) {
+    this.date = moment(this.date.add(val, selector));
+  }
+  clearTime() {
+    this.date  = null;
+  }
+  getTime() {
+    window.alert('Selected time is:' + this.date.format('YYYY/MM/DD HH:mm'));
   }
 
   changeStatus(status: string) {
