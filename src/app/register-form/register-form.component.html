@@ -156,26 +156,27 @@
       <div class="form-group">
         <label for="threePartyAgreement"
         >Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne pakomentuok plačiau.</label>
-        <div>
+        <div class="custom-control custom-radio custom-control-inline">
           <input
             type="radio"
+            class="custom-control-input"
             id="threePartyAgreementYes"
             name="threePartyAgreementRadio"
             value="Taip"
             (click)="yesCheckThreePartyAgreement()"
           >
-          &nbsp;
-          <label for="threePartyAgreementYes">Taip</label>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label class="custom-control-label" for="threePartyAgreementYes">Taip</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
           <input
             type="radio"
+            class="custom-control-input"
             id="threePartyAgreementNo"
             name="threePartyAgreementRadio"
             value="Ne"
             (click)="noCheckThreePartyAgreement()"
-          >
-          &nbsp;
-          <label for="threePartyAgreementNo">Ne</label>
+            >
+          <label class="custom-control-label" for="threePartyAgreementNo">Ne</label>
         </div>
         <textarea
           type="text"
@@ -202,28 +203,25 @@
       <div class="form-group">
         <label for="available14To18"
         >Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi akademijai skirti tiek laiko?</label>
-        <div>
+        <div class="custom-control custom-radio custom-control-inline">
           <input
-            type="radio"
+            type="radio" class="custom-control-input"
             id="available14To18Yes"
             name="available14To18Radio"
             value="Taip"
             (click)="yesCheckAvailable14To18()"
           >
-          &nbsp;
-          <label for="available14To18Yes">Taip</label>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label class="custom-control-label" for="available14To18Yes">Taip</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
           <input
-            type="radio"
+            type="radio" class="custom-control-input"
             id="available14To18No"
             name="available14To18Radio"
             value="Ne"
             (click)="noCheckAvailable14To18()"
           >
-          &nbsp;
-          &#32;
-          <label for="available14To18No">Ne</label>
-        </div>
+          <label class="custom-control-label" for="available14To18No">Ne</label></div>
         <textarea
           type="text"
           class="form-control"
