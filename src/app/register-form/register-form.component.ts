@@ -81,7 +81,7 @@ export class RegisterFormComponent implements OnInit {
     }],
     email: ['', {
       validators: [Validators.required, Validators.maxLength(256),
-        Validators.pattern(`^[a-zA-Z0-9_+&*-]+(?:\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,7}$`)],
+        Validators.pattern(new RegExp(`^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-z"A-Z]{2,7}$`))],
       updateOn: 'blur'
     }],
     phone: ['', {
