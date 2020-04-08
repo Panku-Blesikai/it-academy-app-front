@@ -63,8 +63,8 @@
       <label class="custom-control-label" for="agreementYes">TAIP</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-      <input type="radio" class="custom-control-input" id="agreementNo" #agreementNo name="agreementFilter"
-             value="Ne" (click)="updateAgreementInput(agreementNo.value)">
+      <input type="radio" class="custom-control-input" id="agreementNo" #agreementNo name="agreementFilter" value="Ne"
+             (click)="updateAgreementInput(agreementNo.value)">
       <label class="custom-control-label" for="agreementNo">NE</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
@@ -72,9 +72,8 @@
              value="Visi" checked (click)="updateAgreementInput(agreementAll.value)">
       <label class="custom-control-label" for="agreementAll">VISI</label>
     </div>
-    </fieldset>
-  </div>
-
+  </fieldset>
+</div>
 <table class="table">
   <thead>
   <tr>
@@ -88,9 +87,11 @@
   </thead>
   <tbody *ngIf="applications.length !== 0">
   <tr *ngFor="let application of applications; let i = index">
-    <th scope="row">{{i+1}}</th>
-    <td class="name-mw">{{application.name.length > 30 ? application.name.substring(0,29) + "..." : application.name}}</td>
-    <td class="lastName-mw">{{application.surname.length > 30 ? application.surname.substring(0,29) + "..." : application.surname}}</td>
+    <th scope="row">{{i + 1}}</th>
+    <td>{{application.name.length > 30 ? application.name.substring(0, 27) + "..." : application.name}}</td>
+    <td>{{application.surname.length > 30 ? application.surname.substring(0, 27) + "..." : application.surname}}</td>
+    <td>{{application.email.length > 30 ? application.email.substring(0, 27) + "..." : application.email}}</td>
+    <td>{{application.phone}}</td>
     <td>{{application.dateTime}}</td>
     <td>{{application.status}}</td>
     <td><a [routerLink]="['../application/'+application.idHash]">Plačiau...</a></td>
