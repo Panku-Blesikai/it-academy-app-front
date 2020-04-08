@@ -4,21 +4,6 @@
       <input type="text" id="search" #search size="30" class="margin-right-30" placeholder="Vardas arba Pavardė"
              (keyup)="updateSearchFieldInput(search.value)"/>
     </span>
-    <fieldset class="align-right" id="statusFilter">
-      <label class="margin-right-10">Statusas: </label>
-      <input type="radio" id="all" #all name="statusFilter" value="VISI" checked
-             (click)="updateStatusInput(all.value)">
-      <label for="all" class="margin-right-10">VISI</label>
-      <input type="radio" id="inProgress" #inProgress name="statusFilter" value="PERŽIŪRIMA"
-             (click)="updateStatusInput(inProgress.value)">
-      <label for="inProgress" class="margin-right-10">PERŽIŪRIMA</label>
-      <input type="radio" id="accepted" #accepted name="statusFilter" value="PATVIRTINTA"
-             (click)="updateStatusInput(accepted.value)">
-      <label for="accepted" class="margin-right-10">PATVIRTINTA</label>
-      <input type="radio" id="declined" #declined name="statusFilter" value="ATMESTA"
-             (click)="updateStatusInput(declined.value)">
-      <label for="declined" class="margin-right-10" class="margin-right-30">ATMESTA</label>
-    </fieldset>
   </div>
 
   <label class="margin-left-30" (click)="advancedFilters()" id="show-advanced">
@@ -27,6 +12,22 @@
   </label>
 
   <div id="advanced-filters">
+       <fieldset class="margin-left-30" id="statusFilter">
+       <label class="margin-right-10">Statusas: </label>
+       <input type="radio" id="all" #all name="statusFilter" value="VISI" checked
+              (click)="updateStatusInput(all.value)">
+       <label for="all" class="margin-right-10">VISI</label>
+       <input type="radio" id="inProgress" #inProgress name="statusFilter" value="PERŽIŪRIMA"
+              (click)="updateStatusInput(inProgress.value)">
+       <label for="inProgress" class="margin-right-10">PERŽIŪRIMA</label>
+       <input type="radio" id="accepted" #accepted name="statusFilter" value="PATVIRTINTA"
+              (click)="updateStatusInput(accepted.value)">
+       <label for="accepted" class="margin-right-10">PATVIRTINTA</label>
+       <input type="radio" id="declined" #declined name="statusFilter" value="ATMESTA"
+              (click)="updateStatusInput(declined.value)">
+       <label for="declined" class="margin-right-10" class="margin-right-30">ATMESTA</label>
+       </fieldset>
+
     <fieldset class="margin-left-30" id="availabilityFilter">
       <label class="margin-right-10">Laisvas nuo 14:00 iki 18:00&nbsp;&nbsp;&nbsp;&nbsp;</label>
       <input type="radio" id="availabilityYes" #availabilityYes name="availabilityFilter" value="Taip"

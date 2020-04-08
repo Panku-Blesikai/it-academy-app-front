@@ -83,6 +83,16 @@
       <tr>
         <th scope="row">Statusas</th>
         <td>{{application.status}}</td>
+        <td class="no-decor">
+          <div *ngIf="authenticationService.isUserLoggedIn() && application.status === statusType.PERZIURIMA">
+            <button name="status" id="status" (click)="showLoader(); changeStatus(statusType.ATMESTA)" class="btn btn-danger btn-sm">
+              Atmesti
+            </button>
+            <button name="status" id="status" (click)="showLoader(); changeStatus(statusType.PATVIRTINTA)" class="btn btn-success btn-sm">
+              Patvirtinti
+            </button>
+            </div>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -167,6 +177,7 @@
         </div>
       </div>
       <div>
+        <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-dark btn-lg left" [routerLink]="['/admin']">Grįžti</button>
         <button type="submit" class="btn btn-dark btn-lg" [disabled]="!comment.valid">
           Komentuoti
         </button>
@@ -174,16 +185,6 @@
       <br><br><br>
     </form>
 
-    <div *ngIf="authenticationService.isUserLoggedIn() && application.status === statusType.PERZIURIMA">
-      <button name="status" (click)="showLoader(); changeStatus(statusType.PATVIRTINTA)" class="btn btn-success">
-        Patvirtinti
-      </button>
-      <button name="status" (click)="showLoader(); changeStatus(statusType.ATMESTA)" class="btn btn-danger">
-        Atmesti
-      </button>
-
-    </div>
-    <a *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/admin']">Grįžti</a>
     <button *ngIf="authenticationService.isUserLoggedIn()" (click)="generatePdf()">Atsisiųsti PDF</button>
 
     <footer class="page-footer font-small">
