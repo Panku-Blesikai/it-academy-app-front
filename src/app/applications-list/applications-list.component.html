@@ -54,14 +54,13 @@
       <label for="agreementAll" class="margin-right-10">VISI</label>
     </fieldset>
   </div>
+
 <table class="table">
   <thead>
   <tr>
     <th scope="row">#</th>
-    <th scope="col"><a href="javascript:void(0);" (click)="sort('name')">Vardas</a></th>
-    <th scope="col"><a href="javascript:void(0);" (click)="sort('surname')">Pavardė</a></th>
-    <th scope="col">El. paštas</th>
-    <th scope="col">Tel. nr.</th>
+    <th class="name-mw"><a href="javascript:void(0);" (click)="sort('name')">Vardas</a></th>
+    <th class="lastName-mw"><a href="javascript:void(0);" (click)="sort('surname')">Pavardė</a></th>
     <th scope="col"><a href="javascript:void(0);" (click)="sort('dateTime')">Pateikta</a></th>
     <th scope="col"><a href="javascript:void(0);" (click)="sort('status')">Statusas</a></th>
     <th scope="col"></th>
@@ -70,10 +69,8 @@
   <tbody>
   <tr *ngFor="let application of applications; let i = index">
     <th scope="row">{{i+1}}</th>
-    <td>{{application.name.length > 30 ? application.name.substring(0,27) + "..." : application.name}}</td>
-    <td>{{application.surname.length > 30 ? application.surname.substring(0,27) + "..." : application.surname}}</td>
-    <td>{{application.email.length > 30 ? application.email.substring(0,27) + "..." : application.email}}</td>
-    <td>{{application.phone}}</td>
+    <td class="name-mw">{{application.name.length > 30 ? application.name.substring(0,29) + "..." : application.name}}</td>
+    <td class="lastName-mw">{{application.surname.length > 30 ? application.surname.substring(0,29) + "..." : application.surname}}</td>
     <td>{{application.dateTime}}</td>
     <td>{{application.status}}</td>
     <td><a [routerLink]="['../application/'+application.idHash]">Plačiau...</a></td>
