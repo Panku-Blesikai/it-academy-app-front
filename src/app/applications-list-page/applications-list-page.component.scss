@@ -1,3 +1,22 @@
 #content {
-    margin-left: 3%;
+    // margin-left: 3%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+    #content {
+        margin-left: 2%;
+    }
+
+    [class*="col-"] {
+        width: 100%;
+    }
+    
+    .display-4{
+        width: 90%;
+        margin: auto;
+        font-size: 2.5em;
+        text-align: center;
+    }
 }

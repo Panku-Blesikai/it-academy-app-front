@@ -65,23 +65,19 @@
     <div class="custom-control custom-radio custom-control-inline">
       <input type="radio" class="custom-control-input" id="agreementNo" #agreementNo name="agreementFilter" value="Ne"
              (click)="updateAgreementInput(agreementNo.value)">
-      <label class="custom-control-label" for="agreementNo">NE</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-      <input type="radio" class="custom-control-input" id="agreementAll" #agreementAll name="agreementFilter"
-             value="Visi" checked (click)="updateAgreementInput(agreementAll.value)">
-      <label class="custom-control-label" for="agreementAll">VISI</label>
-    </div>
-  </fieldset>
-</div>
+      <label for="agreementNo" class="margin-right-10">NE</label>
+      <input type="radio" id="agreementAll" #agreementAll name="agreementFilter" value="Visi" checked
+             (click)="updateAgreementInput(agreementAll.value)">
+      <label for="agreementAll" class="margin-right-10">VISI</label>
+    </fieldset>
+  </div>
+
 <table class="table">
   <thead>
   <tr>
     <th scope="row">#</th>
-    <th scope="col"><a href="javascript:void(0);" (click)="sort('name')">Vardas</a></th>
-    <th scope="col"><a href="javascript:void(0);" (click)="sort('surname')">Pavardė</a></th>
-    <th scope="col">El. paštas</th>
-    <th scope="col">Tel. nr.</th>
+    <th class="name-mw"><a href="javascript:void(0);" (click)="sort('name')">Vardas</a></th>
+    <th class="lastName-mw"><a href="javascript:void(0);" (click)="sort('surname')">Pavardė</a></th>
     <th scope="col"><a href="javascript:void(0);" (click)="sort('dateTime')">Pateikta</a></th>
     <th scope="col"><a href="javascript:void(0);" (click)="sort('status')">Statusas</a></th>
     <th scope="col"></th>
@@ -89,11 +85,9 @@
   </thead>
   <tbody>
   <tr *ngFor="let application of applications; let i = index">
-    <th scope="row">{{i + 1}}</th>
-    <td>{{application.name.length > 30 ? application.name.substring(0, 27) + "..." : application.name}}</td>
-    <td>{{application.surname.length > 30 ? application.surname.substring(0, 27) + "..." : application.surname}}</td>
-    <td>{{application.email.length > 30 ? application.email.substring(0, 27) + "..." : application.email}}</td>
-    <td>{{application.phone}}</td>
+    <th scope="row">{{i+1}}</th>
+    <td class="name-mw">{{application.name.length > 30 ? application.name.substring(0,29) + "..." : application.name}}</td>
+    <td class="lastName-mw">{{application.surname.length > 30 ? application.surname.substring(0,29) + "..." : application.surname}}</td>
     <td>{{application.dateTime}}</td>
     <td>{{application.status}}</td>
     <td><a [routerLink]="['../application/'+application.idHash]">Plačiau...</a></td>
