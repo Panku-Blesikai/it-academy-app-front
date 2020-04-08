@@ -24,15 +24,12 @@ export class LoginPageComponent implements OnInit {
   }
 
   checkLogin() {
+    this.loaderService.showLoader();
     this.authenticationService.authenticationService(this.username, this.password).subscribe(() => {
       this.router.navigate(['/admin']);
-    }, () => {
-      (this.errorMessage = 'Invalid username or password.');
+    }, () => {this.loaderService.hideLoader(),
+      this.errorMessage = 'Neteisingas prisijungimo vardas arba slaptažodis.';
     });
-  }
-
-  showLoader() {
-    this.loaderService.showLoader();
   }
 }
 
