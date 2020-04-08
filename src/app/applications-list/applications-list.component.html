@@ -63,12 +63,15 @@
       <label class="custom-control-label" for="agreementYes">TAIP</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-      <input type="radio" class="custom-control-input" id="agreementNo" #agreementNo name="agreementFilter" value="Ne"
-             (click)="updateAgreementInput(agreementNo.value)">
-      <label for="agreementNo" class="margin-right-10">NE</label>
-      <input type="radio" id="agreementAll" #agreementAll name="agreementFilter" value="Visi" checked
-             (click)="updateAgreementInput(agreementAll.value)">
-      <label for="agreementAll" class="margin-right-10">VISI</label>
+      <input type="radio" class="custom-control-input" id="agreementNo" #agreementNo name="agreementFilter"
+             value="Ne" (click)="updateAgreementInput(agreementNo.value)">
+      <label class="custom-control-label" for="agreementNo">NE</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="agreementAll" #agreementAll name="agreementFilter"
+             value="Visi" checked (click)="updateAgreementInput(agreementAll.value)">
+      <label class="custom-control-label" for="agreementAll">VISI</label>
+    </div>
     </fieldset>
   </div>
 
