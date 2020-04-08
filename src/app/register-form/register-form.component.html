@@ -13,9 +13,29 @@
   <div class="container">
 
     <form [formGroup]="registerForm" (ngSubmit)="showLoader(); onSubmit(); registerForm.reset()">
+        <div class="row">
+          <div class="col-sm"><h4><b>Asmeninė informacija</b></h4></div>
+          <div class="col-sm">
+            <div class="form-group">
+            <label for="phone">Telefono numeris</label>
+              <input
+                type="text"
+                class="form-control"
+                id="phone"
+                formControlName="phone"
+                placeholder="+37066666666"
+                maxlength="12"
+              />
+              <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger" data-testid="phone alert-danger">
+                <div *ngIf="phone.errors?.pattern">Prašome įvesti telefono numerį formatu: +37066666666</div>
+                <div *ngIf="phone.errors?.required">Šis laukas yra privalomas.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       <div class="row">
         <div class="col-sm">
-          <br><h4><b>Asmeninė informacija</b><br><br></h4>
           <div class="form-group">
             <label for="name">Vardas</label>
             <input
@@ -31,41 +51,8 @@
               <div *ngIf="name.errors?.required">Šis laukas yra privalomas.</div>
             </div>
           </div>
-
-          <div class="form-group">
-            <label for="surname">Pavardė</label>
-            <input
-              type="text"
-              class="form-control"
-              id="surname"
-              formControlName="surname"
-              maxlength="256"
-            />
-            <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger" data-testid="surname alert-danger">
-              <div *ngIf="surname.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
-              <div *ngIf="surname.errors?.maxLength">Pavardės įvestis turi perdaug simbolių.</div>
-              <div *ngIf="surname.errors?.required">Šis laukas yra privalomas.</div>
-            </div>
-          </div>
         </div>
-
         <div class="col-sm">
-          <div class="form-group">
-            <label for="phone">Telefono numeris</label>
-            <input
-              type="text"
-              class="form-control"
-              id="phone"
-              formControlName="phone"
-              placeholder="+37066666666"
-              maxlength="12"
-            />
-            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger" data-testid="phone alert-danger">
-              <div *ngIf="phone.errors?.pattern">Prašome įvesti telefono numerį formatu: +37066666666</div>
-              <div *ngIf="phone.errors?.required">Šis laukas yra privalomas.</div>
-            </div>
-          </div>
-
           <div class="form-group">
             <label for="email">Elektroninis paštas</label>
             <input
@@ -84,7 +71,29 @@
               <div *ngIf="email.errors?.required">Elektroninis paštas yra privalomas.</div>
             </div>
           </div>
+        </div>
+      </div>
 
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="surname">Pavardė</label>
+            <input
+              type="text"
+              class="form-control"
+              id="surname"
+              formControlName="surname"
+              maxlength="256"
+            />
+            <div [hidden]="surname.valid || surname.pristine" class="alert alert-danger" data-testid="surname alert-danger">
+              <div *ngIf="surname.errors?.regexValidator">Prašome atsakyti į klausimą.</div>
+              <div *ngIf="surname.errors?.maxLength">Pavardės įvestis turi perdaug simbolių.</div>
+              <div *ngIf="surname.errors?.required">Šis laukas yra privalomas.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm">
           <span class="form-group">
             <label for="education">Mokymo įstaiga, kurioje šiuo metu mokaisi</label>
             <input type="text" class="form-control" id="education" list="universities" formControlName="education"
@@ -131,7 +140,7 @@
               <option value="Vilniaus verslo kolegija">
               <option value="Vilniaus dizaino kolegija">
               <option value="Vilniaus kooperacijos kolegija">
-          </datalist>
+            </datalist>
             <div [hidden]="education.valid || education.pristine" class="alert alert-danger"
                  data-testid="education alert-danger">
               <div *ngIf="education.errors?.pattern">Prašome pateikti savo mokymosi įstaigą.</div>
@@ -142,26 +151,32 @@
         </div>
       </div>
 
-      <br><h4><b>Praktikos informacija</b><br></h4>
+      <br><h4><b>Bendra informacija</b><br></h4>
 
       <div class="form-group">
         <label for="threePartyAgreement"
         >Ar bus galimybė pasirašyti trišalę praktikos sutartį, jei ne pakomentuok plačiau.</label>
-        <div>
+        <div class="custom-control custom-radio custom-control-inline">
           <input
             type="radio"
+            class="custom-control-input"
             id="threePartyAgreementYes"
             name="threePartyAgreementRadio"
             value="Taip"
             (click)="yesCheckThreePartyAgreement()"
-          > Taip
+          >
+          <label class="custom-control-label" for="threePartyAgreementYes">Taip</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
           <input
             type="radio"
+            class="custom-control-input"
             id="threePartyAgreementNo"
             name="threePartyAgreementRadio"
             value="Ne"
             (click)="noCheckThreePartyAgreement()"
-          > Ne
+            >
+          <label class="custom-control-label" for="threePartyAgreementNo">Ne</label>
         </div>
         <textarea
           type="text"
@@ -188,22 +203,25 @@
       <div class="form-group">
         <label for="available14To18"
         >Numatytas praktikos laikas darbo dienomis 14-18 val. Ar galėsi akademijai skirti tiek laiko?</label>
-        <div>
+        <div class="custom-control custom-radio custom-control-inline">
           <input
-            type="radio"
+            type="radio" class="custom-control-input"
             id="available14To18Yes"
             name="available14To18Radio"
             value="Taip"
             (click)="yesCheckAvailable14To18()"
-          > Taip
+          >
+          <label class="custom-control-label" for="available14To18Yes">Taip</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
           <input
-            type="radio"
+            type="radio" class="custom-control-input"
             id="available14To18No"
             name="available14To18Radio"
             value="Ne"
             (click)="noCheckAvailable14To18()"
-          > Ne
-        </div>
+          >
+          <label class="custom-control-label" for="available14To18No">Ne</label></div>
         <textarea
           type="text"
           class="form-control"
