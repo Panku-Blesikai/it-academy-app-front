@@ -1,52 +1,69 @@
-<div class="inline-display" >
+<div class="inline-display">
     <span class="margin-left-30">
       <label for="search" class="margin-right-10">Ieškoti:</label>
       <input type="text" id="search" #search size="30" class="margin-right-30" placeholder="Vardas arba Pavardė"
              (keyup)="updateSearchFieldInput(search.value)"/>
     </span>
-  </div>
+</div>
 
-  <label class="margin-left-30" (click)="advancedFilters()" id="show-advanced">
-    <i class="fas fa-caret-right"></i>
-    Rodyti papildomus filtrus
-  </label>
+<label class="margin-left-30" (click)="advancedFilters()" id="show-advanced">
+  <i class="fas fa-caret-right"></i>
+  Rodyti papildomus filtrus
+</label>
 
-  <div id="advanced-filters">
-       <fieldset class="margin-left-30" id="statusFilter">
-       <label class="margin-right-10">Statusas: </label>
-       <input type="radio" id="all" #all name="statusFilter" value="VISI" checked
-              (click)="updateStatusInput(all.value)">
-       <label for="all" class="margin-right-10">VISI</label>
-       <input type="radio" id="inProgress" #inProgress name="statusFilter" value="PERŽIŪRIMA"
-              (click)="updateStatusInput(inProgress.value)">
-       <label for="inProgress" class="margin-right-10">PERŽIŪRIMA</label>
-       <input type="radio" id="accepted" #accepted name="statusFilter" value="PATVIRTINTA"
-              (click)="updateStatusInput(accepted.value)">
-       <label for="accepted" class="margin-right-10">PATVIRTINTA</label>
-       <input type="radio" id="declined" #declined name="statusFilter" value="ATMESTA"
-              (click)="updateStatusInput(declined.value)">
-       <label for="declined" class="margin-right-10" class="margin-right-30">ATMESTA</label>
-       </fieldset>
+<div id="advanced-filters">
+  <fieldset class="margin-left-30" id="statusFilter">
+    <label class="margin-right-10">Statusas: </label>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="all" #all name="statusFilter" value="VISI" checked
+             (click)="updateStatusInput(all.value)">
+      <label class="custom-control-label" for="all">VISI</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="inProgress" #inProgress name="statusFilter"
+             value="PERŽIŪRIMA" (click)="updateStatusInput(inProgress.value)">
+      <label class="custom-control-label" for="inProgress">PERŽIŪRIMA</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="accepted" #accepted name="statusFilter" value="PATVIRTINTA"
+             (click)="updateStatusInput(accepted.value)">
+      <label class="custom-control-label" for="accepted">PATVIRTINTA</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="declined" #declined name="statusFilter" value="ATMESTA"
+             (click)="updateStatusInput(declined.value)">
+      <label class="custom-control-label" for="declined">ATMESTA</label>
+    </div>
+  </fieldset>
 
-    <fieldset class="margin-left-30" id="availabilityFilter">
-      <label class="margin-right-10">Laisvas nuo 14:00 iki 18:00&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="radio" id="availabilityYes" #availabilityYes name="availabilityFilter" value="Taip"
-             (click)="updateAvailabilityInput(availabilityYes.value)">
-      <label for="availabilityYes" class="margin-right-10">TAIP</label>
-      <input type="radio" id="availabilityNo" #availabilityNo name="availabilityFilter" value="Ne"
-             (click)="updateAvailabilityInput(availabilityNo.value)">
-      <label for="availabilityNo" class="margin-right-10">NE</label>
-      <input type="radio" id="availabilityAll" #availabilityAll name="availabilityFilter" value="Visi" checked
-             (click)="updateAvailabilityInput(availabilityAll.value)">
-      <label for="availabilityAll" class="margin-right-10">VISI</label>
-    </fieldset>
+  <fieldset class="margin-left-30" id="availabilityFilter">
+    <label class="margin-right-10">Laisvas nuo 14:00 iki 18:00:</label>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="availabilityYes" #availabilityYes name="availabilityFilter"
+             value="Taip" (click)="updateAvailabilityInput(availabilityYes.value)">
+      <label class="custom-control-label" for="availabilityYes">TAIP</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="availabilityNo" #availabilityNo name="availabilityFilter"
+             value="Ne" (click)="updateAvailabilityInput(availabilityNo.value)">
+      <label class="custom-control-label" for="availabilityNo">NE</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="availabilityAll" #availabilityAll name="availabilityFilter"
+             value="Visi" checked (click)="updateAvailabilityInput(availabilityAll.value)">
+      <label class="custom-control-label" for="availabilityAll">VISI</label>
+    </div>
+  </fieldset>
 
-    <fieldset class="margin-left-30" id="agreementFilter">
-      <label class="margin-right-10">Galės pasirašyti trišalę sutartį</label>
-      <input type="radio" id="agreementYes" #agreementYes name="agreementFilter" value="Taip"
-             (click)="updateAgreementInput(agreementYes.value)">
-      <label for="agreementYes" class="margin-right-10">TAIP</label>
-      <input type="radio" id="agreementNo" #agreementNo name="agreementFilter" value="Ne"
+  <fieldset class="margin-left-30" id="agreementFilter">
+    <label class="margin-right-10">Galės pasirašyti trišalę sutartį:</label>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="agreementYes" #agreementYes name="agreementFilter"
+             value="Taip" (click)="updateAgreementInput(agreementYes.value)">
+      <label class="custom-control-label" for="agreementYes">TAIP</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" class="custom-control-input" id="agreementNo" #agreementNo name="agreementFilter" value="Ne"
              (click)="updateAgreementInput(agreementNo.value)">
       <label for="agreementNo" class="margin-right-10">NE</label>
       <input type="radio" id="agreementAll" #agreementAll name="agreementFilter" value="Visi" checked
