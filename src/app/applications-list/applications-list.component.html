@@ -86,7 +86,7 @@
     <th scope="col"></th>
   </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="applications.length !== 0">
   <tr *ngFor="let application of applications; let i = index">
     <th scope="row">{{i+1}}</th>
     <td class="name-mw">{{application.name.length > 30 ? application.name.substring(0,29) + "..." : application.name}}</td>
@@ -95,5 +95,8 @@
     <td>{{application.status}}</td>
     <td><a [routerLink]="['../application/'+application.idHash]">Plačiau...</a></td>
   </tr>
+  </tbody>
+  <tbody *ngIf="applications.length === 0">
+  <td colspan="6" align="center">Paraiškų atitinkančių pasirinktus kriterijus nėra</td>
   </tbody>
 </table>

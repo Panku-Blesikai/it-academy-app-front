@@ -2,6 +2,10 @@
   float: right;
 }
 
+.left {
+  float: left;
+}
+
 .btn-group-lg > .btn, .btn-lg {
   padding: 0.2rem 1rem;
 }
@@ -25,6 +29,15 @@ button {
 
 .comment-text {
   margin-top: 5px;
+}
+
+.no-decor {
+  border: none;
+}
+
+#status {
+  margin: 0px 10px;
+  float: left;
 }
 
 /*# sourceMappingURL=application-page.component.css.map */
