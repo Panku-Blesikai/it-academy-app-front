@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Application} from '../shared/application';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ApplicationService} from '../services/application.service';
-import {switchMap} from 'rxjs/operators';
+import {catchError, switchMap} from 'rxjs/operators';
 import {AuthenticationService} from '../services/authentication.service';
 import {LoaderService} from '../services/loader.service';
 import {Comment} from '../shared/comment';
@@ -12,6 +12,7 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {formatDate} from '@angular/common';
 import {FormBuilder, Validators} from '@angular/forms';
 import * as moment from 'moment';
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 enum StatusType {
@@ -28,7 +29,7 @@ enum StatusType {
 
 export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
-  constructor(public authenticationService: AuthenticationService,
+  constructor(public authenticationService: AuthenticationService, private router: Router,
               private route: ActivatedRoute, private applicationService: ApplicationService,
               private loaderService: LoaderService, private fb: FormBuilder) {
     this.ngOnInit();
@@ -116,7 +117,11 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
     this.application$ = this.route.paramMap.pipe(
       switchMap(params => {
         return this.applicationService.getApplication(params.get('idHash'));
-      })
+      }), catchError(() => {
+          this.router.navigate(['/not-found']);
+          return new Observable<Application>();
+        }
+      )
     );
   }
 
@@ -133,7 +138,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
   generatePdf() {
     const documentDefinition = this.getDocumentDefinition();
-    pdfMake.createPdf(documentDefinition).download( this.applicationForPDF.name + '_' + this.applicationForPDF.surname + '_anketa.pdf');
+    pdfMake.createPdf(documentDefinition).download(this.applicationForPDF.name + '_' + this.applicationForPDF.surname + '_anketa.pdf');
   }
 
   getDocumentDefinition() {
