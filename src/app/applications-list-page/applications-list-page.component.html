@@ -2,24 +2,25 @@
 <!-- NAVIGATION -->
 <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
   <div class="container-fluid">
-  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()"  [routerLink]="['/logout']">ATSIJUNGTI</a>
-      </li>
-    </ul>
-  </div>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/logout']">ATSIJUNGTI</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">IT akademijos studentų anketos</h1>
-    </div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">IT akademijos studentų anketos</h1>
   </div>
+</div>
 
 <div id="loader"></div>
 
@@ -27,11 +28,4 @@
   <ng-container *ngIf="applications$ | async as applications">
     <app-applications-list [allApplications]="applications"></app-applications-list>
   </ng-container>
-
-  <footer class="page-footer font-small">
-    <div class="footer-copyright text-center py-3">
-      COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
-    </div>
-  </footer>
 </div>
-</body>

@@ -1,8 +1,9 @@
 <body>
-  <!-- NAVIGATION -->
-  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
-    <div class="container-fluid">
-    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+<!-- NAVIGATION -->
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -18,37 +19,37 @@
         </li>
       </ul>
     </div>
-    </div>
-  </nav>
-
-  <!-- BANNER WITH BACKGROUND IMAGE -->
-
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Prisijungimas</h1>
-    </div>
   </div>
+</nav>
 
-  <div id="loader"></div>
+<!-- BANNER WITH BACKGROUND IMAGE -->
 
-  <div class="container" id="content">
-    <form role="form" (submit)="checkLogin()">
-      <div class="form-group">
-        <label for="username">Naudotojo vardas:</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username"/>
-      </div>
-      <div class="form-group">
-        <label for="password">Slaptažodis:</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password"/>
-      </div>
-      <div *ngIf="errorMessage" class="alert alert-danger">
-        {{errorMessage}}
-      </div>
-      <div>
-        <button type="submit" class="btn btn-dark">PRISIJUNGTI</button>
-      </div>
-    </form>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Prisijungimas</h1>
   </div>
+</div>
+
+<div id="loader"></div>
+
+<div class="container" id="content">
+  <form role="form" (submit)="checkLogin()">
+    <div class="form-group">
+      <label for="username">Naudotojo vardas:</label>
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username"/>
+    </div>
+    <div class="form-group">
+      <label for="password">Slaptažodis:</label>
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password"/>
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{errorMessage}}
+    </div>
+    <div>
+      <button type="submit" class="btn btn-dark">PRISIJUNGTI</button>
+    </div>
+  </form>
+</div>
 
 
 

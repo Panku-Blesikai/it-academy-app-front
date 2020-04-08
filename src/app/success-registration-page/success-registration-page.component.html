@@ -1,8 +1,9 @@
 <body>
-  <!-- NAVIGATION -->
-  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
-    <div class="container-fluid">
-    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+<!-- NAVIGATION -->
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -24,36 +25,27 @@
 <!-- BANNER WITH BACKGROUND IMAGE -->
 
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Dėkojame už registraciją</h1>
+  </div>
+</div>
 
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Dėkojame už registraciją</h1>
+<div id="loader"></div>
+
+<div *ngIf="application$ | async as application" id="content">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Registracija sėkminga.</h5>
+      <p class="card-text">
+        Savo registracijos anketą galite rasti
+        <a href="https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}">čia.</a>
+        <br>
+        Ši nuoroda taip pat išsiųsta elektroniniu paštu {{application.email}}.
+      </p>
+      <a class="btn btn-secondary" [routerLink]="['/application/'+application.idHash]">Anketos peržiūra</a>
     </div>
   </div>
 
-  <div id="loader"></div>
+</div>
 
-  <div *ngIf="application$ | async as application" id="content">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Registracija sėkminga.</h5>
-        <p class="card-text">
-          Savo registracijos anketą galite rasti
-          <a href="https://it-academy-app-front.herokuapp.com/application/{{application.idHash}}">čia.</a>
-          <br>
-          Ši nuoroda taip pat išsiųsta elektroniniu paštu {{application.email}}.
-          </p>
-        <a class="btn btn-secondary" [routerLink]="['/application/'+application.idHash]">Anketos peržiūra</a>
-      </div>
-    </div>
-
-    <footer class="page-footer font-small">
-      <div class="footer-copyright text-center py-3">
-        COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
-      </div>
-    </footer>
-  </div>
-
-
-
-</body>
