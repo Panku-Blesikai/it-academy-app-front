@@ -37,7 +37,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   get education() {
-    return this.registerForm.get('name');
+    return this.registerForm.get('education');
   }
 
   get freeTimeActivity() {
