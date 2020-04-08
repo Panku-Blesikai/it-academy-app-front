@@ -8,4 +8,15 @@
     #content {
         margin-left: 2%;
     }
+
+    [class*="col-"] {
+        width: 100%;
     }
+    
+    .display-4{
+        width: 90%;
+        margin: auto;
+        font-size: 2.5em;
+        text-align: center;
+    }
+}
