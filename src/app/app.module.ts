@@ -19,6 +19,7 @@ import {TextareaAutosizeModule} from 'ngx-textarea-autosize';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
 import {HttpInterceptorService} from './services/http-interceptor.service';
 import {NgTempusdominusBootstrapModule} from 'ngx-tempusdominus-bootstrap';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {NgTempusdominusBootstrapModule} from 'ngx-tempusdominus-bootstrap';
     AboutPageComponent,
     SuccessRegistrationPageComponent,
     LoginPageComponent,
-    LogoutPageComponent
+    LogoutPageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
