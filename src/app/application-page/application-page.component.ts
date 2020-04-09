@@ -12,6 +12,8 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {formatDate} from '@angular/common';
 import {FormBuilder, Validators} from '@angular/forms';
 import * as moment from 'moment';
+import {EventAttributes} from 'ics';
+import * as ics from 'ics';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -119,11 +121,53 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
       switchMap(params => {
         return this.applicationService.getApplication(params.get('idHash'));
       }), catchError(() => {
-          this.router.navigate(['/not-found']);
+          this.router.navigate(['/not-found']).then(r => {});
           return new Observable<Application>();
         }
       )
     );
+  }
+
+  downloadCalendarEvent() {
+    const date = this.interviewMessage.split('Kandidatui numatytas interviu laikas: ')[1];
+    console.log(+date.split('-')[0]);
+    console.log(+date.split('-')[1]);
+    console.log(+date.split('-')[2].split(' ')[0]);
+    console.log(+date.split(' ')[1].split(':')[0]);
+    console.log(+date.split(':')[1]);
+    const event = {
+      title: 'IT akademijos interviu',
+      start: [
+        +date.split('-')[0],
+        +date.split('-')[1],
+        +date.split('-')[2].split(' ')[0],
+        +date.split(' ')[1].split(':')[0],
+        +date.split(':')[1],
+      ],
+      duration: { minutes: 30 }
+    };
+
+    ics.createEvent(event as unknown as EventAttributes, (error, value) => {
+      if (error) {
+        console.log(error);
+        return;
+      }
+
+      this.download('interviu.ics', value);
+    });
+  }
+
+  download(filename: string, text: string) {
+    const element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
   }
 
   changeStatus(status: string) {

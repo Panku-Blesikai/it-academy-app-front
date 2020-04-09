@@ -113,7 +113,8 @@
         Kandidatas dar nebuvo užregistruotas interviu. Parinkti interviu laiką:<br><br>
       </div>
       <div *ngIf="application.status === statusType.PATVIRTINTA && checkIfRegisteredForInterview(application)">
-        {{this.interviewMessage}}.<br><br>
+        {{this.interviewMessage}}. Atsisiųsti
+        <a href="javascript:void(0);" (click)="downloadCalendarEvent()">kalendoriaus įvykį</a><br><br>
       </div>
       <div class="row d-flex" *ngIf="application.status === statusType.PATVIRTINTA &&
            !checkIfRegisteredForInterview(application)">
@@ -150,7 +151,13 @@
       <div class="comments-outer">
         <div class="comments-inner">
           <span><b>{{comment.author}}</b>&nbsp;{{comment.date}}</span><br>
-          <div class="comment-text">{{comment.input}}</div>
+          <div *ngIf="!comment.input.includes('Kandidatui numatytas interviu laikas: ')" class="comment-text">
+            {{comment.input}}
+          </div>
+          <div *ngIf="comment.input.includes('Kandidatui numatytas interviu laikas: ')" class="comment-text">
+            {{comment.input}}. Atsisiųsti
+            <a href="javascript:void(0);" (click)="downloadCalendarEvent()">kalendoriaus įvykį</a>
+          </div>
         </div>
       </div>
       <br>
