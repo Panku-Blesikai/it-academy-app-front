@@ -27,27 +27,28 @@ html,body {
     height: 4em;
 }
 
-// .bg {
-//     background-image: url('src/assets/background.jpg');
-//     height: 100%;
-//     background-position: center center;
-//     background-attachment: fixed;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// }
-
-app-home-page {
-  background-image: url('src/assets/background.jpg');
+.bg {
+    background-image: url('src/assets/background.jpg');
     height: 100%;
-    // background-position: center center;
-    // background-attachment: fixed;
-    // background-repeat: no-repeat;
-    // background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+:host {
+  background-image: url('src/assets/background.jpg');
+  height: 100%;
+  // background-position: center center;
+  // background-attachment: fixed;
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 
 .jumbotron {
   margin-bottom: 0px;
   height: 100%;
+  background-image: none;
 }
 
 .footer-copyright {
