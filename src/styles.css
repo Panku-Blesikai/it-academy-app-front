@@ -76,3 +76,8 @@ body, html {
   overflow-wrap: break-word;
 }
 
+.nav-item {
+  font-size: 22px;
+  margin: 0 10px;
+}
+
