@@ -150,7 +150,7 @@
   <br>
 
   <h2>Komentarai</h2>
-  <div *ngIf="!application.comments">Komentarų nėra<br><br></div>
+  <div *ngIf="!application.comments.length">Komentarų nėra<br><br></div>
   <div *ngFor="let comment of application.comments">
     <div class="comments-outer">
       <div class="comments-inner">
@@ -184,17 +184,20 @@
       </div>
     </div>
     <div>
-      <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-dark btn-lg left"
-              [routerLink]="['/admin']">Grįžti
-      </button>
       <button type="submit" class="btn btn-dark btn-lg" [disabled]="!comment.valid">
         Komentuoti
       </button>
     </div>
     <br><br><br>
   </form>
-
-  <button *ngIf="authenticationService.isUserLoggedIn()" class="btn btn-dark btn-lg" (click)="generatePdf() ">Atsisiųsti PDF</button>
+  <div>
+    <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-dark btn-lg left"
+            [routerLink]="['/admin']">Grįžti
+    </button>
+    <button *ngIf="authenticationService.isUserLoggedIn()" class="btn btn-dark btn-lg" (click)="generatePdf()"
+    >Atsisiųsti PDF
+    </button>
+  </div>
 </div>
 
 
