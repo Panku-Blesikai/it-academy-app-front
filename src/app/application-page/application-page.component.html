@@ -107,9 +107,10 @@
         Kandidatas dar nebuvo užregistruotas interviu. Parinkti interviu laiką:<br><br>
       </div>
       <div *ngIf="application.status === statusType.PATVIRTINTA && checkIfRegisteredForInterview(application)">
-        {{this.interviewMessage}}. Parinkti kitą interviu laiką:<br><br>
+        {{this.interviewMessage}}.<br><br>
       </div>
-      <div class="row d-flex" *ngIf="application.status === statusType.PATVIRTINTA">
+      <div class="row d-flex" *ngIf="application.status === statusType.PATVIRTINTA &&
+           !checkIfRegisteredForInterview(application)">
         <div class="col-sm-3">
           <div class="form-group">
             <div class="input-group date" data-target-input="nearest" NgTempusdominusBootstrap>
@@ -144,9 +145,9 @@
     <br>
 
     <h2>Komentarai</h2>
-    <div *ngIf="!application.comments">Komentarų nėra<br><br></div>
+    <div *ngIf="application.comments === null">Komentarų nėra<br><br></div>
     <div *ngFor="let comment of application.comments">
-      <div class="comments-outer">
+      <div class="comments-outer">s
         <div class="comments-inner">
           <span><b>{{comment.author}}</b>&nbsp;{{comment.date}}</span><br>
           <div class="comment-text">{{comment.input}}</div>
