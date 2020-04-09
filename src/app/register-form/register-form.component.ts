@@ -37,7 +37,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   get education() {
-    return this.registerForm.get('name');
+    return this.registerForm.get('education');
   }
 
   get freeTimeActivity() {
@@ -81,7 +81,7 @@ export class RegisterFormComponent implements OnInit {
     }],
     email: ['', {
       validators: [Validators.required, Validators.maxLength(256),
-        Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)],
+        Validators.pattern(new RegExp(`^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-z"A-Z]{2,7}$`))],
       updateOn: 'blur'
     }],
     phone: ['', {

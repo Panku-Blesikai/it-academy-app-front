@@ -1,7 +1,8 @@
 <body xmlns="http://www.w3.org/1999/html">
-  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
-    <div class="container-fluid">
-    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -10,98 +11,103 @@
           <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
+          <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link"
+             [routerLink]="['/register']">REGISTRACIJA</a>
         </li>
         <li class="nav-item">
           <a *ngIf="!authenticationService.isUserLoggedIn()" class="nav-link" [routerLink]="['/about']">APIE MUS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()"  [routerLink]="['/logout']">ATSIJUNGTI</a>
+          <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" [routerLink]="['/logout']">ATSIJUNGTI</a>
         </li>
       </ul>
     </div>
-    </div>
-  </nav>
-
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Anketos peržiūra</h1>
-    </div>
   </div>
+</nav>
 
-  <div id="loader"></div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Anketos peržiūra</h1>
+  </div>
+</div>
 
-  <div class="container" id="content" *ngIf="application$ | async as application">
-    <table class="table">
-      <tbody>
-      <tr>
-        <th scope="row">Vardas</th>
-        <td>{{application.name}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Pavardė</th>
-        <td>{{application.surname}}</td>
-      </tr>
-      <tr>
-        <th scope="row">El. paštas</th>
-        <td>{{application.email}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Tel. nr.</th>
-        <td>{{application.phone}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Studijuoja</th>
-        <td>{{application.education}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Trišalė sutartis</th>
-        <td>{{application.threePartyAgreement}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Laisvas 14:00-18:00</th>
-        <td>{{application.available14To18}}</td>
-      </tr>  <tr>
-        <th scope="row">Laisvalaikis</th>
-        <td>{{application.freeTimeActivity}}</td>
-      </tr>  <tr>
-        <th scope="row">Motyvacija</th>
-        <td>{{application.motivation}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Patirtis</th>
-        <td>{{application.experience}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Šaltinis</th>
-        <td>{{application.infoAboutAcademy}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Pateikta</th>
-        <td>{{application.dateTime}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Statusas</th>
-        <td>{{application.status}}</td>
-        <td class="no-decor">
-          <div *ngIf="authenticationService.isUserLoggedIn() && application.status === statusType.PERZIURIMA">
-            <button name="status" id="status" (click)="showLoader(); changeStatus(statusType.ATMESTA)" class="btn btn-danger btn-sm">
-              Atmesti
-            </button>
-            <button name="status" id="status" (click)="showLoader(); changeStatus(statusType.PATVIRTINTA)" class="btn btn-success btn-sm">
-              Patvirtinti
-            </button>
-            </div>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+<div id="loader"></div>
+
+<div class="container" id="content" *ngIf="application$ | async as application">
+  <table class="table" id="application-view">
+    <tbody>
+    <tr>
+      <th scope="row">Vardas</th>
+      <td>{{application.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Pavardė</th>
+      <td>{{application.surname}}</td>
+    </tr>
+    <tr>
+      <th scope="row">El. paštas</th>
+      <td>{{application.email}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Tel. nr.</th>
+      <td>{{application.phone}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Studijuoja</th>
+      <td>{{application.education}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Trišalė sutartis</th>
+      <td>{{application.threePartyAgreement}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Laisvas 14:00-18:00</th>
+      <td>{{application.available14To18}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Laisvalaikis</th>
+      <td>{{application.freeTimeActivity}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Motyvacija</th>
+      <td>{{application.motivation}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Patirtis</th>
+      <td>{{application.experience}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Šaltinis</th>
+      <td>{{application.infoAboutAcademy}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Pateikta</th>
+      <td>{{application.dateTime}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Statusas</th>
+      <td>{{application.status}}</td>
+      <td class="no-decor">
+        <div *ngIf="authenticationService.isUserLoggedIn() && application.status === statusType.PERZIURIMA">
+          <button name="status" id="status" (click)="showLoader(); changeStatus(statusType.ATMESTA)"
+                  class="btn btn-danger btn-sm">
+            Atmesti
+          </button>
+          <button name="status" id="status" (click)="showLoader(); changeStatus(statusType.PATVIRTINTA)"
+                  class="btn btn-success btn-sm">
+            Patvirtinti
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
     <form *ngIf="authenticationService.isUserLoggedIn() && application.status !== statusType.ATMESTA"
           [formGroup]="interviewForm" (ngSubmit)="showLoader(); onInterviewTimeSubmit();">
       <h2>Interviu</h2>
       <div *ngIf="application.status === statusType.PERZIURIMA">
-        Norėdami užregistuoti kandidatą interviu, patvirtinkite paraišką
+        Norėdami užregistuoti kandidatą interviu, patvirtinkite paraišką.<br><br>
       </div>
       <div *ngIf="application.status === statusType.PATVIRTINTA && !checkIfRegisteredForInterview(application)">
         Kandidatas dar nebuvo užregistruotas interviu. Parinkti interviu laiką:<br><br>
@@ -126,28 +132,22 @@
               />
               <div class="input-group-append" NgTempusdominusBootstrapToggle>
                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-              </div>
             </div>
           </div>
         </div>
-        <div class="com-sm-3">
-          <button  type="submit" class="btn btn-dark btn-lg" [disabled]="!time.valid"
-                   *ngIf="!checkIfRegisteredForInterview(application)">
-            Kviesti
-          </button>
-          <button  type="submit" class="btn btn-dark btn-lg" [disabled]="!time.valid"
-                   *ngIf="checkIfRegisteredForInterview(application)">
-            Keisti
-          </button>
-        </div>
       </div>
-    </form>
-    <br>
+      <div class="com-sm-3">
+        <button type="submit" class="btn btn-dark btn-lg" [disabled]="!time.valid">
+          Kviesti
+        </button>
+      </div>
+    </div>
+  </form>
 
     <h2>Komentarai</h2>
     <div *ngIf="application.comments === null">Komentarų nėra<br><br></div>
     <div *ngFor="let comment of application.comments">
-      <div class="comments-outer">s
+      <div class="comments-outer">
         <div class="comments-inner">
           <span><b>{{comment.author}}</b>&nbsp;{{comment.date}}</span><br>
           <div class="comment-text">{{comment.input}}</div>
@@ -156,11 +156,11 @@
       <br>
     </div>
 
-    <form *ngIf="authenticationService.isUserLoggedIn()" [formGroup]="commentForm"
-          (ngSubmit)="showLoader(); onCommentSubmit(); commentForm.reset()" >
-      <div class="row">
-        <div class="col-sm">
-          <div class="form-group">
+  <form *ngIf="authenticationService.isUserLoggedIn()" [formGroup]="commentForm"
+        (ngSubmit)="showLoader(); onCommentSubmit(); commentForm.reset()">
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
             <textarea
               type="text"
               class="form-control"
@@ -170,29 +170,26 @@
               placeholder="Įveskite komentarą"
               autosize
             ></textarea>
-            <div [hidden]="comment.valid || comment.pristine" class="alert alert-danger">
-              <div *ngIf="comment.errors?.maxLength">Komentaras turi per daug simbolių.</div>
-              <div *ngIf="comment.errors?.pattern">Komentaras turi neleistinų simbolių</div>
-            </div>
+          <div id="alert" [hidden]="comment.valid || comment.pristine" class="alert alert-danger">
+            <div *ngIf="comment.errors?.maxLength">Komentaras turi per daug simbolių.</div>
+            <div *ngIf="comment.errors?.pattern">Komentaras turi neleistinų simbolių.</div>
+            <div *ngIf="comment.errors?.required">Komentaras yra tusčias.</div>
           </div>
         </div>
       </div>
-      <div>
-        <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-dark btn-lg left" [routerLink]="['/admin']">Grįžti</button>
-        <button type="submit" class="btn btn-dark btn-lg" [disabled]="!comment.valid">
-          Komentuoti
-        </button>
-      </div>
-      <br><br><br>
-    </form>
+    </div>
+    <div>
+      <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-dark btn-lg left"
+              [routerLink]="['/admin']">Grįžti
+      </button>
+      <button type="submit" class="btn btn-dark btn-lg" [disabled]="!comment.valid">
+        Komentuoti
+      </button>
+    </div>
+    <br><br><br>
+  </form>
 
-    <button *ngIf="authenticationService.isUserLoggedIn()" (click)="generatePdf()">Atsisiųsti PDF</button>
+  <button *ngIf="authenticationService.isUserLoggedIn()" class="btn btn-dark btn-lg" (click)="generatePdf() ">Atsisiųsti PDF</button>
+</div>
 
-    <footer class="page-footer font-small">
-      <div class="footer-copyright text-center py-3">
-        COPYRIGHT © 2020 PANKU BLESIKAI. ALL RIGHTS RESERVED
-      </div>
-    </footer>
-  </div>
 
-</body>

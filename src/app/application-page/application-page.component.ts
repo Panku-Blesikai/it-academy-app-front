@@ -59,6 +59,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   commentForm = this.fb.group({
     comment: ['',
       [
+        Validators.required,
         Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
@@ -113,7 +114,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.interviewMessage = '';
-    this.date = moment('2020-01-01T00:00');
+    this.date = moment('2020-04-09T00:00');
     this.application$ = this.route.paramMap.pipe(
       switchMap(params => {
         return this.applicationService.getApplication(params.get('idHash'));
@@ -154,11 +155,12 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
         },
         {
           layout: 'fixed',
+          wordWrap: 'break-word',
           border: '1px solid #d1d5da',
           fontSize: 10,
           table: {
             headerRows: 0,
-            widths: ['*', '*'],
+            widths: ['25%', '75%'],
             body: [
               [{text: 'Vardas', bold: true}, this.applicationForPDF.name],
               [{text: 'Pavardė', bold: true}, this.applicationForPDF.surname],
