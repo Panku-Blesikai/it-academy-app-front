@@ -204,7 +204,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
           fontSize: 10,
           table: {
             headerRows: 0,
-            widths: ['25%', '75%'],
+            widths: ['43%', '57%'],
             body: [
               [{text: 'Vardas', bold: true}, this.applicationForPDF.name],
               [{text: 'Pavardė', bold: true}, this.applicationForPDF.surname],
@@ -215,8 +215,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
               [{text: 'Ar galėsi dalyvauti 14-18 val.?', bold: true}, this.applicationForPDF.available14To18],
               [{text: 'Ką veiki kai nesimokai? Kokie tavo pomėgiai?', bold: true}, this.applicationForPDF.freeTimeActivity],
               [{text: 'Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje dalyvauti?', bold: true}, this.applicationForPDF.motivation],
-              [{text: 'Kokios technologijos tau labiausiai patinka ir su kokiomis iš jų jau turi patirties? Jei teko\n' +
-                  '        dirbti prie konkretaus projekto, pasidalink jo nuoroda.', bold: true}, this.applicationForPDF.experience],
+              [{text: 'Kokios technologijos tau labiausiai patinka ir su kokiomis iš jų jau turi patirties? Jei teko dirbti prie konkretaus projekto, pasidalink jo nuoroda.', bold: true}, this.applicationForPDF.experience],
               [{text: 'Iš kur sužinojai apie IT akademiją?', bold: true}, this.applicationForPDF.infoAboutAcademy],
               [{text: 'Pateikta', bold: true}, this.applicationForPDF.dateTime],
             ]
