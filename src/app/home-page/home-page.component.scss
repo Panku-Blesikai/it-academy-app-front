@@ -1,5 +1,6 @@
 html, body {
   overflow: hidden;
+  height: 100%;
 }
 
 .home-page {
@@ -12,19 +13,10 @@ html, body {
   margin: 0 auto;
 }
 
-// @keyframes example {
-//     from {background-color: transparent;}
-//     to {background-color: rgba(255,255,255,0.4);}
-//   }
-
-.lead {
+.lead{
   font-size: 2em;
   width: 60%;
-  background-color: rgba(255, 255, 255, 0.4);
-  // background-color: transparent;
-  // animation: example;
-  // animation-delay: 2s;
-  // animation-duration: 0;
+  background-color: rgba(255,255,255,0.4);
   margin: auto auto 10%;
 }
 
@@ -36,22 +28,32 @@ html, body {
 }
 
 .bg {
+    background-image: url('src/assets/background.jpg');
+    height: 100%;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+:host {
   background-image: url('src/assets/background.jpg');
-  height: 95%;
+  height: 100%;
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.footer-copyright {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.jumbotron {
+  margin-bottom: 0px;
+  height: 100%;
+  background: transparent;
 }
 
-.jumbotron {
-  margin-bottom: 0;
-  padding: 4.3rem 2rem;
+.footer-copyright {
+  background-color: white;
+  height: 56px;
 }
 
 @media only screen and (max-width: 768px) {
