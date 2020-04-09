@@ -73,6 +73,7 @@ body, html {
 
 #application-view {
   table-layout: fixed;
+  width: 100%;
   overflow-wrap: break-word;
 }
 
