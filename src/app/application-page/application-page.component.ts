@@ -59,6 +59,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
   commentForm = this.fb.group({
     comment: ['',
       [
+        Validators.required,
         Validators.pattern(`^(?=.*\\S).+$`),
         Validators.maxLength(1024)
       ]
