@@ -151,7 +151,7 @@
   <br>
 
     <h2>Komentarai</h2>
-    <div *ngIf="application.comments === null">Komentarų nėra<br><br></div>
+    <div *ngIf="application.comments === null || application.comments.length === 0">Komentarų nėra<br><br></div>
     <div *ngFor="let comment of application.comments">
       <div class="comments-outer">
         <div class="comments-inner">
