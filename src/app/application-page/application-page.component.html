@@ -141,9 +141,14 @@
         <button type="submit" class="btn btn-dark btn-lg" [disabled]="!time.valid">
           Kviesti
         </button>
+        <button type="submit" class="btn btn-dark btn-lg" [disabled]="!time.valid"
+                *ngIf="checkIfRegisteredForInterview(application)">
+          Keisti
+        </button>
       </div>
     </div>
   </form>
+  <br>
 
     <h2>Komentarai</h2>
     <div *ngIf="application.comments === null">Komentarų nėra<br><br></div>
@@ -157,7 +162,7 @@
           <div *ngIf="comment.input.includes('Kandidatui numatytas interviu laikas: ')" class="comment-text">
             {{comment.input}}. Atsisiųsti
             <a href="javascript:void(0);" (click)="downloadCalendarEvent()">kalendoriaus įvykį</a>
-          </div>
+          </div
         </div>
       </div>
       <br>
@@ -186,17 +191,20 @@
       </div>
     </div>
     <div>
-      <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-dark btn-lg left"
-              [routerLink]="['/admin']">Grįžti
-      </button>
       <button type="submit" class="btn btn-dark btn-lg" [disabled]="!comment.valid">
         Komentuoti
       </button>
     </div>
     <br><br><br>
   </form>
-
-  <button *ngIf="authenticationService.isUserLoggedIn()" class="btn btn-dark btn-lg" (click)="generatePdf() ">Atsisiųsti PDF</button>
+  <div>
+    <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-dark btn-lg left"
+            [routerLink]="['/admin']">Grįžti
+    </button>
+    <button *ngIf="authenticationService.isUserLoggedIn()" class="btn btn-dark btn-lg" (click)="generatePdf()"
+    >Atsisiųsti PDF
+    </button>
+  </div>
 </div>
 
 

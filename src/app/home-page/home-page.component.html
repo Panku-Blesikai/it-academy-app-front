@@ -1,4 +1,4 @@
-<body>
+  <div>
   <!-- NAVIGATION -->
 
   <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
@@ -24,18 +24,17 @@
 
   <div id="loader"></div>
 
-  <div id="content">
-    <div class="bg" >
+    <div id="content">
       <div class="jumbotron home-page">
         <div class="text-center">
           <h1 class="display-4">IT AKADEMIJA</h1>
-          <p class="lead">Įkvėpimas, neribojimas tyrinėjimas ir neįtikėtina patirtis yra tai ko mes siekiame.</p>
+          <p class="lead">Įkvėpimas, neribojimas tyrinėjimas ir neįtikėtina patirtis yra tai ko mes siekiame</p>
           <a class="btn btn-light btn-lg right" [routerLink]="['/about']" role="button">Sužinok daugiau</a>
         </div>
       </div>
     </div>
-
-  </div>
+  <!-- </div> -->
 
   <img (load)="hideLoader()" id="for-loading" src="../../assets/background.jpg">
 
+  </div>
