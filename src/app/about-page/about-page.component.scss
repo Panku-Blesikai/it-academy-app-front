@@ -8,6 +8,10 @@ button {
   padding-right: 10%;
 }
 
+.reverse {
+  float: right;
+}
+
 @media only screen and (max-width: 768px) {
   [class*="col-"] {
       width: 100%;
