@@ -83,13 +83,13 @@
               class="form-control"
               id="email"
               formControlName="email"
-              placeholder="someone@example.com"
+              placeholder="vardas@pastas.lt"
               maxlength="256"
             />
             <div [hidden]="email.valid || email.pristine" class="alert alert-danger" data-testid="email alert-danger">
               <div *ngIf="email.errors?.maxLength">Elektroninio pašto adresas yra per ilgas.</div>
               <div *ngIf="email.errors?.pattern">Įvestas elektroninis paštas yra netinkamas. Įvedimo pavyzdys:
-                someone@example.com
+                vardas@pastas.lt
               </div>
               <div *ngIf="email.errors?.required">Šis laukas yra privalomas.</div>
             </div>
