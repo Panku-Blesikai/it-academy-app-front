@@ -114,7 +114,7 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.interviewMessage = '';
-    this.date = moment('2020-01-01T00:00');
+    this.date = moment('2020-04-09T00:00');
     this.application$ = this.route.paramMap.pipe(
       switchMap(params => {
         return this.applicationService.getApplication(params.get('idHash'));

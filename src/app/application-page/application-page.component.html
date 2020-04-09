@@ -103,41 +103,41 @@
     </tbody>
   </table>
 
-  <form *ngIf="authenticationService.isUserLoggedIn() && application.status !== statusType.ATMESTA"
-        [formGroup]="interviewForm" (ngSubmit)="showLoader(); onInterviewTimeSubmit();">
-    <h2>Interviu</h2>
-    <div *ngIf="application.status === statusType.PERZIURIMA">
-      Norėdami užregistuoti kandidatą interviu, patvirtinkite paraišką
-    </div>
-    <div *ngIf="application.status === statusType.PATVIRTINTA && !checkIfRegisteredForInterview(application)">
-      Kandidatas dar nebuvo užregistruotas interviu. Parinkti interviu laiką:<br><br>
-    </div>
-    <div *ngIf="application.status === statusType.PATVIRTINTA && checkIfRegisteredForInterview(application)">
-      {{this.interviewMessage}}. Parinkti kitą interviu laiką:<br><br>
-    </div>
-    <div class="row d-flex" *ngIf="application.status === statusType.PATVIRTINTA">
-      <div class="col-sm-3">
-        <div class="form-group">
-          <div class="input-group date" data-target-input="nearest" NgTempusdominusBootstrap>
-            <input
-              class="form-control"
-              id="time"
-              formControlName="time"
-              [(ngModel)]="date"
-              [options]=" {format: 'YYYY-MM-DD HH:mm', sideBySide: true}"
-              NgTempusdominusBootstrapInput
-              type="text"
-              maxlength="16"
-            />
-            <div class="input-group-append" NgTempusdominusBootstrapToggle>
-              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+    <form *ngIf="authenticationService.isUserLoggedIn() && application.status !== statusType.ATMESTA"
+          [formGroup]="interviewForm" (ngSubmit)="showLoader(); onInterviewTimeSubmit();">
+      <h2>Interviu</h2>
+      <div *ngIf="application.status === statusType.PERZIURIMA">
+        Norėdami užregistuoti kandidatą interviu, patvirtinkite paraišką.<br><br>
+      </div>
+      <div *ngIf="application.status === statusType.PATVIRTINTA && !checkIfRegisteredForInterview(application)">
+        Kandidatas dar nebuvo užregistruotas interviu. Parinkti interviu laiką:<br><br>
+      </div>
+      <div *ngIf="application.status === statusType.PATVIRTINTA && checkIfRegisteredForInterview(application)">
+        {{this.interviewMessage}}.<br><br>
+      </div>
+      <div class="row d-flex" *ngIf="application.status === statusType.PATVIRTINTA &&
+           !checkIfRegisteredForInterview(application)">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <div class="input-group date" data-target-input="nearest" NgTempusdominusBootstrap>
+              <input
+                class="form-control"
+                id="time"
+                formControlName="time"
+                [(ngModel)]="date"
+                [options]=" {format: 'YYYY-MM-DD HH:mm', sideBySide: true}"
+                NgTempusdominusBootstrapInput
+                type="text"
+                maxlength="16"
+              />
+              <div class="input-group-append" NgTempusdominusBootstrapToggle>
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
             </div>
           </div>
         </div>
       </div>
       <div class="com-sm-3">
-        <button type="submit" class="btn btn-dark btn-lg" [disabled]="!time.valid"
-                *ngIf="!checkIfRegisteredForInterview(application)">
+        <button type="submit" class="btn btn-dark btn-lg" [disabled]="!time.valid">
           Kviesti
         </button>
         <button type="submit" class="btn btn-dark btn-lg" [disabled]="!time.valid"
@@ -150,7 +150,7 @@
   <br>
 
   <h2>Komentarai</h2>
-  <div *ngIf="!application.comments">Komentarų nėra<br><br></div>
+  <div *ngIf="!application.comments.length">Komentarų nėra<br><br></div>
   <div *ngFor="let comment of application.comments">
     <div class="comments-outer">
       <div class="comments-inner">
@@ -184,17 +184,20 @@
       </div>
     </div>
     <div>
-      <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-dark btn-lg left"
-              [routerLink]="['/admin']">Grįžti
-      </button>
       <button type="submit" class="btn btn-dark btn-lg" [disabled]="!comment.valid">
         Komentuoti
       </button>
     </div>
     <br><br><br>
   </form>
-
-  <button *ngIf="authenticationService.isUserLoggedIn()" class="btn btn-dark btn-lg" (click)="generatePdf() ">Atsisiųsti PDF</button>
+  <div>
+    <button *ngIf="authenticationService.isUserLoggedIn()" type="nav-link" class="btn btn-dark btn-lg left"
+            [routerLink]="['/admin']">Grįžti
+    </button>
+    <button *ngIf="authenticationService.isUserLoggedIn()" class="btn btn-dark btn-lg" (click)="generatePdf()"
+    >Atsisiųsti PDF
+    </button>
+  </div>
 </div>
 
 
