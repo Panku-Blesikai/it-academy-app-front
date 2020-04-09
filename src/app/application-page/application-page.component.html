@@ -113,7 +113,8 @@
         Kandidatas dar nebuvo užregistruotas interviu. Parinkti interviu laiką:<br><br>
       </div>
       <div *ngIf="application.status === statusType.PATVIRTINTA && checkIfRegisteredForInterview(application)">
-        {{this.interviewMessage}}.<br><br>
+        {{this.interviewMessage}}. Atsisiųsti
+        <a href="javascript:void(0);" (click)="downloadCalendarEvent()">kalendoriaus įvykį</a><br><br>
       </div>
       <div class="row d-flex" *ngIf="application.status === statusType.PATVIRTINTA &&
            !checkIfRegisteredForInterview(application)">
@@ -149,17 +150,23 @@
   </form>
   <br>
 
-  <h2>Komentarai</h2>
-  <div *ngIf="!application.comments.length">Komentarų nėra<br><br></div>
-  <div *ngFor="let comment of application.comments">
-    <div class="comments-outer">
-      <div class="comments-inner">
-        <span><b>{{comment.author}}</b>&nbsp;{{comment.date}}</span><br>
-        <div class="comment-text">{{comment.input}}</div>
+    <h2>Komentarai</h2>
+    <div *ngIf="application.comments === null">Komentarų nėra<br><br></div>
+    <div *ngFor="let comment of application.comments">
+      <div class="comments-outer">
+        <div class="comments-inner">
+          <span><b>{{comment.author}}</b>&nbsp;{{comment.date}}</span><br>
+          <div *ngIf="!comment.input.includes('Kandidatui numatytas interviu laikas: ')" class="comment-text">
+            {{comment.input}}
+          </div>
+          <div *ngIf="comment.input.includes('Kandidatui numatytas interviu laikas: ')" class="comment-text">
+            {{comment.input}}. Atsisiųsti
+            <a href="javascript:void(0);" (click)="downloadCalendarEvent()">kalendoriaus įvykį</a>
+          </div
+        </div>
       </div>
+      <br>
     </div>
-    <br>
-  </div>
 
   <form *ngIf="authenticationService.isUserLoggedIn()" [formGroup]="commentForm"
         (ngSubmit)="showLoader(); onCommentSubmit(); commentForm.reset()">
