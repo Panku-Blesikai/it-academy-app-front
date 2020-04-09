@@ -71,3 +71,8 @@ body, html {
   display: none;
 }
 
+#application-view {
+  table-layout: fixed;
+  overflow-wrap: break-word;
+}
+

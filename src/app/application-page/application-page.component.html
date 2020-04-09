@@ -34,7 +34,7 @@
 <div id="loader"></div>
 
 <div class="container" id="content" *ngIf="application$ | async as application">
-  <table class="table">
+  <table class="table" id="application-view">
     <tbody>
     <tr>
       <th scope="row">Vardas</th>
@@ -175,9 +175,10 @@
               placeholder="Įveskite komentarą"
               autosize
             ></textarea>
-          <div [hidden]="comment.valid || comment.pristine" class="alert alert-danger">
+          <div id="alert" [hidden]="comment.valid || comment.pristine" class="alert alert-danger">
             <div *ngIf="comment.errors?.maxLength">Komentaras turi per daug simbolių.</div>
-            <div *ngIf="comment.errors?.pattern">Komentaras turi neleistinų simbolių</div>
+            <div *ngIf="comment.errors?.pattern">Komentaras turi neleistinų simbolių.</div>
+            <div *ngIf="comment.errors?.required">Komentaras yra tusčias.</div>
           </div>
         </div>
       </div>
@@ -193,7 +194,7 @@
     <br><br><br>
   </form>
 
-  <button *ngIf="authenticationService.isUserLoggedIn()" (click)="generatePdf()">Atsisiųsti PDF</button>
+  <button *ngIf="authenticationService.isUserLoggedIn()" class="btn btn-dark btn-lg" (click)="generatePdf() ">Atsisiųsti PDF</button>
 </div>
 
 
