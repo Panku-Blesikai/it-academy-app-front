@@ -88,54 +88,34 @@ export class RegisterFormComponent implements OnInit {
       validators: [Validators.required, Validators.pattern(`[+]370[0-9]{8}$`), Validators.maxLength(12)],
       updateOn: 'blur'
     }],
-    education: ['',
-      [
-        Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
-        Validators.maxLength(256)
-      ]
-    ],
-    freeTimeActivity: ['',
-      [
-        Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
-        Validators.maxLength(1024)
-      ]
-    ],
-    threePartyAgreement: ['',
-      [
-        Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
-        Validators.maxLength(1024)
-      ]
-    ],
-    available14To18: ['',
-      [
-        Validators.required,
-        Validators.maxLength(5)
-      ]
-    ],
-    motivation: ['',
-      [
-        Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
-        Validators.maxLength(1024)
-      ]
-    ],
-    experience: ['',
-      [
-        Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
-        Validators.maxLength(1024)
-      ]
-    ],
-    infoAboutAcademy: ['',
-      [
-        Validators.required,
-        Validators.pattern(`^(?=.*\\S).+$`),
-        Validators.maxLength(1024)
-      ]
-    ],
+    education: ['', {
+      validators: [Validators.required, Validators.pattern(`^(?=.*\\S).+$`), Validators.maxLength(256)],
+      updateOn: 'blur'
+    }],
+    freeTimeActivity: ['', {
+      validators: [Validators.required, Validators.pattern(`^(?=.*\\S).+$`), Validators.maxLength(1024)],
+      updateOn: 'blur'
+    }],
+    threePartyAgreement: ['', {
+      validators: [Validators.required, Validators.pattern(`^(?=.*\\S).+$`), Validators.maxLength(1024)],
+      updateOn: 'blur'
+    }],
+    available14To18: ['', {
+      validators: [Validators.required, Validators.maxLength(5)],
+      updateOn: 'blur'
+    }],
+    motivation: ['', {
+      validators: [Validators.required, Validators.pattern(`^(?=.*\\S).+$`), Validators.maxLength(1024)],
+      updateOn: 'blur'
+    }],
+    experience: ['', {
+      validators: [Validators.required, Validators.pattern(`^(?=.*\\S).+$`), Validators.maxLength(1024)],
+      updateOn: 'blur'
+    }],
+    infoAboutAcademy: ['', {
+      validators: [Validators.required, Validators.pattern(`^(?=.*\\S).+$`), Validators.maxLength(1024)],
+      updateOn: 'blur'
+    }],
     gdpr: [
       false,
       Validators.pattern('true')

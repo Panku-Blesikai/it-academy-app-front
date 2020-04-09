@@ -1,5 +1,6 @@
 html, body {
   overflow: hidden;
+  height: 100%;
 }
 
 .home-page {
@@ -28,21 +29,31 @@ html, body {
 
 .bg {
   background-image: url("src/assets/background.jpg");
-  height: 95%;
+  height: 100%;
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.footer-copyright {
-  padding-top: 10px;
-  padding-bottom: 10px;
+:host {
+  background-image: url("src/assets/background.jpg");
+  height: 100%;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .jumbotron {
-  margin-bottom: 0;
-  padding: 4.3rem 2rem;
+  margin-bottom: 0px;
+  height: 100%;
+  background: transparent;
+}
+
+.footer-copyright {
+  background-color: white;
+  height: 56px;
 }
 
 @media only screen and (max-width: 768px) {

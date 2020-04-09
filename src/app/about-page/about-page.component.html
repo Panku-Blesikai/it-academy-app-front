@@ -1,131 +1,145 @@
 <body>
-    <!-- NAVIGATION -->
-    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
-        <div class="container-fluid">
-        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link">APIE MUS</a>
-            </li>
-          </ul>
-        </div>
-        </div>
-      </nav>
+<!-- NAVIGATION -->
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']">PRADŽIA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']">REGISTRACIJA</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link">APIE MUS</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
-      <!-- BANNER WITH BACKGROUND IMAGE -->
+<!-- BANNER WITH BACKGROUND IMAGE -->
 
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Apie mus</h1>
-          <p class="lead">Sužinokite daugiau apie mus šiame aprašyme</p>
-        </div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Apie mus</h1>
+    <p class="lead">Sužinok daugiau apie mus šiame aprašyme.</p>
+  </div>
+</div>
+
+<!-- TEXT AREA -->
+
+<div class="card mb-4">
+  <div class="row align-items-center no-gutters">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Praktikos programa</h5>
+        <p class="card-text">Šios programos metu dalyviai mokosi programavimo, duomenų analizės, informacinių sistemų
+          priežiūros ir testavimo, komandinio darbo
+          naudojant banko specifines technologijas, procesus ir praktikas, darbo su duomenimis. IT Akademijos studentai
+          turi galimybę išbandyti
+          ir save atrasti skirtingose IT srityse ir praktikos pabaigoje pasirinkti norimą stažuotės kryptį. Stažuotojai
+          drauge su IT
+          profesionalais įgyvendina realius IT projektus pasirinktose rolėse bei užtvirtina įvairiapuses
+          kompetencijas.</p>
       </div>
-
-      <!-- TEXT AREA -->
+    </div>
+    <div class="col-md-4">
+      <img
+        src="https://images.pexels.com/photos/374016/pexels-photo-374016.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        class="card-img">
+    </div>
+  </div>
+</div>
 
       <div class="card mb-4">
         <div class="row align-items-center no-gutters">
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Praktikos programa</h5>
-              <p class="card-text">Šios programos metu dalyviai mokosi programavimo, duomenų analizės, informacinių sistemų priežiūros ir testavimo, komandinio darbo
-                naudojant banko specifines technologijas, procesus ir praktikas, darbo su duomenimis. IT Akademijos studentai turi galimybę išbandyti
-                 ir save atrasti skirtingose IT srityse ir praktikos pabaigoje pasirinkti norimą stažuotės kryptį. Stažuotojai drauge su IT
-                  profesionalais įgyvendina realius IT projektus pasirinktose rolėse bei užtvirtina įvairiapuses kompetencijas.</p>
-            </div>
-          </div>
           <div class="col-md-4">
-            <img src="https://images.pexels.com/photos/374016/pexels-photo-374016.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img">
-          </div>
-        </div>
-      </div>
-
-      <div class="card mb-4">
-        <div class="row align-items-center no-gutters">
-          <div class="col-md-4">
-            <img src="https://images.pexels.com/photos/2422293/pexels-photo-2422293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img">
+            <img src="https://images.pexels.com/photos/2422293/pexels-photo-2422293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img reverse">
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">„IT Akademija“</h5>
-              <p class="card-text justify-content-center">tai dviejų dalių programa, kurią sudaro su studijomis suderinta praktika ir stažuotė mūsų IT departamente.
+              <p class="card-text">tai dviejų dalių programa, kurią sudaro su studijomis suderinta praktika ir stažuotė mūsų IT departamente.
                 Ši programa skirta ne tik informacinių technologijų ar susijusių specialybių studentams, tačiau ir tiems, kurie sieja savo ateitį su
                  IT sritimi ir jau dabar tobulina savo techninius sugebėjimus.</p>
             </div>
           </div>
         </div>
-      </div>
+  </div>
 
-      <div class="card mb-4">
-        <div class="row no-gutters">
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Prisijunk jeigu tu:</h5>
-              <div class="card-text">
-                  <ul>
-                      <li>Sieki su IT susijusio išsilavinimo ar mėgini praktiškai atrasti save šioje srityje.</li>
-                      <li>Ateityje nori būti įvairiapusis IT specialistas, kuris sugeba ne tik programuoti.</li>
-                      <li>Degi noru tobulėti, rodai iniciatyvą ir jau turi bazinius gebėjimus – savo malonumui programuoji, kuri puslapius ar programėles,padedi draugams spręsti technines problemas.</li>
-                      <li>Esi pasiryžusi/-ęs bent pusę dienos laiko skirti teorinėms ir praktinėms užduotims. Praktikai numatytas laikas yra darbo dienomis (14-18 val.).</li>
-                      <li>Puikiai kalbi ir rašai angliškai.</li>
-                  </ul>
-                </div>
-            </div>
-          </div>
+<div class="card mb-4">
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Prisijunk jeigu tu:</h5>
+        <div class="card-text">
+          <ul>
+            <li>Sieki su IT susijusio išsilavinimo ar mėgini praktiškai atrasti save šioje srityje.</li>
+            <li>Ateityje nori būti įvairiapusis IT specialistas, kuris sugeba ne tik programuoti.</li>
+            <li>Degi noru tobulėti, rodai iniciatyvą ir jau turi bazinius gebėjimus – savo malonumui programuoji, kuri
+              puslapius ar programėles,padedi draugams spręsti technines problemas.
+            </li>
+            <li>Esi pasiryžusi/-ęs bent pusę dienos laiko skirti teorinėms ir praktinėms užduotims. Praktikai numatytas
+              laikas yra darbo dienomis (14-18 val.).
+            </li>
+            <li>Puikiai kalbi ir rašai angliškai.</li>
+          </ul>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="card mb-4">
-        <div class="row no-gutters">
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Kiek trunka programa?</h5>
-              <div class="card-text">
-                  <ul>
-                      <li>Visa Programa vyksta dviem etapais:</li>
-                      <ul>
-                          <li>3 mėnesius vyksta praktika. Geriausiai praktikos metu pasirodę studentai atrenkami stažuotei.</li>
-                          <li>2 mėnesius stažuotė, geriausieji įdarbinami.</li>
-                      </ul>
-                      <li>Stažuotės laikotarpiu dalyviui mokama IT stipendija.</li>
-                      <li>IT Akademija startuoja vasario mėnesį.</li>
-                  </ul>
-                </div>
-            </div>
-          </div>
+<div class="card mb-4">
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Kiek trunka programa?</h5>
+        <div class="card-text">
+          <ul>
+            <li>Visa Programa vyksta dviem etapais:</li>
+            <ul>
+              <li>3 mėnesius vyksta praktika. Geriausiai praktikos metu pasirodę studentai atrenkami stažuotei.</li>
+              <li>2 mėnesius stažuotė, geriausieji įdarbinami.</li>
+            </ul>
+            <li>Stažuotės laikotarpiu dalyviui mokama IT stipendija.</li>
+            <li>IT Akademija startuoja vasario mėnesį.</li>
+          </ul>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div class="card mb-4">
-        <div class="row no-gutters">
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Kodėl verta prisijungti?</h5>
-              <div class="card-text">
-                  <ul>
-                      <li>Dalyvausi įgyvendinant IT projektus, ugdysi IT kompetenciją, išmoksi Agile metodikos principų.</li>
-                      <li>Susipažinsi su „IT Akademija“ alumnais, kurie jau įsidarbino pas mus.</li>
-                      <li>Mokysiesi ne iš vadovėlių, bet iš IT profesionalų.</li>
-                      <li>Gausi kokybišką grįžtamąjį ryšį, kuris tau padės tobulėti dar greičiau.</li>
-                      <li>Turėsi galimybę išbandyti ir atrasti save skirtingose IT srityse.</li>
-                      <li>Jei tau puikiai seksis ir norėsi tęsti karjerą pas mus, praktikos pabaigoje galėsi pasirinkti norimą stažuotės kryptį.</li>
-                  </ul>
-                </div>
-            </div>
-          </div>
+<div class="card mb-4">
+  <div class="row no-gutters">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Kodėl verta prisijungti?</h5>
+        <div class="card-text">
+          <ul>
+            <li>Dalyvausi įgyvendinant IT projektus, ugdysi IT kompetenciją, išmoksi Agile metodikos principų.</li>
+            <li>Susipažinsi su „IT Akademija“ alumnais, kurie jau įsidarbino pas mus.</li>
+            <li>Mokysiesi ne iš vadovėlių, bet iš IT profesionalų.</li>
+            <li>Gausi kokybišką grįžtamąjį ryšį, kuris tau padės tobulėti dar greičiau.</li>
+            <li>Turėsi galimybę išbandyti ir atrasti save skirtingose IT srityse.</li>
+            <li>Jei tau puikiai seksis ir norėsi tęsti karjerą pas mus, praktikos pabaigoje galėsi pasirinkti norimą
+              stažuotės kryptį.
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-    <button type="nav-link" class="btn btn-dark btn-lg" [routerLink]="['/register']">REGISTRACIJA</button>
+<button type="nav-link" class="btn btn-dark btn-lg" [routerLink]="['/register']">REGISTRACIJA</button>
+<br>
 
 
