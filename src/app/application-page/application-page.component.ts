@@ -208,15 +208,16 @@ export class ApplicationPageComponent implements OnInit, AfterViewInit {
             body: [
               [{text: 'Vardas', bold: true}, this.applicationForPDF.name],
               [{text: 'Pavardė', bold: true}, this.applicationForPDF.surname],
-              [{text: 'El. paštas', bold: true}, this.applicationForPDF.email],
               [{text: 'Tel. nr.', bold: true}, this.applicationForPDF.phone],
-              [{text: 'Studijuoja', bold: true}, this.applicationForPDF.education],
-              [{text: 'Trišalė sutartis', bold: true}, this.applicationForPDF.threePartyAgreement],
-              [{text: 'Laisvas 14:00-18:00', bold: true}, this.applicationForPDF.available14To18],
-              [{text: 'Laisvalaikis', bold: true}, this.applicationForPDF.freeTimeActivity],
-              [{text: 'Motyvacija', bold: true}, this.applicationForPDF.motivation],
-              [{text: 'Patirtis', bold: true}, this.applicationForPDF.experience],
-              [{text: 'Šaltinis', bold: true}, this.applicationForPDF.infoAboutAcademy],
+              [{text: 'El. paštas', bold: true}, this.applicationForPDF.email],
+              [{text: 'Mokymo įstaiga, kurioje šiuo metu mokaisi', bold: true}, this.applicationForPDF.education],
+              [{text: 'Ar bus galimybė pasirašyti trišalę praktikos sutartį? Jei ne, kodėl?', bold: true}, this.applicationForPDF.threePartyAgreement],
+              [{text: 'Ar galėsi dalyvauti 14-18 val.?', bold: true}, this.applicationForPDF.available14To18],
+              [{text: 'Ką veiki kai nesimokai? Kokie tavo pomėgiai?', bold: true}, this.applicationForPDF.freeTimeActivity],
+              [{text: 'Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje dalyvauti?', bold: true}, this.applicationForPDF.motivation],
+              [{text: 'Kokios technologijos tau labiausiai patinka ir su kokiomis iš jų jau turi patirties? Jei teko\n' +
+                  '        dirbti prie konkretaus projekto, pasidalink jo nuoroda.', bold: true}, this.applicationForPDF.experience],
+              [{text: 'Iš kur sužinojai apie IT akademiją?', bold: true}, this.applicationForPDF.infoAboutAcademy],
               [{text: 'Pateikta', bold: true}, this.applicationForPDF.dateTime],
             ]
           }

@@ -45,39 +45,41 @@
       <td>{{application.surname}}</td>
     </tr>
     <tr>
-      <th scope="row">El. paštas</th>
-      <td>{{application.email}}</td>
-    </tr>
-    <tr>
       <th scope="row">Tel. nr.</th>
       <td>{{application.phone}}</td>
     </tr>
     <tr>
-      <th scope="row">Studijuoja</th>
+      <th scope="row">El. paštas</th>
+      <td>{{application.email}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Mokymo įstaiga, kurioje šiuo metu mokaisi</th>
       <td>{{application.education}}</td>
     </tr>
     <tr>
-      <th scope="row">Trišalė sutartis</th>
+      <th scope="row">Ar bus galimybė pasirašyti trišalę praktikos sutartį? Jei ne, kodėl?</th>
       <td>{{application.threePartyAgreement}}</td>
     </tr>
     <tr>
-      <th scope="row">Laisvas 14:00-18:00</th>
+      <th scope="row">Ar galėsi dalyvauti 14-18 val.?</th>
       <td>{{application.available14To18}}</td>
     </tr>
     <tr>
-      <th scope="row">Laisvalaikis</th>
+      <th scope="row">Ką veiki kai nesimokai? Kokie tavo pomėgiai?</th>
       <td>{{application.freeTimeActivity}}</td>
     </tr>
     <tr>
-      <th scope="row">Motyvacija</th>
+      <th scope="row">Kodėl nori dalyvauti IT akademijoje? Kas tave "veža" joje dalyvauti?</th>
       <td>{{application.motivation}}</td>
     </tr>
     <tr>
-      <th scope="row">Patirtis</th>
+      <th scope="row">Kokios technologijos tau labiausiai patinka ir su kokiomis iš jų jau turi patirties? Jei teko
+        dirbti prie konkretaus projekto, pasidalink jo nuoroda.
+      </th>
       <td>{{application.experience}}</td>
     </tr>
     <tr>
-      <th scope="row">Šaltinis</th>
+      <th scope="row">Iš kur sužinojai apie IT akademiją?</th>
       <td>{{application.infoAboutAcademy}}</td>
     </tr>
     <tr>
@@ -103,36 +105,36 @@
     </tbody>
   </table>
 
-    <form *ngIf="authenticationService.isUserLoggedIn() && application.status !== statusType.ATMESTA"
-          [formGroup]="interviewForm" (ngSubmit)="showLoader(); onInterviewTimeSubmit();">
-      <h2>Interviu</h2>
-      <div *ngIf="application.status === statusType.PERZIURIMA">
-        Norėdami užregistuoti kandidatą interviu, patvirtinkite paraišką.<br><br>
-      </div>
-      <div *ngIf="application.status === statusType.PATVIRTINTA && !checkIfRegisteredForInterview(application)">
-        Kandidatas dar nebuvo užregistruotas interviu. Parinkti interviu laiką:<br><br>
-      </div>
-      <div *ngIf="application.status === statusType.PATVIRTINTA && checkIfRegisteredForInterview(application)">
-        {{this.interviewMessage}}. Atsisiųsti
-        <a href="javascript:void(0);" (click)="downloadCalendarEvent()">kalendoriaus įvykį</a><br><br>
-      </div>
-      <div class="row d-flex" *ngIf="application.status === statusType.PATVIRTINTA &&
+  <form *ngIf="authenticationService.isUserLoggedIn() && application.status !== statusType.ATMESTA"
+        [formGroup]="interviewForm" (ngSubmit)="showLoader(); onInterviewTimeSubmit();">
+    <h2>Interviu</h2>
+    <div *ngIf="application.status === statusType.PERZIURIMA">
+      Norėdami užregistuoti kandidatą interviu, patvirtinkite paraišką.<br><br>
+    </div>
+    <div *ngIf="application.status === statusType.PATVIRTINTA && !checkIfRegisteredForInterview(application)">
+      Kandidatas dar nebuvo užregistruotas interviu. Parinkti interviu laiką:<br><br>
+    </div>
+    <div *ngIf="application.status === statusType.PATVIRTINTA && checkIfRegisteredForInterview(application)">
+      {{this.interviewMessage}}. Atsisiųsti
+      <a href="javascript:void(0);" (click)="downloadCalendarEvent()">kalendoriaus įvykį</a><br><br>
+    </div>
+    <div class="row d-flex" *ngIf="application.status === statusType.PATVIRTINTA &&
            !checkIfRegisteredForInterview(application)">
-        <div class="col-sm-3">
-          <div class="form-group">
-            <div class="input-group date" data-target-input="nearest" NgTempusdominusBootstrap>
-              <input
-                class="form-control"
-                id="time"
-                formControlName="time"
-                [(ngModel)]="date"
-                [options]=" {format: 'YYYY-MM-DD HH:mm', sideBySide: true}"
-                NgTempusdominusBootstrapInput
-                type="text"
-                maxlength="16"
-              />
-              <div class="input-group-append" NgTempusdominusBootstrapToggle>
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <div class="input-group date" data-target-input="nearest" NgTempusdominusBootstrap>
+            <input
+              class="form-control"
+              id="time"
+              formControlName="time"
+              [(ngModel)]="date"
+              [options]=" {format: 'YYYY-MM-DD HH:mm', sideBySide: true}"
+              NgTempusdominusBootstrapInput
+              type="text"
+              maxlength="16"
+            />
+            <div class="input-group-append" NgTempusdominusBootstrapToggle>
+              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
             </div>
           </div>
         </div>
@@ -150,24 +152,24 @@
   </form>
   <br>
 
-    <h2>Komentarai</h2>
-    <div *ngIf="application.comments === null || application.comments.length === 0">Komentarų nėra<br><br></div>
-    <div *ngFor="let comment of application.comments">
-      <div class="comments-outer">
-        <div class="comments-inner">
-          <span><b>{{comment.author}}</b>&nbsp;{{comment.date}}</span><br>
-          <div *ngIf="!comment.input.includes('Kandidatui numatytas interviu laikas: ')" class="comment-text">
-            {{comment.input}}
-          </div>
-          <div *ngIf="comment.input.includes('Kandidatui numatytas interviu laikas: ') &&
+  <h2>Komentarai</h2>
+  <div *ngIf="application.comments === null || application.comments.length === 0">Komentarų nėra<br><br></div>
+  <div *ngFor="let comment of application.comments">
+    <div class="comments-outer">
+      <div class="comments-inner">
+        <span><b>{{comment.author}}</b>&nbsp;{{comment.date}}</span><br>
+        <div *ngIf="!comment.input.includes('Kandidatui numatytas interviu laikas: ')" class="comment-text">
+          {{comment.input}}
+        </div>
+        <div *ngIf="comment.input.includes('Kandidatui numatytas interviu laikas: ') &&
                       checkIfRegisteredForInterview(application)" class="comment-text">
-            {{comment.input}}. Atsisiųsti
-            <a href="javascript:void(0);" (click)="downloadCalendarEvent()">kalendoriaus įvykį</a>
-          </div>
+          {{comment.input}}. Atsisiųsti
+          <a href="javascript:void(0);" (click)="downloadCalendarEvent()">kalendoriaus įvykį</a>
         </div>
       </div>
-      <br>
     </div>
+    <br>
+  </div>
 
   <form *ngIf="authenticationService.isUserLoggedIn()" [formGroup]="commentForm"
         (ngSubmit)="showLoader(); onCommentSubmit(); commentForm.reset()">
